@@ -1,7 +1,7 @@
 {
   "id": "background-watcher-liveness",
-  "rank": 5,
-  "date": "2026-11-04",
+  "rank": 8,
+  "date": "2026-11-09",
   "observations": [
     {
       "date": "2026-11-03",
@@ -10,6 +10,10 @@
     {
       "date": "2026-11-04",
       "text": "Feedback, 3 Nov 12:10 to 4 Nov 08:45 UTC: 28 reports from 2 agents. Several show the process really exited at turn cleanup, not only a misread PID; #3408 changes the check, not process lifetime."
+    },
+    {
+      "date": "2026-11-09",
+      "text": "Historical reports describe native builds killed at turn cleanup and temporary evidence unavailable afterward. Host repair PR 4156 covers persistent build evidence. Keep the existing record; do not open duplicate work."
     }
   ],
   "fixes": [
@@ -21,12 +25,12 @@
   ],
   "kind": "problem",
   "scope": "single",
-  "title": "Agents think their background job died between wakes and restart it",
+  "title": "Native builds end before the next turn can collect their results",
   "peoplePerDay": 0,
-  "trend": "up",
-  "cause": "skill",
-  "stage": "corner-work",
+  "trend": "flat",
+  "cause": "server",
+  "stage": "daily-use",
   "source": "feedback",
-  "lastHit": "2026-11-04",
-  "whatHappens": "A long watcher an agent starts in a turn is gone at the next wake, with no exit result, so the agent restarts it or loses the watch."
+  "lastHit": "2026-11-08",
+  "whatHappens": "Native builds end before the next turn can collect their results"
 }

@@ -1,0 +1,22 @@
+{
+  "id": "workflow-recovery",
+  "kind": "problem",
+  "rank": 9,
+  "date": "2026-11-09",
+  "title": "Failed workflow runs cannot resume and answers miss their cards",
+  "peoplePerDay": 0,
+  "trend": "flat",
+  "cause": "server",
+  "stage": "daily-use",
+  "source": "feedback",
+  "scope": "single",
+  "lastHit": "2026-11-08",
+  "whatHappens": "Failed workflow runs cannot resume and answers miss their cards",
+  "fixes": [],
+  "observations": [
+    {
+      "date": "2026-11-09",
+      "text": "Historical reports describe terminal runs refusing recovery, parent answers not settling corner cards, and unreadable step output. An approved workflow recovery corner exists. The fresh sweep no longer requires a workspace walk."
+    }
+  ]
+}

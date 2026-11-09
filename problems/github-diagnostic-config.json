@@ -1,0 +1,22 @@
+{
+  "id": "github-diagnostic-config",
+  "kind": "problem",
+  "rank": 4,
+  "date": "2026-11-09",
+  "title": "A diagnostic script starts without GitHub configuration",
+  "peoplePerDay": 0,
+  "trend": "flat",
+  "cause": "unknown",
+  "stage": "daily-use",
+  "source": "sentry",
+  "scope": "single",
+  "lastHit": "2026-11-08",
+  "whatHappens": "A diagnostic script starts without GitHub configuration",
+  "fixes": [],
+  "observations": [
+    {
+      "date": "2026-11-09",
+      "text": "One fatal event starts in an evaluated Node script constructing the GitHub client. The main service outage is unconfirmed. Hold while identifying the script and its configuration source."
+    }
+  ]
+}

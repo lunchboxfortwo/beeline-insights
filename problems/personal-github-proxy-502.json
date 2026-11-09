@@ -1,0 +1,26 @@
+{
+  "id": "personal-github-proxy-502",
+  "rank": 6,
+  "date": "2026-11-09",
+  "observations": [
+    {
+      "date": "2026-11-03",
+      "text": "Feedback, 2-3 Nov: 3 reports from 1 agent over two days. The public GitHub API worked as a fallback. New."
+    },
+    {
+      "date": "2026-11-09",
+      "text": "Historical reports include failed personal reads and repository pagination or asset downloads. PR 4152 covers current repository reads. Latest reports use a release candidate, so no new delivered-version occurrence qualifies."
+    }
+  ],
+  "fixes": [],
+  "kind": "problem",
+  "scope": "single",
+  "title": "Repository reads reject pagination and return file metadata",
+  "peoplePerDay": 0,
+  "trend": "flat",
+  "cause": "server",
+  "stage": "daily-use",
+  "source": "feedback",
+  "lastHit": "2026-11-09",
+  "whatHappens": "Repository reads reject pagination and return file metadata"
+}

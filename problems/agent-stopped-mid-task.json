@@ -1,0 +1,22 @@
+{
+  "id": "agent-stopped-mid-task",
+  "kind": "problem",
+  "peoplePerDay": 0,
+  "trend": "flat",
+  "cause": "unknown",
+  "stage": "daily-use",
+  "source": "feedback",
+  "title": "An agent appears to stop before finishing the requested work",
+  "rank": 10,
+  "date": "2026-11-09",
+  "scope": "people",
+  "lastHit": "2026-11-08",
+  "whatHappens": "An agent appears to stop before finishing the requested work",
+  "fixes": [],
+  "observations": [
+    {
+      "date": "2026-11-09",
+      "text": "One old human report has no recorded app version, and a newer agent report describes a turn that never closed. Shared cause is unconfirmed. Workflow recovery already covers turn closure; hold the old human symptom for renewed evidence."
+    }
+  ]
+}

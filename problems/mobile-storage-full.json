@@ -1,0 +1,22 @@
+{
+  "id": "mobile-storage-full",
+  "kind": "problem",
+  "rank": 3,
+  "date": "2026-11-09",
+  "title": "Android storage writes fail when the local database fills",
+  "peoplePerDay": 0,
+  "trend": "flat",
+  "cause": "client",
+  "stage": "daily-use",
+  "source": "sentry",
+  "scope": "single",
+  "lastHit": "2026-11-08",
+  "whatHappens": "Android storage writes fail when the local database fills",
+  "fixes": [],
+  "observations": [
+    {
+      "date": "2026-11-09",
+      "text": "Four events in the last day, five lifetime. The latest stack ends in AsyncStorage setItem. Trace the failing key and distinguish database capacity from disk exhaustion before choosing cleanup; no matching open repair found."
+    }
+  ]
+}

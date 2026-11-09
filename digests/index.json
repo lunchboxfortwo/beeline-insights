@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-11-09",
+    "title": "Triage: known repairs cover most signals; Android storage needs investigation",
+    "findings": 10,
+    "proposals": 1,
+    "path": "digests/2026-11-09.md"
+  },
+  {
     "date": "2026-11-04",
     "title": "Triage: releases are blocked since 07:00 UTC, and database lock contention hits workers all day",
     "findings": 10,

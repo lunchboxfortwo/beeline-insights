@@ -1,0 +1,22 @@
+{
+  "id": "mobile-background-color-refusal",
+  "kind": "problem",
+  "rank": 2,
+  "date": "2026-11-09",
+  "title": "Phones report a rejected background colour update",
+  "peoplePerDay": 0,
+  "trend": "flat",
+  "cause": "client",
+  "stage": "daily-use",
+  "source": "sentry",
+  "scope": "single",
+  "lastHit": "2026-11-08",
+  "whatHappens": "Phones report a rejected background colour update",
+  "fixes": [],
+  "observations": [
+    {
+      "date": "2026-11-09",
+      "text": "Six events in the last day. The rejected optional system call already has an approved repair. No distinct affected person count is established."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "review-deps-install-refused",
+  "rank": 5,
+  "kind": "regression",
+  "scope": "single",
+  "title": "Mobile work starts before its required dependencies are available",
+  "peoplePerDay": 0,
+  "trend": "flat",
+  "cause": "server",
+  "stage": "daily-use",
+  "source": "feedback",
+  "lastHit": "2026-11-09",
+  "regression": {
+    "causedByPr": "https://github.com/Beeline-Work/beeline/pull/3188",
+    "report": "Shared read-only dependency mounts refuse the npm ci the review helper always runs"
+  },
+  "whatHappens": "Mobile work starts before its required dependencies are available",
+  "date": "2026-11-09",
+  "observations": [
+    {
+      "date": "2026-11-01",
+      "text": "Feedback, 31 Oct 18:57 to 1 Nov 16:21 UTC: 19 reports from 2 agents, repeating on helper 0.1.133. Came with shared dependency mounts (#3188, #3192). No fix on main or open PR."
+    },
+    {
+      "date": "2026-11-09",
+      "text": "Historical setup reports include mobile lockfile rejection and missing workspace exports; those review paths shipped in PR 4131. New preparation reports use a release candidate rather than the delivered version. Hold; host repair PR 4156 is active."
+    }
+  ],
+  "fixes": [
+    {
+      "date": "2026-11-01",
+      "text": "Reuse or install review dependencies on shared mounts; fix corner opened 1 Nov",
+      "state": "tried"
+    }
+  ]
+}

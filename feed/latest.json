@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09T15:57:47.962Z",
+  "generatedAt": "2026-11-09T15:59:34.475Z",
   "insights": {
     "generatedAt": "2026-11-03T14:08:00.000Z",
     "window": {
@@ -310,6 +310,13 @@
   },
   "digests": [
     {
+      "date": "2026-11-09",
+      "title": "Triage: known repairs cover most signals; Android storage needs investigation",
+      "findings": 10,
+      "proposals": 1,
+      "path": "digests/2026-11-09.md"
+    },
+    {
       "date": "2026-11-04",
       "title": "Triage: releases are blocked since 07:00 UTC, and database lock contention hits workers all day",
       "findings": 10,
@@ -396,40 +403,30 @@
   ],
   "problems": [
     {
-      "id": "friction-wake-storm",
-      "rank": 1,
-      "date": "2026-11-04",
-      "observations": [
-        {
-          "date": "2026-11-03",
-          "text": "Friction and walk 51058b84: one outside person's free agent ran 83 turns with no reply on a single trigger message, 2 Nov 21:36 to 3 Nov 07:11 UTC (last turn failed). Corner restore reads were refused during the run. Same area as the 27 Oct storm; changes."
-        },
-        {
-          "date": "2026-11-03",
-          "text": "Walk f0f5f3d2, outside, 3 Nov: the storm went on after the morning report. 149 more turns on 149 separate wakes, 07:11-17:01 UTC, 119 empty posts; 231 turns since 2 Nov 21:36. It stopped after the 16:34 v0.1.141 release; #3414 is not merged. Changes."
-        },
-        {
-          "date": "2026-11-04",
-          "text": "Friction, 2-4 Nov: no new turns on the storm since 3 Nov 17:01 UTC (230 traced turns in 48 h, 1 outside person). Feedback adds that its silent-end calls failed and corner restore reads were refused (116 refusals in the log walk)."
-        }
-      ],
-      "fixes": [
-        {
-          "date": "2026-11-03",
-          "text": "Stop re-waking an agent after repeated silent turns on one message and tell the person (#3414), released in v0.1.142 on 4 Nov",
-          "state": "shipped"
-        }
-      ],
+      "id": "db-lock-contention",
       "kind": "problem",
-      "scope": "people",
-      "title": "An agent is woken again and again on one message and never answers",
-      "peoplePerDay": 1,
-      "trend": "down",
+      "rank": 1,
+      "date": "2026-11-09",
+      "title": "Database contention interrupts corner updates and account deletion",
+      "peoplePerDay": 0,
+      "trend": "flat",
       "cause": "server",
       "stage": "daily-use",
-      "source": "friction",
-      "lastHit": "2026-11-03",
-      "whatHappens": "A person asks once and leaves. Their agent is woken dozens of times on that same message, only re-reads status, and never posts a reply."
+      "source": "sentry",
+      "scope": "single",
+      "lastHit": "2026-11-09",
+      "whatHappens": "Database contention interrupts corner updates and account deletion",
+      "fixes": [],
+      "observations": [
+        {
+          "date": "2026-11-04",
+          "text": "Sentry, 3-4 Nov: 12 issues (lock timeouts, deadlocks, connect timeouts), 1-3 events each, 0 users, spread from 12:49 to 10:06 UTC. Log walk: 270 skill-anchor lock timeouts, 17 Sentry-wake and 14 check re-read failures; about 72,000 slow-query lines, mostly one agent command recovery query."
+        },
+        {
+          "date": "2026-11-09",
+          "text": "Five unresolved groups total 22 events in the last day. The latest corner refresh failed on the delivered release. Three paths already have an approved repair; connection-pool pressure remains untraced."
+        }
+      ]
     },
     {
       "id": "signin-lost",
@@ -520,6 +517,28 @@
       ]
     },
     {
+      "id": "mobile-background-color-refusal",
+      "kind": "problem",
+      "rank": 2,
+      "date": "2026-11-09",
+      "title": "Phones report a rejected background colour update",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "client",
+      "stage": "daily-use",
+      "source": "sentry",
+      "scope": "single",
+      "lastHit": "2026-11-08",
+      "whatHappens": "Phones report a rejected background colour update",
+      "fixes": [],
+      "observations": [
+        {
+          "date": "2026-11-09",
+          "text": "Six events in the last day. The rejected optional system call already has an approved repair. No distinct affected person count is established."
+        }
+      ]
+    },
+    {
       "id": "next-day-return",
       "kind": "problem",
       "rank": 2,
@@ -593,118 +612,145 @@
       ]
     },
     {
-      "id": "squire-connect-dead-end",
-      "rank": 2,
-      "date": "2026-11-04",
-      "observations": [
-        {
-          "date": "2026-10-30",
-          "text": "Feedback: no new human or agent reports since v0.1.118 (29 Oct 18:41 UTC). The 12 earlier items were closed as fixed. The person has not tried again, so the fix is not yet proven by use."
-        },
-        {
-          "date": "2026-11-01",
-          "text": "Walk e9a085a4, outside, 1 Nov: a returning person's welcome video needed Trusty Squire. The install card appeared (fix held) but was not tapped. Both agents blocked on that tap, the run used up its roles in 22 s and went stuck at 10 min. New stage: welcome video. Changes."
-        },
-        {
-          "date": "2026-11-02",
-          "text": "Walk 51058b84, outside, 2 Nov: the welcome-video run that waited on the Squire tap ended failed by its 24 h abandon at 02:02 UTC; the person has not come back since 1 Nov 10:59 UTC. Corroborates."
-        },
-        {
-          "date": "2026-11-03",
-          "text": "Feedback, 3 Nov: 3 agents on free-agent v0.1.137 report that Squire connect says its card is ready but no card is posted; a traced turn got reconnect_required because an old install is not bound to an account. No cross-account vault listing seen in that traced tool call."
-        },
-        {
-          "date": "2026-11-04",
-          "text": "Feedback, 3-4 Nov: no new reports after the v0.1.141 release. Walk f0f5f3d2 saw one more stop at the Squire card, likely a team test account, so not counted."
-        }
-      ],
-      "fixes": [
-        {
-          "date": "2026-10-29",
-          "text": "Offer one Connect Squire card and the Rooms connector steps (#3036), released in v0.1.118",
-          "state": "shipped"
-        },
-        {
-          "date": "2026-10-29",
-          "text": "Fix the Trusty Squire connect flow on Android (#3062), released in v0.1.118",
-          "state": "shipped"
-        },
-        {
-          "date": "2026-11-03",
-          "text": "Recover legacy Squire setup on free-agent hosts (#3370), released in v0.1.141 on 3 Nov",
-          "state": "shipped"
-        }
-      ],
-      "kind": "problem",
-      "scope": "people",
-      "title": "A new person asked agents to connect a store and outside AI tools, but no Trusty Squire connect card appeared, so setup stopped",
-      "peoplePerDay": 0,
-      "trend": "down",
-      "cause": "server",
-      "stage": "connect-service",
-      "source": "feedback",
-      "lastHit": "2026-11-03",
-      "whatHappens": "The person asks an agent to connect a tool; the agent says Trusty Squire is missing but no card to connect it appears, so setup stops."
-    },
-    {
-      "id": "db-lock-contention",
+      "id": "mobile-storage-full",
       "kind": "problem",
       "rank": 3,
-      "date": "2026-11-04",
-      "title": "Database lock timeouts and deadlocks hit background workers all day, not only during rollouts",
+      "date": "2026-11-09",
+      "title": "Android storage writes fail when the local database fills",
       "peoplePerDay": 0,
-      "trend": "up",
-      "cause": "server",
+      "trend": "flat",
+      "cause": "client",
       "stage": "daily-use",
       "source": "sentry",
       "scope": "single",
-      "lastHit": "2026-11-04",
-      "whatHappens": "Background jobs (skill anchoring, Sentry wakes, check refresh, push clear, cleanup) stop on lock timeouts or deadlocks and retry later; the same contention stops the release migration.",
+      "lastHit": "2026-11-08",
+      "whatHappens": "Android storage writes fail when the local database fills",
       "fixes": [],
       "observations": [
         {
-          "date": "2026-11-04",
-          "text": "Sentry, 3-4 Nov: 12 issues (lock timeouts, deadlocks, connect timeouts), 1-3 events each, 0 users, spread from 12:49 to 10:06 UTC. Log walk: 270 skill-anchor lock timeouts, 17 Sentry-wake and 14 check re-read failures; about 72,000 slow-query lines, mostly one agent command recovery query."
+          "date": "2026-11-09",
+          "text": "Four events in the last day, five lifetime. The latest stack ends in AsyncStorage setItem. Trace the failing key and distinguish database capacity from disk exhaustion before choosing cleanup; no matching open repair found."
         }
       ]
     },
     {
-      "id": "release-missed",
+      "id": "github-diagnostic-config",
       "kind": "problem",
       "rank": 4,
-      "date": "2026-11-04",
-      "title": "Production releases fail, so merged fixes have not reached people",
+      "date": "2026-11-09",
+      "title": "A diagnostic script starts without GitHub configuration",
       "peoplePerDay": 0,
-      "trend": "up",
-      "cause": "release",
+      "trend": "flat",
+      "cause": "unknown",
       "stage": "daily-use",
-      "source": "release",
+      "source": "sentry",
       "scope": "single",
-      "lastHit": "2026-11-04",
-      "whatHappens": "Every production release since 07:00 UTC on 4 Nov stopped at the server step, so fixes merged after v0.1.142 (including #3419 and #3408) are not live.",
+      "lastHit": "2026-11-08",
+      "whatHappens": "A diagnostic script starts without GitHub configuration",
+      "fixes": [],
+      "observations": [
+        {
+          "date": "2026-11-09",
+          "text": "One fatal event starts in an evaluated Node script constructing the GitHub client. The main service outage is unconfirmed. Hold while identifying the script and its configuration source."
+        }
+      ]
+    },
+    {
+      "id": "review-deps-install-refused",
+      "rank": 5,
+      "kind": "regression",
+      "scope": "single",
+      "title": "Mobile work starts before its required dependencies are available",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "server",
+      "stage": "daily-use",
+      "source": "feedback",
+      "lastHit": "2026-11-09",
+      "regression": {
+        "causedByPr": "https://github.com/Beeline-Work/beeline/pull/3188",
+        "report": "Shared read-only dependency mounts refuse the npm ci the review helper always runs"
+      },
+      "whatHappens": "Mobile work starts before its required dependencies are available",
+      "date": "2026-11-09",
+      "observations": [
+        {
+          "date": "2026-11-01",
+          "text": "Feedback, 31 Oct 18:57 to 1 Nov 16:21 UTC: 19 reports from 2 agents, repeating on helper 0.1.133. Came with shared dependency mounts (#3188, #3192). No fix on main or open PR."
+        },
+        {
+          "date": "2026-11-09",
+          "text": "Historical setup reports include mobile lockfile rejection and missing workspace exports; those review paths shipped in PR 4131. New preparation reports use a release candidate rather than the delivered version. Hold; host repair PR 4156 is active."
+        }
+      ],
       "fixes": [
         {
-          "date": "2026-11-04",
-          "text": "Release repairs merged (#3492, #3494, #3503, #3505); the next attempt still failed at a migration lock timeout",
-          "state": "failed"
+          "date": "2026-11-01",
+          "text": "Reuse or install review dependencies on shared mounts; fix corner opened 1 Nov",
+          "state": "tried"
+        }
+      ]
+    },
+    {
+      "id": "personal-github-proxy-502",
+      "rank": 6,
+      "date": "2026-11-09",
+      "observations": [
+        {
+          "date": "2026-11-03",
+          "text": "Feedback, 2-3 Nov: 3 reports from 1 agent over two days. The public GitHub API worked as a fallback. New."
+        },
+        {
+          "date": "2026-11-09",
+          "text": "Historical reports include failed personal reads and repository pagination or asset downloads. PR 4152 covers current repository reads. Latest reports use a release candidate, so no new delivered-version occurrence qualifies."
+        }
+      ],
+      "fixes": [],
+      "kind": "problem",
+      "scope": "single",
+      "title": "Repository reads reject pagination and return file metadata",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "server",
+      "stage": "daily-use",
+      "source": "feedback",
+      "lastHit": "2026-11-09",
+      "whatHappens": "Repository reads reject pagination and return file metadata"
+    },
+    {
+      "peoplePerDay": 0,
+      "date": "2026-11-09",
+      "stage": "daily-use",
+      "source": "feedback",
+      "scope": "single",
+      "id": "stale-order-redelivery",
+      "kind": "problem",
+      "rank": 7,
+      "trend": "flat",
+      "cause": "server",
+      "lastHit": "2026-11-09",
+      "title": "Answered mentions keep appearing as work still owed",
+      "whatHappens": "Answered mentions keep appearing as work still owed",
+      "fixes": [],
+      "observations": [
+        {
+          "date": "2026-10-31",
+          "text": "Feedback: 9 reports from 3 agents, 10-30 14:33 to 10-31 07:51 UTC; 2 after the 06:33 deploy that carried the wake-storm fix (#3001). Two were owner messages delivered again after a reply."
         },
         {
           "date": "2026-11-04",
-          "text": "Skip drops and NOT NULL changes already done (#3529) and run the router schemas the shipped code reads (#3530); open",
-          "state": "tried"
-        }
-      ],
-      "observations": [
+          "text": "Feedback, 3-4 Nov: 11 reports from 2 agents. Checks wakes order repairs that the commander froze or a passed retry made obsolete, and their silence rule conflicts with the rule to post an update before tools."
+        },
         {
-          "date": "2026-11-04",
-          "text": "Release issues 3493, 3502, 3504, 3516, 3528: 5 attempts from 07:00 to 11:12 UTC; the first failed on the previous server source lookup, the last at migration 152 on a lock timeout behind a long agent command query."
+          "date": "2026-11-09",
+          "text": "Repeated historical reports describe answered or inaccessible mentions in every tool result. An approved agent-tool repair already covers this. Latest report uses a release candidate; no new delivered-version group qualifies."
         }
       ]
     },
     {
       "id": "background-watcher-liveness",
-      "rank": 5,
-      "date": "2026-11-04",
+      "rank": 8,
+      "date": "2026-11-09",
       "observations": [
         {
           "date": "2026-11-03",
@@ -713,6 +759,10 @@
         {
           "date": "2026-11-04",
           "text": "Feedback, 3 Nov 12:10 to 4 Nov 08:45 UTC: 28 reports from 2 agents. Several show the process really exited at turn cleanup, not only a misread PID; #3408 changes the check, not process lifetime."
+        },
+        {
+          "date": "2026-11-09",
+          "text": "Historical reports describe native builds killed at turn cleanup and temporary evidence unavailable afterward. Host repair PR 4156 covers persistent build evidence. Keep the existing record; do not open duplicate work."
         }
       ],
       "fixes": [
@@ -724,241 +774,56 @@
       ],
       "kind": "problem",
       "scope": "single",
-      "title": "Agents think their background job died between wakes and restart it",
-      "peoplePerDay": 0,
-      "trend": "up",
-      "cause": "skill",
-      "stage": "corner-work",
-      "source": "feedback",
-      "lastHit": "2026-11-04",
-      "whatHappens": "A long watcher an agent starts in a turn is gone at the next wake, with no exit result, so the agent restarts it or loses the watch."
-    },
-    {
-      "id": "silent-end-rewakes",
-      "rank": 6,
-      "date": "2026-11-04",
-      "observations": [
-        {
-          "date": "2026-11-01",
-          "text": "Feedback, 1 Nov 03:44-15:57 UTC: 126 reports from 3 agents, all on helper 0.1.129-0.1.130, none yet on 0.1.132. No fix on main or open PR. New."
-        },
-        {
-          "date": "2026-11-03",
-          "text": "Feedback, 2 Nov 13:03-21:25 UTC: 63 reports from 1 agent on helper 0.1.133 and 0.1.135, which both contain the fix. No reports since 0.1.137."
-        },
-        {
-          "date": "2026-11-04",
-          "text": "Feedback, 3 Nov 13:18-21:18 UTC: 22 reports from 1 other agent, after v0.1.137, so the 3 Nov note of no reports since 0.1.137 no longer holds. None after v0.1.142 so far."
-        }
-      ],
-      "fixes": [
-        {
-          "date": "2026-11-01",
-          "text": "Make silent turn ends succeed and stop re-wakes; fix corner opened 1 Nov",
-          "state": "tried"
-        },
-        {
-          "date": "2026-11-03",
-          "text": "Silent turn fix (#3229) shipped in helper 0.1.133 and 0.1.135, but one agent was still re-woken about 60 times on 2 Nov",
-          "state": "failed"
-        },
-        {
-          "date": "2026-11-04",
-          "text": "Stop repeated silent wakes (#3414), released in v0.1.142 on 4 Nov",
-          "state": "shipped"
-        }
-      ],
-      "kind": "problem",
-      "scope": "single",
-      "title": "Ending a turn silently fails and wakes the agent again with nothing to do",
+      "title": "Native builds end before the next turn can collect their results",
       "peoplePerDay": 0,
       "trend": "flat",
       "cause": "server",
       "stage": "daily-use",
       "source": "feedback",
-      "lastHit": "2026-11-03",
-      "whatHappens": "An agent with nothing to say ends its turn silently, and it is woken again in a loop."
+      "lastHit": "2026-11-08",
+      "whatHappens": "Native builds end before the next turn can collect their results"
     },
     {
-      "id": "release-rollout-errors",
-      "rank": 7,
-      "date": "2026-11-04",
-      "observations": [
-        {
-          "date": "2026-11-03",
-          "text": "Log walk 2-3 Nov: errors cluster in the 13:50, 21:06 and 07:01 UTC rollouts: about 900 missing-column errors in 4 minutes on 3 Nov, 2,200 connect timeouts and 190 lock timeouts on 2 Nov. Sentry: 7 server issues, 12 events. One scheduled report failed to post."
-        },
-        {
-          "date": "2026-11-04",
-          "text": "4 Nov: no successful rollout since v0.1.142 at 00:39 UTC, so the fix cannot be checked yet. Lock timeouts outside rollouts moved to db-lock-contention."
-        }
-      ],
-      "fixes": [
-        {
-          "date": "2026-11-04",
-          "text": "Keep agent calls working through database schema rollouts (#3419), merged 4 Nov, not yet released",
-          "state": "tried"
-        }
-      ],
+      "id": "workflow-recovery",
       "kind": "problem",
-      "scope": "single",
-      "title": "Each production rollout breaks agent calls for several minutes",
+      "rank": 9,
+      "date": "2026-11-09",
+      "title": "Failed workflow runs cannot resume and answers miss their cards",
       "peoplePerDay": 0,
       "trend": "flat",
-      "cause": "release",
+      "cause": "server",
       "stage": "daily-use",
-      "source": "log",
-      "lastHit": "2026-11-03",
-      "whatHappens": "During each deploy, agents cannot list corners or fetch commands for minutes: missing-column errors, database connect timeouts and lock timeouts. Posts can fail."
-    },
-    {
-      "id": "merged-not-released-helper",
-      "rank": 8,
-      "date": "2026-11-02",
-      "title": "Merged changes sit unreleased for most of a day because releases fail at the helper step",
-      "peoplePerDay": 0,
-      "trend": "up",
-      "cause": "process",
-      "stage": "build",
-      "source": "velocity",
-      "kind": "problem",
-      "scope": "single",
-      "lastHit": "2026-11-02",
-      "whatHappens": "Two release attempts in a row fail at the helper step for different causes, so every change merged after the last good release waits for the next nightly.",
-      "fixes": [
-        {
-          "date": "2026-11-01",
-          "text": "Release main now that both helper fixes have merged (morning card item 1); needs owner yes",
-          "state": "tried"
-        },
-        {
-          "date": "2026-11-01",
-          "text": "Smoke the built helper package before publish; slow npm listing only warns",
-          "state": "tried"
-        }
-      ],
-      "observations": [
-        {
-          "date": "2026-11-01",
-          "text": "31 Oct-1 Nov: 40 merges, 36 not live. 03:07 UTC release hung in the helper smoke test (fix 06:05 UTC). 07:00 UTC release failed the Linux helper build on a new Rust (fix 13:45 UTC). Server, web and phone-update steps passed."
-        },
-        {
-          "date": "2026-11-01",
-          "text": "Release issues 3203, 3208, 3210, 3216, 3217: helper step fails on npm listing wait, Rust toolchain and native runtime compare. Helper 0.1.132 published but npm listed it 17 minutes late. Fix in flight (helper-smoke-tarball corner)."
-        },
-        {
-          "date": "2026-11-02",
-          "text": "Helper fixes held: 01:57 and 08:50 ET releases delivered server, web, helper and phone updates. New cause: the final release step fails on missing release metadata, so no release record is written and client notices are skipped (5 attempts since v0.1.127). Morning card item 2."
-        }
-      ]
-    },
-    {
-      "peoplePerDay": 0,
-      "date": "2026-11-04",
-      "stage": "corner-work",
       "source": "feedback",
       "scope": "single",
-      "id": "stale-order-redelivery",
-      "kind": "problem",
-      "rank": 8,
-      "trend": "up",
-      "cause": "server",
-      "lastHit": "2026-11-04",
-      "title": "Old orders, stale blocked reports and already-answered messages arrive again after the work moved on",
-      "whatHappens": "An agent is woken by an order or report that a newer order, a push or a reply already settled, and acts on the stale one.",
+      "lastHit": "2026-11-08",
+      "whatHappens": "Failed workflow runs cannot resume and answers miss their cards",
       "fixes": [],
       "observations": [
         {
-          "date": "2026-10-31",
-          "text": "Feedback: 9 reports from 3 agents, 10-30 14:33 to 10-31 07:51 UTC; 2 after the 06:33 deploy that carried the wake-storm fix (#3001). Two were owner messages delivered again after a reply."
-        },
-        {
-          "date": "2026-11-04",
-          "text": "Feedback, 3-4 Nov: 11 reports from 2 agents. Checks wakes order repairs that the commander froze or a passed retry made obsolete, and their silence rule conflicts with the rule to post an update before tools."
+          "date": "2026-11-09",
+          "text": "Historical reports describe terminal runs refusing recovery, parent answers not settling corner cards, and unreadable step output. An approved workflow recovery corner exists. The fresh sweep no longer requires a workspace walk."
         }
       ]
     },
     {
-      "id": "ci-browser-test-flakes",
+      "id": "agent-stopped-mid-task",
       "kind": "problem",
-      "rank": 9,
-      "date": "2026-11-04",
-      "title": "Unrelated CI tests fail and block pull requests",
       "peoplePerDay": 0,
-      "trend": "up",
-      "cause": "server",
-      "stage": "corner-work",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
       "source": "feedback",
-      "scope": "single",
-      "lastHit": "2026-11-04",
-      "whatHappens": "A PR fails on a test it did not touch (reconnect presence, mobile browser proof, Rooms MCP timeouts), and its worker is woken to repair it.",
-      "fixes": [],
-      "observations": [
-        {
-          "date": "2026-11-04",
-          "text": "Feedback, 3-4 Nov: 11 reports from 2 agents; a reconnect presence test also fails on main."
-        }
-      ]
-    },
-    {
-      "id": "finished-prs-wait-to-merge",
-      "rank": 9,
-      "date": "2026-11-02",
-      "title": "Finished PRs wait hours to merge after their last commit",
-      "peoplePerDay": 0,
-      "trend": "up",
-      "cause": "process",
-      "stage": "build",
-      "source": "velocity",
-      "kind": "problem",
-      "scope": "single",
-      "lastHit": "2026-11-02",
-      "whatHappens": "PRs with one finished commit sit 1.5 to 3.3 hours, then merge together in a burst, so idle time is 43% of all PR-hours.",
-      "fixes": [
-        {
-          "date": "2026-11-02",
-          "text": "Split each waiting PR's idle time into checks time and review time from check-run timestamps, then target the larger part",
-          "state": "tried"
-        }
-      ],
-      "observations": [
-        {
-          "date": "2026-11-02",
-          "text": "1-2 Nov 09:00-09:00 ET: 71 merges, 140 PR-hours, 61 idle after the last commit. 10 one-commit PRs merged 03:06-03:58 ET after waiting 1.5-3.3 h. Cause not verified."
-        },
-        {
-          "date": "2026-11-02",
-          "text": "Split of 11 waiting PRs (#3278 #3299 #3289 #3305 #3304 #3302 #3300 #3298 #3290 #3288 #3319) from GitHub check-run and merge times: 21.8 h idle after the last commit = 19.8 h until the last pre-merge check finished + 2.0 h waiting after green (median 5 min per PR)."
-        },
-        {
-          "date": "2026-11-02",
-          "text": "Inside the checks span, jobs ran only 4.3 h; for 15.6 h no job was running (jobs waiting to start). No PR had a review; lunchboxfortwo merged all 11; 9 of 11 within 12 min of green. Larger part: CI jobs waiting to start, not review."
-        },
-        {
-          "date": "2026-11-03",
-          "text": "2-3 Nov 09:00-09:00 ET: 39 merges (71 day before), median open to merge 2.3 h (1.1 h), 151 PR-hours (140). Two CI-queue fixes merged in the window (#3344, #3380); effect measured next day."
-        }
-      ]
-    },
-    {
-      "id": "tool-result-capped",
-      "kind": "problem",
+      "title": "An agent appears to stop before finishing the requested work",
       "rank": 10,
-      "date": "2026-11-04",
-      "title": "Large API results through the vault reach agents as a file notice, not data",
-      "peoplePerDay": 0,
-      "trend": "up",
-      "cause": "server",
-      "stage": "daily-use",
-      "source": "feedback",
-      "scope": "single",
-      "lastHit": "2026-11-04",
-      "whatHappens": "A vault HTTP call with a large response returns a saved-file notice instead of structured data, and a large request body is refused at 64 KB, so agents fall back to shell parsing.",
+      "date": "2026-11-09",
+      "scope": "people",
+      "lastHit": "2026-11-08",
+      "whatHappens": "An agent appears to stop before finishing the requested work",
       "fixes": [],
       "observations": [
         {
-          "date": "2026-11-04",
-          "text": "Feedback, 3-4 Nov: 7 reports from 1 agent (Sentry and GitHub reads, one insights publish over the request limit)."
+          "date": "2026-11-09",
+          "text": "One old human report has no recorded app version, and a newer agent report describes a turn that never closed. Shared cause is unconfirmed. Workflow recovery already covers turn closure; hold the old human symptom for renewed evidence."
         }
       ]
     }
