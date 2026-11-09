@@ -606,7 +606,7 @@
       "key": "squire/card-label-last-four",
       "cornerAddress": null,
       "fixSha": null,
-      "lastPresentedAt": "2026-11-09T14:10:00Z",
+      "lastPresentedAt": "2026-11-09T19:07:00Z",
       "sourceSha": "1391cab1720d74642debc22abce11a8bf9f5ced8",
       "evidence": "feedback_items 2026-11-08/09",
       "impact": "wrong card approved",
@@ -628,7 +628,7 @@
       "key": "beeline/turn-not-closed",
       "cornerAddress": null,
       "fixSha": null,
-      "lastPresentedAt": "2026-11-09T14:10:00Z",
+      "lastPresentedAt": "2026-11-09T19:07:00Z",
       "sourceSha": "1391cab1720d74642debc22abce11a8bf9f5ced8",
       "evidence": "feedback_items 2026-11-08/09",
       "impact": "1 report",
@@ -705,7 +705,7 @@
       "key": "agents/muse-no-wake-route",
       "cornerAddress": null,
       "fixSha": null,
-      "lastPresentedAt": "2026-11-09T14:10:00Z",
+      "lastPresentedAt": "2026-11-09T19:07:00Z",
       "sourceSha": "1391cab1720d74642debc22abce11a8bf9f5ced8",
       "evidence": "feedback_items 2026-11-08/09",
       "impact": "1 report",
@@ -755,6 +755,39 @@
       "impact": "room list 838, transcript 596",
       "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
       "status": "reported"
+    },
+    {
+      "key": "squire/card-release-lost-session",
+      "lastPresentedAt": "2026-11-09T19:07:00Z",
+      "sourceSha": "1391cab1720d74642debc22abce11a8bf9f5ced8",
+      "evidence": "#beeline/insight-loss 9 Nov flower checkout",
+      "impact": "1 owner checkout; extra card approval after browser recovery",
+      "cardMessageId": "8fdb215617eea08cd984eed9fdc356c7e766c801afcf31c9ef783fda69997d97",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "insights/loss-agent-mentions",
+      "lastPresentedAt": "2026-11-09T19:07:00Z",
+      "sourceSha": "1391cab1720d74642debc22abce11a8bf9f5ced8",
+      "evidence": "#beeline/insight-loss scan 9 Nov",
+      "impact": "2 of 4 shortlisted rooms were agent-to-agent tags",
+      "cardMessageId": "8fdb215617eea08cd984eed9fdc356c7e766c801afcf31c9ef783fda69997d97",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "onboarding/welcome-english-only",
+      "lastPresentedAt": "2026-11-09T19:07:00Z",
+      "sourceSha": "1391cab1720d74642debc22abce11a8bf9f5ced8",
+      "evidence": "#beeline/insight-workspace-walk 9 Nov",
+      "impact": "2 of 2 new non-English sign-ups asked for their language first",
+      "cardMessageId": "8fdb215617eea08cd984eed9fdc356c7e766c801afcf31c9ef783fda69997d97",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
     }
   ],
   "scores": [
@@ -832,6 +865,26 @@
         "specialCaseSites": 1539,
         "deployForceKills": "15/18",
         "triageUnread": 62
+      }
+    },
+    {
+      "runDate": "2026-11-09",
+      "card": "insight",
+      "releaseSha": "1391cab1720d74642debc22abce11a8bf9f5ced8",
+      "shown": 3,
+      "approved": 0,
+      "loopScore": {
+        "insightLoss": {
+          "letDownPer100": 80,
+          "shortlisted": 4,
+          "activeConversations": 5,
+          "confirmedAfterReview": 1
+        },
+        "workspaceWalk": {
+          "completed": 2,
+          "sampled": 2,
+          "eligible": 2
+        }
       }
     }
   ]
