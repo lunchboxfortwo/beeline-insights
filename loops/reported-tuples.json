@@ -31,16 +31,17 @@
     },
     {
       "key": "db/corner-lifecycle-lock-timeout",
-      "lastPresentedAt": "2026-11-10T14:20:00Z",
-      "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
-      "evidence": "https://beeline-bt.sentry.io/issues/7833249592/",
-      "impact": "fix in v0.1.196 did not stop it; 244 log lines since, 23 Sentry events",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "sourceSha": "a24f18ec4477bc9073d5e0cf4af49cf5b8cb0a6a",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "37 lock timeouts since 18:32 on rc.1; 35 same corner status read",
       "cardRunId": "3f0835b7f7d85f6af78626f9c437a9bdca38131598016b9db231902304926eda",
-      "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null,
-      "lastFollowUp": null
+      "lastFollowUp": null,
+      "lastSeenAt": "2026-11-10T19:00:12Z"
     },
     {
       "key": "db/check-rollup-deadlock",
@@ -791,16 +792,17 @@
     },
     {
       "key": "errors/db-connect-timeout",
-      "lastPresentedAt": "2026-11-10T14:20:00Z",
-      "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
-      "evidence": [],
-      "impact": "2 events, 0 people",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "sourceSha": "a24f18ec4477bc9073d5e0cf4af49cf5b8cb0a6a",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "77 lines/24h vs 41",
       "cardRunId": null,
-      "cardMessageId": null,
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null,
-      "lastFollowUp": null
+      "lastFollowUp": null,
+      "lastSeenAt": "2026-11-10T18:28:29Z"
     },
     {
       "key": "errors/non-squire-browser-tool-error",
@@ -840,6 +842,114 @@
       "cornerAddress": null,
       "fixSha": null,
       "lastFollowUp": null
+    },
+    {
+      "key": "security/free-agent-model-key-disclosed",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "lastSeenAt": "2026-11-10T16:21:00Z",
+      "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "1 workspace: agent posted env listing and live model key after social engineering",
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "free-agents/owned-model-invalid-request",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "lastSeenAt": "2026-11-10T11:19:25Z",
+      "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "1 person: 2 failed turns, left after 3rd ask",
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "free-agents/browser-core-skills-missing",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "lastSeenAt": "2026-11-10T03:51:00Z",
+      "sourceSha": "pre-0.1.199",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "1 person: 3 asks to open a site, browser never ran",
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "onboarding/second-workspace-no-agents",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "lastSeenAt": "2026-11-10T09:30:02Z",
+      "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "1 person: 3 unanswered messages in an agentless room",
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "agents/command-output-after-complete",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "lastSeenAt": "2026-11-10T18:52:30Z",
+      "sourceSha": "a24f18ec4477bc9073d5e0cf4af49cf5b8cb0a6a",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "393 lines/24h vs 267; 81/91 after command complete",
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "agents/cross-room-message-read-denied",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "lastSeenAt": "2026-11-10T18:45:35Z",
+      "sourceSha": "a24f18ec4477bc9073d5e0cf4af49cf5b8cb0a6a",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "46 lines/24h vs 2",
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "free-agents/fly-rate-limit-no-backoff",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "lastSeenAt": "2026-11-10T01:21:32Z",
+      "sourceSha": "pre-0.1.199",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "1 agent, 78 rate-limit replies in 3 h",
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "web/conversation-update-loop-crash",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "lastSeenAt": "2026-11-10T01:10:28Z",
+      "sourceSha": "pre-0.1.199",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "1 person, 6 crashes",
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "free-agents/owned-model-owner-unauthorized",
+      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "lastSeenAt": "2026-11-10T00:45:27Z",
+      "sourceSha": "pre-0.1.199",
+      "evidence": "#beeline/insight card 10 Nov 14:00",
+      "impact": "1 Room, 9 failed turns",
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
     }
   ],
   "scores": [
@@ -954,6 +1064,29 @@
         "lockTimeoutLogLinesSinceFix": 244,
         "deployForceKills": "0/7",
         "latencyOverBudget": null
+      }
+    },
+    {
+      "runDate": "2026-11-10",
+      "card": "insight",
+      "releaseSha": "a24f18ec4477bc9073d5e0cf4af49cf5b8cb0a6a",
+      "shown": 11,
+      "approved": 0,
+      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "loopScore": {
+        "insightLoss": {
+          "letDownPer100": 17,
+          "shortlisted": 1,
+          "activeConversations": 6,
+          "confirmedAfterReview": 1
+        },
+        "workspaceWalk": {
+          "completed": 2,
+          "sampled": 4,
+          "eligible": 5,
+          "excludedAdversarial": 1
+        },
+        "serverLogItems": 7
       }
     }
   ]
