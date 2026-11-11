@@ -1,0 +1,10 @@
+server/stale-instance-lease-result-refused: finished agent results refused on a stale server lease
+agents/command-output-after-complete: agent writes refused after the turn is marked complete
+db/corner-lifecycle-lock-timeout: corner status refresh fails on lock timeouts
+errors/db-connect-timeout: side database pool fills on each deploy and the chat list fails
+grants/command-card-script-size-cap: command approval refuses reviewed scripts over 4 KB
+review/no-verdict-green-pr: reviewers return no verdict on green PRs
+beeline/owed-mentions-stale: owed mentions flood every tool reply
+artifacts/cross-address-lost: files posted to another place get lost
+value/own-agent-connect-zero: no outside own-agent connect succeeded in 7 days
+security/free-agent-model-key-disclosed: a free agent posted a live model key
