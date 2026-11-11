@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T18:04:28.836Z",
-  "date": "2026-11-10",
-  "snapshotDate": "2026-11-10",
-  "snapshot": "2026-11-10.json",
+  "generatedAt": "2026-11-11T17:59:25.615Z",
+  "date": "2026-11-11",
+  "snapshotDate": "2026-11-11",
+  "snapshot": "2026-11-11.json",
   "headline": "firstReply/signups",
   "method": "median +/- 2 MAD; prior 28 calendar days",
   "minSamples": 10,
   "minHistory": 7,
   "metrics": {
     "firstReply/signups": {
-      "value": 0.8333333333333334,
-      "samples": 6,
+      "value": 0.5,
+      "samples": 2,
       "reason": null,
       "normal": null,
       "historySamples": 0,
@@ -24,13 +24,13 @@
       "smallSample": true
     },
     "signups": {
-      "value": 6,
-      "samples": 6,
+      "value": 2,
+      "samples": 2,
       "reason": null,
       "normal": {
         "low": 0,
-        "high": 4.5,
-        "median": 1.5,
+        "high": 5,
+        "median": 2,
         "mad": 1.5
       },
       "historySamples": 28,
@@ -42,14 +42,14 @@
       "smallSample": true
     },
     "dau": {
-      "value": 4,
-      "samples": 4,
+      "value": 2,
+      "samples": 2,
       "reason": null,
       "normal": {
         "low": 0,
-        "high": 6,
+        "high": 7,
         "median": 3,
-        "mad": 1.5
+        "mad": 2
       },
       "historySamples": 28,
       "flags": [
@@ -60,8 +60,8 @@
       "smallSample": true
     },
     "wau": {
-      "value": 17,
-      "samples": 17,
+      "value": 19,
+      "samples": 19,
       "reason": null,
       "normal": {
         "low": 5,
@@ -71,23 +71,23 @@
       },
       "historySamples": 28,
       "flags": [],
-      "outside": false,
+      "outside": true,
       "state": "measured",
       "smallSample": false
     },
     "retention7": {
-      "value": 0.037037037037037035,
-      "samples": 27,
+      "value": 0.034482758620689655,
+      "samples": 29,
       "reason": null,
-      "from": "2026-10-13",
-      "through": "2026-11-02",
+      "from": "2026-10-14",
+      "through": "2026-11-03",
       "normal": {
         "low": 0,
         "high": 0,
         "median": 0,
         "mad": 0
       },
-      "historySamples": 16,
+      "historySamples": 17,
       "flags": [],
       "outside": true,
       "state": "measured",
