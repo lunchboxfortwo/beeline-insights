@@ -31,17 +31,17 @@
     },
     {
       "key": "db/corner-lifecycle-lock-timeout",
-      "lastPresentedAt": "2026-11-10T19:06:34Z",
-      "sourceSha": "a24f18ec4477bc9073d5e0cf4af49cf5b8cb0a6a",
-      "evidence": "#beeline/insight card 10 Nov 14:00",
-      "impact": "37 lock timeouts since 18:32 on rc.1; 35 same corner status read",
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "evidence": "server logs 11 Nov",
+      "impact": "9 lock timeouts on rc.5",
       "cardRunId": "3f0835b7f7d85f6af78626f9c437a9bdca38131598016b9db231902304926eda",
-      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null,
       "lastFollowUp": null,
-      "lastSeenAt": "2026-11-10T19:00:12Z"
+      "lastSeenAt": "2026-11-11T13:41:55Z"
     },
     {
       "key": "db/check-rollup-deadlock",
@@ -325,16 +325,17 @@
     },
     {
       "key": "latency/web/open-room/synchronous-click-render",
-      "lastPresentedAt": "2026-11-10T14:20:00Z",
-      "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
-      "evidence": "latency-2026-11-09.zip",
-      "impact": "open-room p95 262, create-dm 234",
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "evidence": "latency-2026-11-11.zip",
+      "impact": "p95 261/255ms",
       "cardRunId": null,
-      "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null,
-      "lastFollowUp": null
+      "lastFollowUp": null,
+      "lastSeenAt": "2026-11-11T08:00:00Z"
     },
     {
       "key": "latency/web/inventory-coverage",
@@ -445,9 +446,9 @@
       "evidence": "#beeline/6abcb4ae",
       "impact": "1539 sites; 33 files/hotspot change",
       "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
-      "status": "reported",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": "9d7adec59"
     },
     {
       "key": "health/coverage/server-special-case-census",
@@ -496,13 +497,13 @@
     {
       "key": "ci/github-pages-empty-status-timeout",
       "cornerAddress": null,
-      "fixSha": null,
+      "fixSha": "b71e30940",
       "lastPresentedAt": "2026-11-10T14:20:00Z",
       "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
       "impact": "recurred 01:48 and 07:38 UTC; failed 2 AM release",
       "evidence": "https://github.com/Beeline-Work/beeline/actions/runs/42408917990",
       "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
-      "status": "reported"
+      "status": "shipped"
     },
     {
       "key": "latency/web/forward-message/modal-exit-floor",
@@ -519,12 +520,13 @@
       "key": "latency/web/rendered-feedback-breaches",
       "cornerAddress": null,
       "fixSha": null,
-      "lastPresentedAt": "2026-11-10T14:20:00Z",
-      "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
-      "impact": "create-corner 265, close-corner 214, leave-room 158",
-      "evidence": "latency-2026-11-09.zip",
-      "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
-      "status": "reported"
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "5 actions over budget",
+      "evidence": "latency-2026-11-11.zip",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46",
+      "status": "reported",
+      "lastSeenAt": "2026-11-11T08:00:00Z"
     },
     {
       "key": "db/account-delete-deadlock",
@@ -551,24 +553,25 @@
     {
       "key": "corner/native-android-proof-route",
       "cornerAddress": null,
-      "fixSha": null,
+      "fixSha": "07d932670",
       "lastPresentedAt": "2026-11-10T14:20:00Z",
       "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
       "evidence": "feedback_items 2026-11-08/09",
       "impact": "9 reports",
       "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
-      "status": "reported"
+      "status": "shipped"
     },
     {
       "key": "beeline/owed-mentions-stale",
       "cornerAddress": null,
       "fixSha": null,
-      "lastPresentedAt": "2026-11-10T14:20:00Z",
-      "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
-      "evidence": "feedback_items 2026-11-08/09",
-      "impact": "fix shipped; still 38 owed per reply on v0.1.200",
-      "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
-      "status": "reported"
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "evidence": "repro 11 Nov",
+      "impact": "reproduced rc.5: 10 owed on every reply; came back after fix",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46",
+      "status": "reported",
+      "lastSeenAt": "2026-11-11T14:05:00Z"
     },
     {
       "key": "workflow/run-recovery",
@@ -584,13 +587,13 @@
     {
       "key": "triage/retired-walk-step",
       "cornerAddress": null,
-      "fixSha": null,
+      "fixSha": "adf033ff0",
       "lastPresentedAt": "2026-11-10T14:20:00Z",
       "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
       "evidence": "feedback_items 2026-11-08/09",
       "impact": "2 reports; no sweep 24h",
       "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
-      "status": "reported"
+      "status": "shipped"
     },
     {
       "key": "squire/approval-wake-no-reply",
@@ -639,13 +642,13 @@
     {
       "key": "agents/codex-acp-linux-package",
       "cornerAddress": null,
-      "fixSha": null,
+      "fixSha": "9f6d0163d",
       "lastPresentedAt": "2026-11-10T14:20:00Z",
       "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
       "evidence": "feedback_items 2026-11-08/09",
       "impact": "1 report",
       "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
-      "status": "reported"
+      "status": "shipped"
     },
     {
       "key": "reference/fal-storage-type",
@@ -750,12 +753,13 @@
       "key": "latency/web/route-cold-load",
       "cornerAddress": null,
       "fixSha": null,
-      "lastPresentedAt": "2026-11-09T14:10:00Z",
-      "sourceSha": "1391cab1720d74642debc22abce11a8bf9f5ced8",
-      "evidence": "latency-2026-11-09.zip",
-      "impact": "fix live in v0.1.200; re-measure pending",
-      "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
-      "status": "shipped"
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "evidence": "latency-2026-11-11.zip",
+      "impact": "root/chat over budget; came back",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46",
+      "status": "reported",
+      "lastSeenAt": "2026-11-11T08:00:00Z"
     },
     {
       "key": "squire/card-release-lost-session",
@@ -786,23 +790,23 @@
       "evidence": "#beeline/insight-workspace-walk 9 Nov",
       "impact": "2 of 2 new non-English sign-ups asked for their language first",
       "cardMessageId": "8fdb215617eea08cd984eed9fdc356c7e766c801afcf31c9ef783fda69997d97",
-      "status": "reported",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": "cad027921"
     },
     {
       "key": "errors/db-connect-timeout",
-      "lastPresentedAt": "2026-11-10T19:06:34Z",
-      "sourceSha": "a24f18ec4477bc9073d5e0cf4af49cf5b8cb0a6a",
-      "evidence": "#beeline/insight card 10 Nov 14:00",
-      "impact": "77 lines/24h vs 41",
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "evidence": "server logs 11 Nov",
+      "impact": "114/24h vs 77; 33 on rc.5 deploy",
       "cardRunId": null,
-      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null,
       "lastFollowUp": null,
-      "lastSeenAt": "2026-11-10T18:28:29Z"
+      "lastSeenAt": "2026-11-11T13:41:59Z"
     },
     {
       "key": "errors/non-squire-browser-tool-error",
@@ -812,9 +816,9 @@
       "impact": "1 event",
       "cardRunId": null,
       "cardMessageId": null,
-      "status": "reported",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null,
+      "fixSha": "07748f394",
       "lastFollowUp": null
     },
     {
@@ -825,9 +829,9 @@
       "impact": "1 flaky PR failure",
       "cardRunId": null,
       "cardMessageId": null,
-      "status": "reported",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null,
+      "fixSha": "44c83159e",
       "lastFollowUp": null
     },
     {
@@ -838,19 +842,19 @@
       "impact": "developer coupling, low",
       "cardRunId": null,
       "cardMessageId": null,
-      "status": "reported",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null,
+      "fixSha": "9a119fa17",
       "lastFollowUp": null
     },
     {
       "key": "security/free-agent-model-key-disclosed",
-      "lastPresentedAt": "2026-11-10T19:06:34Z",
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
       "lastSeenAt": "2026-11-10T16:21:00Z",
-      "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
-      "evidence": "#beeline/insight card 10 Nov 14:00",
-      "impact": "1 workspace: agent posted env listing and live model key after social engineering",
-      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "evidence": "insight card 10 Nov",
+      "impact": "1 workspace",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
@@ -893,24 +897,24 @@
     },
     {
       "key": "agents/command-output-after-complete",
-      "lastPresentedAt": "2026-11-10T19:06:34Z",
-      "lastSeenAt": "2026-11-10T18:52:30Z",
-      "sourceSha": "a24f18ec4477bc9073d5e0cf4af49cf5b8cb0a6a",
-      "evidence": "#beeline/insight card 10 Nov 14:00",
-      "impact": "393 lines/24h vs 267; 81/91 after command complete",
-      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T13:54:35Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "evidence": "server logs 11 Nov",
+      "impact": "2008 'state not claimed: complete' /24h; 14 on rc.5",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
     },
     {
       "key": "agents/cross-room-message-read-denied",
-      "lastPresentedAt": "2026-11-10T19:06:34Z",
-      "lastSeenAt": "2026-11-10T18:45:35Z",
-      "sourceSha": "a24f18ec4477bc9073d5e0cf4af49cf5b8cb0a6a",
-      "evidence": "#beeline/insight card 10 Nov 14:00",
-      "impact": "46 lines/24h vs 2",
-      "cardMessageId": "35fe016311c66000da0138f7b9005f8a812771055a3b9a7ab15f4b39ebc076ee",
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T03:01:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "evidence": "server logs + feedback 11 Nov",
+      "impact": "6 membership refusals/24h, 3 reports",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
@@ -950,6 +954,246 @@
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
+    },
+    {
+      "key": "release/store-release-needed",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T14:00:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "Android runtime 47->49, no store build since speedup merge",
+      "evidence": "run 42976438747",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "server/stale-instance-lease-result-refused",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T13:56:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "~4600 refusals/24h; 2 on rc.5",
+      "evidence": "server logs 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "errors/presence-short-room-id",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T00:00:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "1 event rc.2",
+      "evidence": "errors loop 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "errors/release-busy-sentry-noise",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T00:00:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "1 event",
+      "evidence": "errors loop 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "grants/command-card-script-size-cap",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T03:46:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "8 agent reports",
+      "evidence": "feedback_items 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "grants/host-vs-command-kind",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T04:35:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "4 agent reports",
+      "evidence": "feedback_items 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "review/no-verdict-green-pr",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-10T21:56:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "7 agent reports",
+      "evidence": "feedback_items 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "review/stale-wake-context",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T05:02:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "5 agent reports",
+      "evidence": "feedback_items 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "corner/false-merge-conflict-wake",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-10T19:07:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "3 agent reports",
+      "evidence": "feedback_items 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "web/room-history-3h-limit",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-10T22:00:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "1 agent report",
+      "evidence": "feedback_items 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "artifacts/cross-address-lost",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T09:33:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "2 agent reports",
+      "evidence": "feedback_items 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "squire/cloudflare-challenge-empty",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T13:52:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "2 agent reports",
+      "evidence": "feedback_items 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "grants/touches-hidden-limit",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T04:45:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "2 agent reports",
+      "evidence": "feedback_items 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "tools/silent-reply-join-event",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T13:42:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "2 agent reports",
+      "evidence": "feedback_items 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "ci/github-installation-rate-limit",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T04:31:45Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "7 failed attempts",
+      "evidence": "CI loop 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "ci/corpus-width-room-list-tail",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-10T21:37:31Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "151.8ms vs 150ms",
+      "evidence": "CI loop 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "ci/hot-read-plan-artifact-whitespace",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T08:08:50Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "848KB -> 306KB",
+      "evidence": "CI loop 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "latency/web/sweep-context-contamination",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T08:00:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "measurement fix",
+      "evidence": "latency-2026-11-11.zip",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "health/helper/session-lifecycle-twins",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-11T08:40:18Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "17 co-changed PRs",
+      "evidence": "health loop 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+    },
+    {
+      "key": "value/own-agent-connect-zero",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-11T14:10:00Z",
+      "lastSeenAt": "2026-11-10T23:59:00Z",
+      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "impact": "9 tries 0 success 7d; fix merged, rc.6 running",
+      "evidence": "dashboard 11 Nov",
+      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
     }
   ],
   "scores": [
@@ -1087,6 +1331,27 @@
           "excludedAdversarial": 1
         },
         "serverLogItems": 7
+      }
+    },
+    {
+      "runDate": "2026-11-11",
+      "card": "morning",
+      "releaseSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
+      "shown": 29,
+      "actionable": 27,
+      "approved": 0,
+      "workflowRun": "8ae462f1e436e5fa993dbc40e4671ef5f00420826d91293c24e2987c33afd478",
+      "staleCaughtByGate": 15,
+      "staleOwnerCorrected": 0,
+      "loopScore": {
+        "sentryPeopleHit": 0,
+        "gateRedHours": 2.48,
+        "mainRedHours": 0,
+        "latencyOverBudgetRaw": 47,
+        "worstP95Ms": 996,
+        "providerSpecialCases": 0,
+        "triageReports24h": 150,
+        "humanReports24h": 0
       }
     }
   ]
