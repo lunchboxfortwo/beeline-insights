@@ -1,0 +1,122 @@
+[
+  {
+    "number": 1,
+    "key": "release/store-release-needed",
+    "problem": "store build still v0.1.184 while native layer moved (Android 47→50, iOS 38→39)."
+  },
+  {
+    "number": 2,
+    "key": "errors/db-connect-timeout",
+    "problem": "(24) lock timeouts, (15) connection waits, first deadlock in 24 h."
+  },
+  {
+    "number": 3,
+    "key": "errors/sentry-no-user",
+    "problem": "Sentry records no user, so people-hit is always 0."
+  },
+  {
+    "number": 4,
+    "key": "errors/github-pr-checks-503",
+    "problem": "GitHub refused one PR's check reads (17) times with no incident."
+  },
+  {
+    "number": 5,
+    "key": "corner/android-build-readonly-deps",
+    "problem": "Android builds fail on the read-only dependency mount."
+  },
+  {
+    "number": 6,
+    "key": "corner/no-host-emulator",
+    "problem": "emulator grant finds no running emulator."
+  },
+  {
+    "number": 7,
+    "key": "wakes/corner-reports-land-in-room",
+    "problem": "review reports and conflict mentions wake the agent in the parent Room."
+  },
+  {
+    "number": 8,
+    "key": "agents/command-output-after-complete",
+    "problem": "a report closes the command and same-turn follow-ups are refused."
+  },
+  {
+    "number": 9,
+    "key": "review/reviewer-untaggable-pass-unrecorded",
+    "problem": "reviewer untaggable while listed; pass not on merge gate."
+  },
+  {
+    "number": 10,
+    "key": "corner/false-merge-conflict-wake",
+    "problem": "conflict wakes for mergeable heads; one merge allowed despite conflict."
+  },
+  {
+    "number": 11,
+    "key": "review/checkout-fetch-fails",
+    "problem": "review checkout cannot fetch main or the PR branch."
+  },
+  {
+    "number": 12,
+    "key": "corner/checks-facet-stale",
+    "problem": "corner checks pending or empty while GitHub shows done."
+  },
+  {
+    "number": 13,
+    "key": "grants/command-card-script-size-cap",
+    "problem": "long scripts refused; Node program treated as a script."
+  },
+  {
+    "number": 14,
+    "key": "squire/card-release-lost-session",
+    "problem": "Squire approval completed, agent got no wake (human report)."
+  },
+  {
+    "number": 15,
+    "key": "beeline/owed-mentions-stale",
+    "problem": "owed mentions flood tool replies (reproduced, 11 entries)."
+  },
+  {
+    "number": 16,
+    "key": "review/stale-wake-context",
+    "problem": "review wakes carry an old brief or replaced instruction."
+  },
+  {
+    "number": 17,
+    "key": "squire/drive-checkout-low-confidence",
+    "problem": "Squire purchase drives fail (proxy, budget, low confidence)."
+  },
+  {
+    "number": 18,
+    "key": "tools/silent-reply-join-event",
+    "problem": "silent-reply tool refuses a nonhuman wake."
+  },
+  {
+    "number": 19,
+    "key": "ci/merge-skew-main-red",
+    "problem": "two green PRs broke main together (34 min red)."
+  },
+  {
+    "number": 20,
+    "key": "ci/nightly-cron-7h-late",
+    "problem": "nightly checks start about 9 h late."
+  },
+  {
+    "number": 21,
+    "key": "web/tamagui-controls/missing-button-semantics",
+    "problem": "web controls lack real button roles and names."
+  },
+  {
+    "number": 22,
+    "key": "latency/web/inventory-coverage",
+    "problem": "latency rig needs its repair patch."
+  },
+  {
+    "number": 23,
+    "key": "health/shared/optional-dto-reader-drift",
+    "problem": "phone data fields declared twice; drift is not a build error."
+  },
+  {
+    "number": 24,
+    "key": "value/own-agent-connect-zero",
+    "problem": "(9) connect tries, (0) succeeded; codes shown but never used."
+  }
+]
