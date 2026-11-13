@@ -1,0 +1,77 @@
+[
+  {
+    "number": 1,
+    "key": "release/blocked-by-github-org-flag",
+    "problem": "no workflow run since 02:45 UTC; 21 merged changes not live."
+  },
+  {
+    "number": 2,
+    "key": "agents/report-blocked-by-github-read",
+    "problem": "corner report/post/order fail on a GitHub 404; fix corner Report-without-GitHub open."
+  },
+  {
+    "number": 3,
+    "key": "authority/late-command-output-rejected",
+    "problem": "3,390 refused outputs; one helper resent 1,652 in 10 min."
+  },
+  {
+    "number": 4,
+    "key": "corner/review-redispatch-on-repo-404",
+    "problem": "review redispatched while repo reads fail."
+  },
+  {
+    "number": 5,
+    "key": "triage/corner-local-test-run-blocked",
+    "problem": "installs refused, PostgreSQL refuses root, processes lost between turns."
+  },
+  {
+    "number": 6,
+    "key": "squire/browser-handback-session-mismatch",
+    "problem": "sign-in handback not seen by the drive session."
+  },
+  {
+    "number": 7,
+    "key": "ci/nightly-workflow-target-divergence",
+    "problem": "nightly asks for a test missing from the release."
+  },
+  {
+    "number": 8,
+    "key": "ci/server-shard-runner-queue",
+    "problem": "911 s queue vs 3 s median."
+  },
+  {
+    "number": 9,
+    "key": "ci/helper-darwin-x64-cold-cargo-cache",
+    "problem": "Mac helper cache miss, 1,056 s vs 245 s."
+  },
+  {
+    "number": 10,
+    "key": "latency/web/stop-terminal-feedback",
+    "problem": "\"stopping\" shown over 4 s after Stop."
+  },
+  {
+    "number": 11,
+    "key": "latency/web/open-room/synchronous-click-render",
+    "problem": "Room open p95 196 ms, DM 152 ms."
+  },
+  {
+    "number": 12,
+    "key": "latency/web/workspace-tab/bootstrap-serial-work",
+    "problem": "Workspace settings p95 549 ms."
+  },
+  {
+    "number": 13,
+    "key": "latency/web/capture-boundaries",
+    "problem": "rig measurement fixes."
+  },
+  {
+    "number": 14,
+    "key": "latency/web/route-cold-load",
+    "problem": "cold loads and thread/file paths still breach."
+  },
+  {
+    "number": 15,
+    "key": "health/server/phone-handler-facade-coupling",
+    "problem": "phone handler signatures copied by hand."
+  }
+]
