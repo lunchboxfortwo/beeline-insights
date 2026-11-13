@@ -1221,12 +1221,12 @@
     },
     {
       "key": "authority/late-command-output-rejected",
-      "lastPresentedAt": "2026-11-13T14:13:00Z",
-      "lastSeenAt": "2026-11-13T08:40:47Z",
+      "lastPresentedAt": "2026-11-13T19:10:46Z",
+      "lastSeenAt": "2026-11-13T14:31:15Z",
       "sourceSha": "1c65435aa2929f24c2c270444ebb70e2ac309848",
       "evidence": "#beeline/morning card 13 Nov",
-      "impact": "3,390 refused outputs since deploy; 1,652 from one helper in 10 min",
-      "cardMessageId": "59996e4983d5f24c5a6127298a3fe218d02433c8710e222a263dc2f7ef600013",
+      "impact": "3,494 refused since live deploy (+104 since morning card); ~20/h after 05:00 UTC",
+      "cardMessageId": "da6937a721a6511124708b034de54d2dc40507ff443e057c45fa7c310b20c92c",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
@@ -1270,12 +1270,12 @@
     {
       "key": "release/blocked-by-github-org-flag",
       "fixSha": null,
-      "lastPresentedAt": "2026-11-13T14:13:00Z",
-      "lastSeenAt": "2026-11-13T02:54:04Z",
+      "lastPresentedAt": "2026-11-13T19:10:46Z",
+      "lastSeenAt": "2026-11-13T19:01:13Z",
       "sourceSha": "1c65435aa2929f24c2c270444ebb70e2ac309848",
       "evidence": "#beeline/morning card 13 Nov",
-      "impact": "no workflow run since 02:45 UTC; 21 merged changes not live",
-      "cardMessageId": "870d3c8c4999570943e66bfd0b77fd7a18b0bcfac4b6b217f12f2fa371081825",
+      "impact": "577 failed GitHub reads in 24 h; App and signed-out 404 at 19:01 UTC; owner token reaches repo, release list empty",
+      "cardMessageId": "da6937a721a6511124708b034de54d2dc40507ff443e057c45fa7c310b20c92c",
       "status": "reported",
       "cornerAddress": null
     },
@@ -1434,6 +1434,18 @@
       "cardMessageId": "f62d9c875a6da1e67ab74d4a8a77c8444c389721f912312b6d34bac670e5f332",
       "status": "reported",
       "cornerAddress": null
+    },
+    {
+      "key": "rooms/unmatched-tag-silent",
+      "lastPresentedAt": "2026-11-13T19:10:46Z",
+      "lastSeenAt": "2026-11-12T21:29:00Z",
+      "sourceSha": "1c65435aa2929f24c2c270444ebb70e2ac309848",
+      "evidence": "#beeline/insight card 13 Nov",
+      "impact": "1 new person's last request unanswered; tag matched no member, solo fallback off",
+      "cardMessageId": "da6937a721a6511124708b034de54d2dc40507ff443e057c45fa7c310b20c92c",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
     }
   ],
   "scores": [
@@ -1635,6 +1647,28 @@
         "providerSpecialCases": 0,
         "triageReports24h": 304,
         "humanReports24h": 0
+      }
+    },
+    {
+      "runDate": "2026-11-13",
+      "card": "insight",
+      "releaseSha": "1c65435aa2929f24c2c270444ebb70e2ac309848",
+      "shown": 1,
+      "approved": 0,
+      "cardMessageId": "da6937a721a6511124708b034de54d2dc40507ff443e057c45fa7c310b20c92c",
+      "loopScore": {
+        "insightLoss": {
+          "shortlisted": 1,
+          "activeConversations": 1,
+          "confirmedAfterReview": 1
+        },
+        "workspaceWalk": {
+          "completed": 0,
+          "sampled": 1,
+          "eligible": 1,
+          "partial": 1
+        },
+        "serverLogItems": 0
       }
     }
   ]
