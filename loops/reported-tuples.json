@@ -1233,24 +1233,24 @@
     },
     {
       "key": "free-agents/fly-start-race-at-deploy",
-      "lastPresentedAt": "2026-11-11T19:09:41Z",
-      "lastSeenAt": "2026-11-11T18:56:35Z",
-      "sourceSha": "1cc0add53461be8c8fd5136a4b413dfff5121898",
-      "evidence": "#beeline/insight card 11 Nov 14:00",
-      "impact": "9 start refusals + 9 catch-up gaps",
-      "cardMessageId": "328e4b097849aee4f427d47c080c91c3676e03006a7ee1e99cefef55e872622b",
+      "lastPresentedAt": "2026-11-17T19:10:05Z",
+      "lastSeenAt": "2026-11-17T18:35:44Z",
+      "sourceSha": "7080a23ed3351297858da9a0cb313550c889815c",
+      "evidence": "#beeline/insight card 17 Nov",
+      "impact": "19 catch-up gaps (9 prior)",
+      "cardMessageId": "6c96e76de6f8ab9348d4b91fd3aa28b4406bb271ce25367ef8dd324ed8a7e6e4",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
     },
     {
       "key": "server/unhandled-rejection-no-message",
-      "lastPresentedAt": "2026-11-11T19:09:41Z",
-      "lastSeenAt": "2026-11-11T13:39:49Z",
-      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
-      "evidence": "#beeline/insight card 11 Nov 14:00",
-      "impact": "7 events in 2 deploy bursts",
-      "cardMessageId": "328e4b097849aee4f427d47c080c91c3676e03006a7ee1e99cefef55e872622b",
+      "lastPresentedAt": "2026-11-17T19:10:05Z",
+      "lastSeenAt": "2026-11-17T18:15:18Z",
+      "sourceSha": "7080a23ed3351297858da9a0cb313550c889815c",
+      "evidence": "#beeline/insight card 17 Nov",
+      "impact": "23 in pool bursts",
+      "cardMessageId": "6c96e76de6f8ab9348d4b91fd3aa28b4406bb271ce25367ef8dd324ed8a7e6e4",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
@@ -1330,14 +1330,14 @@
     {
       "key": "db/long-running-pool-exhaustion",
       "fixSha": null,
-      "lastPresentedAt": "2026-11-13T14:13:00Z",
-      "lastSeenAt": "2026-11-13T03:45:19Z",
-      "sourceSha": "1c65435aa2929f24c2c270444ebb70e2ac309848",
-      "evidence": "#beeline/morning card 13 Nov",
-      "impact": "22 waiters, 144 timeouts 02:44-02:52 UTC",
-      "cardMessageId": "59996e4983d5f24c5a6127298a3fe218d02433c8710e222a263dc2f7ef600013",
-      "status": "in-fix",
-      "cornerAddress": "1b135345-67be-4a6a-8bed-1d741cb64076"
+      "lastPresentedAt": "2026-11-17T19:10:05Z",
+      "lastSeenAt": "2026-11-17T18:15:25Z",
+      "sourceSha": "7080a23ed3351297858da9a0cb313550c889815c",
+      "evidence": "#beeline/insight card 17 Nov",
+      "impact": "pool 25/25 on live after #4308; 283 wait timeouts, 51 dropped connections, 17 room enrichments degraded",
+      "cardMessageId": "6c96e76de6f8ab9348d4b91fd3aa28b4406bb271ce25367ef8dd324ed8a7e6e4",
+      "status": "reported",
+      "cornerAddress": null
     },
     {
       "key": "errors/sentry-no-user",
@@ -1446,6 +1446,54 @@
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
+    },
+    {
+      "key": "memory/named-procedure-not-recalled",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-17T19:10:05Z",
+      "lastSeenAt": "2026-11-17T03:23:40Z",
+      "sourceSha": "7764819a2e7b2c2e968ae0488170420dddad16df",
+      "evidence": "#beeline/insight card 17 Nov",
+      "impact": "1 person repeated a request; saved procedure not loaded on first turn",
+      "cardMessageId": "6c96e76de6f8ab9348d4b91fd3aa28b4406bb271ce25367ef8dd324ed8a7e6e4"
+    },
+    {
+      "key": "authority/digest-delivery-requester-missing",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-17T19:10:05Z",
+      "lastSeenAt": "2026-11-17T18:17:01Z",
+      "sourceSha": "7080a23ed3351297858da9a0cb313550c889815c",
+      "evidence": "#beeline/insight card 17 Nov",
+      "impact": "34 requester refusals; 6 after #4485 deploy",
+      "cardMessageId": "6c96e76de6f8ab9348d4b91fd3aa28b4406bb271ce25367ef8dd324ed8a7e6e4"
+    },
+    {
+      "key": "deploy/proxy-refused-during-restart",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-17T19:10:05Z",
+      "lastSeenAt": "2026-11-17T18:08:34Z",
+      "sourceSha": "7080a23ed3351297858da9a0cb313550c889815c",
+      "evidence": "#beeline/insight card 17 Nov",
+      "impact": "45 proxy refusals in 9 deploy windows",
+      "cardMessageId": "6c96e76de6f8ab9348d4b91fd3aa28b4406bb271ce25367ef8dd324ed8a7e6e4"
+    },
+    {
+      "key": "db/schedule-claim-lock-timeout",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-17T19:10:05Z",
+      "lastSeenAt": "2026-11-17T17:00:00Z",
+      "sourceSha": "7080a23ed3351297858da9a0cb313550c889815c",
+      "evidence": "#beeline/insight card 17 Nov",
+      "impact": "9 lock timeouts, 7 false parks; no missed runs",
+      "cardMessageId": "6c96e76de6f8ab9348d4b91fd3aa28b4406bb271ce25367ef8dd324ed8a7e6e4"
     }
   ],
   "scores": [
@@ -1669,6 +1717,28 @@
           "partial": 1
         },
         "serverLogItems": 0
+      }
+    },
+    {
+      "runDate": "2026-11-17",
+      "card": "insight",
+      "releaseSha": "7080a23ed3351297858da9a0cb313550c889815c",
+      "shown": 7,
+      "approved": 0,
+      "cardMessageId": "6c96e76de6f8ab9348d4b91fd3aa28b4406bb271ce25367ef8dd324ed8a7e6e4",
+      "loopScore": {
+        "insightLoss": {
+          "letDownPer100": 50,
+          "shortlisted": 1,
+          "activeConversations": 2,
+          "confirmedAfterReview": 1
+        },
+        "workspaceWalk": {
+          "completed": 0,
+          "sampled": 0,
+          "eligible": 0
+        },
+        "serverLogItems": 6
       }
     }
   ]
