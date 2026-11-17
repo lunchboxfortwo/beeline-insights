@@ -147,8 +147,10 @@ Legacy feeds without these additions remain schema-valid. New builds always
 include the three fields; missing input folders produce empty arrays/null.
 
 - `problems/<id>.json`: `id`, `kind` (`problem` or `regression`), `rank`, `date`,
-  `title`, `peoplePerDay`, `trend` (`up`, `flat`, `down`), `cause`, `stage`,
-  `source`. A regression also requires `regression {causedByPr, report}`;
+  `title`, `peoplePerDay` (a count, or `null` when that card did not count people),
+  `trend` (`up`, `flat`, `down`), `cause`, `stage`,
+  `source`. A dated `problems/YYYY-MM-DD.json` card is published at ranks 1..n.
+  Every other problem is ranked below that card. A regression also requires `regression {causedByPr, report}`;
   `causedByPr` is the full GitHub pull request URL that caused it.
   Optional fields for big problems (the feed copies them unchanged):
   - `scope`: `people` for a problem that costs us people; `single` for one bug or agent fault.

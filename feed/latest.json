@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T19:20:45.209Z",
+  "generatedAt": "2026-11-17T19:36:42.510Z",
   "insights": {
     "generatedAt": "2026-11-03T14:08:00.000Z",
     "window": {
@@ -403,37 +403,11 @@
   ],
   "problems": [
     {
-      "id": "db-lock-contention",
-      "kind": "problem",
-      "rank": 1,
-      "date": "2026-11-09",
-      "title": "Database contention interrupts corner updates and account deletion",
-      "peoplePerDay": 0,
-      "trend": "flat",
-      "cause": "server",
-      "stage": "daily-use",
-      "source": "sentry",
-      "scope": "single",
-      "lastHit": "2026-11-09",
-      "whatHappens": "Database contention interrupts corner updates and account deletion",
-      "fixes": [],
-      "observations": [
-        {
-          "date": "2026-11-04",
-          "text": "Sentry, 3-4 Nov: 12 issues (lock timeouts, deadlocks, connect timeouts), 1-3 events each, 0 users, spread from 12:49 to 10:06 UTC. Log walk: 270 skill-anchor lock timeouts, 17 Sentry-wake and 14 check re-read failures; about 72,000 slow-query lines, mostly one agent command recovery query."
-        },
-        {
-          "date": "2026-11-09",
-          "text": "Five unresolved groups total 22 events in the last day. The latest corner refresh failed on the delivered release. Three paths already have an approved repair; connection-pool pressure remains untraced."
-        }
-      ]
-    },
-    {
       "id": "db-long-running-pool-exhaustion",
       "rank": 1,
       "date": "2026-11-17",
       "title": "Chat lists stall and requests time out.",
-      "peoplePerDay": 0,
+      "peoplePerDay": null,
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
@@ -466,9 +440,332 @@
       "lastSeen": "14:53Z on 228-rc.1"
     },
     {
+      "id": "connectors-free-agent-squire-offer-error",
+      "rank": 2,
+      "date": "2026-11-17",
+      "title": "A person who taps \"connect Squire\" for a free agent gets a server error.",
+      "peoplePerDay": null,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-17 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-17",
+      "whatHappens": "A person who taps \"connect Squire\" for a free agent gets a server error.",
+      "observations": [
+        {
+          "date": "2026-11-17",
+          "text": "The phone offers the option, then the server throws a plain error (BEELINE-SERVER-5A). (2) people, at 12:24Z and 14:23Z, on 227 and 228-rc.1."
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Last seen 14:23Z on 228-rc.1"
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Proposed fix: Do not offer Squire for free-agent helpers, and return the guidance as a normal refusal, not a Sentry error. Confidence: medium (phone screen not reproduced)."
+        }
+      ],
+      "problem": "A person who taps \"connect Squire\" for a free agent gets a server error.",
+      "fix": "Do not offer Squire for free-agent helpers, and return the guidance as a normal refusal, not a Sentry error. Confidence: medium (phone screen not reproduced).",
+      "evidence": "The phone offers the option, then the server throws a plain error (BEELINE-SERVER-5A). (2) people, at 12:24Z and 14:23Z, on 227 and 228-rc.1.",
+      "lastSeen": "14:23Z on 228-rc.1"
+    },
+    {
+      "id": "memory-digest-requester-authority",
+      "rank": 3,
+      "date": "2026-11-17",
+      "title": "Scheduled digest turns cannot read or save memory.",
+      "peoplePerDay": null,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-17 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-17",
+      "whatHappens": "Scheduled digest turns cannot read or save memory.",
+      "observations": [
+        {
+          "date": "2026-11-17",
+          "text": "Came back after PR 4462."
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Last seen 12:25Z on 227-rc.1 (Jellybean's Sentry digest)"
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Proposed fix: Give scheduler and subscription turns a requester for memory, with a test of a scheduler-woken turn. Confidence: high."
+        }
+      ],
+      "problem": "Scheduled digest turns cannot read or save memory.",
+      "fix": "Give scheduler and subscription turns a requester for memory, with a test of a scheduler-woken turn. Confidence: high.",
+      "evidence": "Came back after PR 4462.",
+      "lastSeen": "12:25Z on 227-rc.1 (Jellybean's Sentry digest)"
+    },
+    {
+      "id": "session-mcp-closed-notice",
+      "rank": 4,
+      "date": "2026-11-17",
+      "title": "Session setup says Squire is \"connection closed\" while it works.",
+      "peoplePerDay": null,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-17 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-17",
+      "whatHappens": "Session setup says Squire is \"connection closed\" while it works.",
+      "observations": [
+        {
+          "date": "2026-11-17",
+          "text": "Reproduced 14:45Z in this run: every Squire call worked."
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Last seen 14:45Z"
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Proposed fix: Drop or correct the notice when the registry route serves the tools. Confidence: high."
+        }
+      ],
+      "problem": "Session setup says Squire is \"connection closed\" while it works.",
+      "fix": "Drop or correct the notice when the registry route serves the tools. Confidence: high.",
+      "evidence": "Reproduced 14:45Z in this run: every Squire call worked.",
+      "lastSeen": "14:45Z"
+    },
+    {
+      "id": "bridge-oauth-redirect-unregistered",
+      "rank": 5,
+      "date": "2026-11-17",
+      "title": "Private bridge reconnect fails with \"redirect_uri_unregistered\".",
+      "peoplePerDay": null,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-17 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-17",
+      "whatHappens": "Private bridge reconnect fails with \"redirect_uri_unregistered\".",
+      "observations": [
+        {
+          "date": "2026-11-17",
+          "text": "14 min after PR 4442 changed connector metadata. No fix since."
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Last seen 00:23Z on 222"
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Proposed fix: Investigation thread to compare the stored redirect list with the bridge callback. Confidence: medium."
+        }
+      ],
+      "problem": "Private bridge reconnect fails with \"redirect_uri_unregistered\".",
+      "fix": "Investigation thread to compare the stored redirect list with the bridge callback. Confidence: medium.",
+      "evidence": "14 min after PR 4442 changed connector metadata. No fix since.",
+      "lastSeen": "00:23Z on 222"
+    },
+    {
+      "id": "scheduler-resume-loses-tmp",
+      "rank": 6,
+      "date": "2026-11-17",
+      "title": "A resumed scheduled run lost its temporary files.",
+      "peoplePerDay": null,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-17 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-17",
+      "whatHappens": "A resumed scheduled run lost its temporary files.",
+      "observations": [
+        {
+          "date": "2026-11-17",
+          "text": "No fix since."
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Last seen 08:29Z on 225-rc.1"
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Proposed fix: Keep loop captures in the agent home, not /tmp. Confidence: medium."
+        }
+      ],
+      "problem": "A resumed scheduled run lost its temporary files.",
+      "fix": "Keep loop captures in the agent home, not /tmp. Confidence: medium.",
+      "evidence": "No fix since.",
+      "lastSeen": "08:29Z on 225-rc.1"
+    },
+    {
+      "id": "squire-cloudflare-challenge-empty",
+      "rank": 7,
+      "date": "2026-11-17",
+      "title": "Squire shows a Cloudflare challenge as \"network_busy\".",
+      "peoplePerDay": null,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-17 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-17",
+      "whatHappens": "Squire shows a Cloudflare challenge as \"network_busy\".",
+      "observations": [
+        {
+          "date": "2026-11-17",
+          "text": "Squire is a separate service; I cannot see its fixes from here."
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Last seen 00:15Z"
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Proposed fix: Report the challenge type and stop after a zero-step attempt. Confidence: medium."
+        }
+      ],
+      "problem": "Squire shows a Cloudflare challenge as \"network_busy\".",
+      "fix": "Report the challenge type and stop after a zero-step attempt. Confidence: medium.",
+      "evidence": "Squire is a separate service; I cannot see its fixes from here.",
+      "lastSeen": "00:15Z"
+    },
+    {
+      "id": "squire-github-raw-and-release-list",
+      "rank": 8,
+      "date": "2026-11-17",
+      "title": "Squire rejects GitHub raw file reads, and the release list comes back empty.",
+      "peoplePerDay": null,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-17 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-17",
+      "whatHappens": "Squire rejects GitHub raw file reads, and the release list comes back empty.",
+      "observations": [
+        {
+          "date": "2026-11-17",
+          "text": "Workaround used this run."
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Last seen 10:05Z on 225-rc.1"
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Proposed fix: Pass raw bodies through; check the empty release list. Confidence: medium."
+        }
+      ],
+      "problem": "Squire rejects GitHub raw file reads, and the release list comes back empty.",
+      "fix": "Pass raw bodies through; check the empty release list. Confidence: medium.",
+      "evidence": "Workaround used this run.",
+      "lastSeen": "10:05Z on 225-rc.1"
+    },
+    {
+      "id": "ci-nightly-checks-not-run",
+      "rank": 9,
+      "date": "2026-11-17",
+      "title": "Main has had no full nightly check for 4 nights.",
+      "peoplePerDay": null,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-17 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-17",
+      "whatHappens": "Main has had no full nightly check for 4 nights.",
+      "observations": [
+        {
+          "date": "2026-11-17",
+          "text": "The workflow is active on GitHub, and the file is on main. Last failed dispatch: 07:27Z today (release thread)."
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Last seen 07:27Z (release thread)"
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Proposed fix: Run the full checks on squire after the 2 AM release (release-local --leg release_checks already exists), and delete the failing agent dispatch schedule. Confidence: high."
+        }
+      ],
+      "problem": "Main has had no full nightly check for 4 nights.",
+      "fix": "Run the full checks on squire after the 2 AM release (release-local --leg release_checks already exists), and delete the failing agent dispatch schedule. Confidence: high.",
+      "evidence": "The workflow is active on GitHub, and the file is on main. Last failed dispatch: 07:27Z today (release thread).",
+      "lastSeen": "07:27Z (release thread)"
+    },
+    {
+      "id": "health-server-queued-context-transport-coupling",
+      "rank": 10,
+      "date": "2026-11-17",
+      "title": "Queued-work context is built twice and drifts.",
+      "peoplePerDay": null,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-17 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-17",
+      "whatHappens": "Queued-work context is built twice and drifts.",
+      "observations": [
+        {
+          "date": "2026-11-17",
+          "text": "PR 4462 and PR 4470 each edited the same (5) server files to restore context."
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Last seen 08:44Z on 225-rc.1"
+        },
+        {
+          "date": "2026-11-17",
+          "text": "Proposed fix: Build the context once and write the command and its event in one transaction, with the same wire format. Confidence: medium."
+        }
+      ],
+      "problem": "Queued-work context is built twice and drifts.",
+      "fix": "Build the context once and write the command and its event in one transaction, with the same wire format. Confidence: medium.",
+      "evidence": "PR 4462 and PR 4470 each edited the same (5) server files to restore context.",
+      "lastSeen": "08:44Z on 225-rc.1"
+    },
+    {
+      "id": "db-lock-contention",
+      "kind": "problem",
+      "rank": 11,
+      "date": "2026-11-09",
+      "title": "Database contention interrupts corner updates and account deletion",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "server",
+      "stage": "daily-use",
+      "source": "sentry",
+      "scope": "single",
+      "lastHit": "2026-11-09",
+      "whatHappens": "Database contention interrupts corner updates and account deletion",
+      "fixes": [],
+      "observations": [
+        {
+          "date": "2026-11-04",
+          "text": "Sentry, 3-4 Nov: 12 issues (lock timeouts, deadlocks, connect timeouts), 1-3 events each, 0 users, spread from 12:49 to 10:06 UTC. Log walk: 270 skill-anchor lock timeouts, 17 Sentry-wake and 14 check re-read failures; about 72,000 slow-query lines, mostly one agent command recovery query."
+        },
+        {
+          "date": "2026-11-09",
+          "text": "Five unresolved groups total 22 events in the last day. The latest corner refresh failed on the delivered release. Three paths already have an approved repair; connection-pool pressure remains untraced."
+        }
+      ]
+    },
+    {
       "id": "signin-lost",
       "kind": "problem",
-      "rank": 1,
+      "rank": 11,
       "date": "2026-10-31",
       "title": "New phone users tap Google or GitHub but never get signed in",
       "peoplePerDay": 1,
@@ -554,42 +851,9 @@
       ]
     },
     {
-      "id": "connectors-free-agent-squire-offer-error",
-      "rank": 2,
-      "date": "2026-11-17",
-      "title": "A person who taps \"connect Squire\" for a free agent gets a server error.",
-      "peoplePerDay": 0,
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-17 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-17",
-      "whatHappens": "A person who taps \"connect Squire\" for a free agent gets a server error.",
-      "observations": [
-        {
-          "date": "2026-11-17",
-          "text": "The phone offers the option, then the server throws a plain error (BEELINE-SERVER-5A). (2) people, at 12:24Z and 14:23Z, on 227 and 228-rc.1."
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Last seen 14:23Z on 228-rc.1"
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Proposed fix: Do not offer Squire for free-agent helpers, and return the guidance as a normal refusal, not a Sentry error. Confidence: medium (phone screen not reproduced)."
-        }
-      ],
-      "problem": "A person who taps \"connect Squire\" for a free agent gets a server error.",
-      "fix": "Do not offer Squire for free-agent helpers, and return the guidance as a normal refusal, not a Sentry error. Confidence: medium (phone screen not reproduced).",
-      "evidence": "The phone offers the option, then the server throws a plain error (BEELINE-SERVER-5A). (2) people, at 12:24Z and 14:23Z, on 227 and 228-rc.1.",
-      "lastSeen": "14:23Z on 228-rc.1"
-    },
-    {
       "id": "mobile-background-color-refusal",
       "kind": "problem",
-      "rank": 2,
+      "rank": 12,
       "date": "2026-11-09",
       "title": "Phones report a rejected background colour update",
       "peoplePerDay": 0,
@@ -611,7 +875,7 @@
     {
       "id": "next-day-return",
       "kind": "problem",
-      "rank": 2,
+      "rank": 12,
       "date": "2026-10-31",
       "title": "New people who write to an agent do not come back the next day",
       "peoplePerDay": 0,
@@ -682,42 +946,9 @@
       ]
     },
     {
-      "id": "memory-digest-requester-authority",
-      "rank": 3,
-      "date": "2026-11-17",
-      "title": "Scheduled digest turns cannot read or save memory.",
-      "peoplePerDay": 0,
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-17 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-17",
-      "whatHappens": "Scheduled digest turns cannot read or save memory.",
-      "observations": [
-        {
-          "date": "2026-11-17",
-          "text": "Came back after PR 4462."
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Last seen 12:25Z on 227-rc.1 (Jellybean's Sentry digest)"
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Proposed fix: Give scheduler and subscription turns a requester for memory, with a test of a scheduler-woken turn. Confidence: high."
-        }
-      ],
-      "problem": "Scheduled digest turns cannot read or save memory.",
-      "fix": "Give scheduler and subscription turns a requester for memory, with a test of a scheduler-woken turn. Confidence: high.",
-      "evidence": "Came back after PR 4462.",
-      "lastSeen": "12:25Z on 227-rc.1 (Jellybean's Sentry digest)"
-    },
-    {
       "id": "mobile-storage-full",
       "kind": "problem",
-      "rank": 3,
+      "rank": 13,
       "date": "2026-11-09",
       "title": "Android storage writes fail when the local database fills",
       "peoplePerDay": 0,
@@ -739,7 +970,7 @@
     {
       "id": "github-diagnostic-config",
       "kind": "problem",
-      "rank": 4,
+      "rank": 14,
       "date": "2026-11-09",
       "title": "A diagnostic script starts without GitHub configuration",
       "peoplePerDay": 0,
@@ -759,74 +990,8 @@
       ]
     },
     {
-      "id": "session-mcp-closed-notice",
-      "rank": 4,
-      "date": "2026-11-17",
-      "title": "Session setup says Squire is \"connection closed\" while it works.",
-      "peoplePerDay": 0,
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-17 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-17",
-      "whatHappens": "Session setup says Squire is \"connection closed\" while it works.",
-      "observations": [
-        {
-          "date": "2026-11-17",
-          "text": "Reproduced 14:45Z in this run: every Squire call worked."
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Last seen 14:45Z"
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Proposed fix: Drop or correct the notice when the registry route serves the tools. Confidence: high."
-        }
-      ],
-      "problem": "Session setup says Squire is \"connection closed\" while it works.",
-      "fix": "Drop or correct the notice when the registry route serves the tools. Confidence: high.",
-      "evidence": "Reproduced 14:45Z in this run: every Squire call worked.",
-      "lastSeen": "14:45Z"
-    },
-    {
-      "id": "bridge-oauth-redirect-unregistered",
-      "rank": 5,
-      "date": "2026-11-17",
-      "title": "Private bridge reconnect fails with \"redirect_uri_unregistered\".",
-      "peoplePerDay": 0,
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-17 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-17",
-      "whatHappens": "Private bridge reconnect fails with \"redirect_uri_unregistered\".",
-      "observations": [
-        {
-          "date": "2026-11-17",
-          "text": "14 min after PR 4442 changed connector metadata. No fix since."
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Last seen 00:23Z on 222"
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Proposed fix: Investigation thread to compare the stored redirect list with the bridge callback. Confidence: medium."
-        }
-      ],
-      "problem": "Private bridge reconnect fails with \"redirect_uri_unregistered\".",
-      "fix": "Investigation thread to compare the stored redirect list with the bridge callback. Confidence: medium.",
-      "evidence": "14 min after PR 4442 changed connector metadata. No fix since.",
-      "lastSeen": "00:23Z on 222"
-    },
-    {
       "id": "review-deps-install-refused",
-      "rank": 5,
+      "rank": 15,
       "kind": "regression",
       "scope": "single",
       "title": "Mobile work starts before its required dependencies are available",
@@ -862,7 +1027,7 @@
     },
     {
       "id": "personal-github-proxy-502",
-      "rank": 6,
+      "rank": 16,
       "date": "2026-11-09",
       "observations": [
         {
@@ -887,72 +1052,6 @@
       "whatHappens": "Repository reads reject pagination and return file metadata"
     },
     {
-      "id": "scheduler-resume-loses-tmp",
-      "rank": 6,
-      "date": "2026-11-17",
-      "title": "A resumed scheduled run lost its temporary files.",
-      "peoplePerDay": 0,
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-17 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-17",
-      "whatHappens": "A resumed scheduled run lost its temporary files.",
-      "observations": [
-        {
-          "date": "2026-11-17",
-          "text": "No fix since."
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Last seen 08:29Z on 225-rc.1"
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Proposed fix: Keep loop captures in the agent home, not /tmp. Confidence: medium."
-        }
-      ],
-      "problem": "A resumed scheduled run lost its temporary files.",
-      "fix": "Keep loop captures in the agent home, not /tmp. Confidence: medium.",
-      "evidence": "No fix since.",
-      "lastSeen": "08:29Z on 225-rc.1"
-    },
-    {
-      "id": "squire-cloudflare-challenge-empty",
-      "rank": 7,
-      "date": "2026-11-17",
-      "title": "Squire shows a Cloudflare challenge as \"network_busy\".",
-      "peoplePerDay": 0,
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-17 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-17",
-      "whatHappens": "Squire shows a Cloudflare challenge as \"network_busy\".",
-      "observations": [
-        {
-          "date": "2026-11-17",
-          "text": "Squire is a separate service; I cannot see its fixes from here."
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Last seen 00:15Z"
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Proposed fix: Report the challenge type and stop after a zero-step attempt. Confidence: medium."
-        }
-      ],
-      "problem": "Squire shows a Cloudflare challenge as \"network_busy\".",
-      "fix": "Report the challenge type and stop after a zero-step attempt. Confidence: medium.",
-      "evidence": "Squire is a separate service; I cannot see its fixes from here.",
-      "lastSeen": "00:15Z"
-    },
-    {
       "peoplePerDay": 0,
       "date": "2026-11-09",
       "stage": "daily-use",
@@ -960,7 +1059,7 @@
       "scope": "single",
       "id": "stale-order-redelivery",
       "kind": "problem",
-      "rank": 7,
+      "rank": 17,
       "trend": "flat",
       "cause": "server",
       "lastHit": "2026-11-09",
@@ -984,7 +1083,7 @@
     },
     {
       "id": "background-watcher-liveness",
-      "rank": 8,
+      "rank": 18,
       "date": "2026-11-09",
       "observations": [
         {
@@ -1019,75 +1118,9 @@
       "whatHappens": "Native builds end before the next turn can collect their results"
     },
     {
-      "id": "squire-github-raw-and-release-list",
-      "rank": 8,
-      "date": "2026-11-17",
-      "title": "Squire rejects GitHub raw file reads, and the release list comes back empty.",
-      "peoplePerDay": 0,
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-17 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-17",
-      "whatHappens": "Squire rejects GitHub raw file reads, and the release list comes back empty.",
-      "observations": [
-        {
-          "date": "2026-11-17",
-          "text": "Workaround used this run."
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Last seen 10:05Z on 225-rc.1"
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Proposed fix: Pass raw bodies through; check the empty release list. Confidence: medium."
-        }
-      ],
-      "problem": "Squire rejects GitHub raw file reads, and the release list comes back empty.",
-      "fix": "Pass raw bodies through; check the empty release list. Confidence: medium.",
-      "evidence": "Workaround used this run.",
-      "lastSeen": "10:05Z on 225-rc.1"
-    },
-    {
-      "id": "ci-nightly-checks-not-run",
-      "rank": 9,
-      "date": "2026-11-17",
-      "title": "Main has had no full nightly check for 4 nights.",
-      "peoplePerDay": 0,
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-17 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-17",
-      "whatHappens": "Main has had no full nightly check for 4 nights.",
-      "observations": [
-        {
-          "date": "2026-11-17",
-          "text": "The workflow is active on GitHub, and the file is on main. Last failed dispatch: 07:27Z today (release thread)."
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Last seen 07:27Z (release thread)"
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Proposed fix: Run the full checks on squire after the 2 AM release (release-local --leg release_checks already exists), and delete the failing agent dispatch schedule. Confidence: high."
-        }
-      ],
-      "problem": "Main has had no full nightly check for 4 nights.",
-      "fix": "Run the full checks on squire after the 2 AM release (release-local --leg release_checks already exists), and delete the failing agent dispatch schedule. Confidence: high.",
-      "evidence": "The workflow is active on GitHub, and the file is on main. Last failed dispatch: 07:27Z today (release thread).",
-      "lastSeen": "07:27Z (release thread)"
-    },
-    {
       "id": "workflow-recovery",
       "kind": "problem",
-      "rank": 9,
+      "rank": 19,
       "date": "2026-11-09",
       "title": "Failed workflow runs cannot resume and answers miss their cards",
       "peoplePerDay": 0,
@@ -1115,7 +1148,7 @@
       "stage": "daily-use",
       "source": "feedback",
       "title": "An agent appears to stop before finishing the requested work",
-      "rank": 10,
+      "rank": 20,
       "date": "2026-11-09",
       "scope": "people",
       "lastHit": "2026-11-08",
@@ -1127,39 +1160,6 @@
           "text": "One old human report has no recorded app version, and a newer agent report describes a turn that never closed. Shared cause is unconfirmed. Workflow recovery already covers turn closure; hold the old human symptom for renewed evidence."
         }
       ]
-    },
-    {
-      "id": "health-server-queued-context-transport-coupling",
-      "rank": 10,
-      "date": "2026-11-17",
-      "title": "Queued-work context is built twice and drifts.",
-      "peoplePerDay": 0,
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-17 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-17",
-      "whatHappens": "Queued-work context is built twice and drifts.",
-      "observations": [
-        {
-          "date": "2026-11-17",
-          "text": "PR 4462 and PR 4470 each edited the same (5) server files to restore context."
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Last seen 08:44Z on 225-rc.1"
-        },
-        {
-          "date": "2026-11-17",
-          "text": "Proposed fix: Build the context once and write the command and its event in one transaction, with the same wire format. Confidence: medium."
-        }
-      ],
-      "problem": "Queued-work context is built twice and drifts.",
-      "fix": "Build the context once and write the command and its event in one transaction, with the same wire format. Confidence: medium.",
-      "evidence": "PR 4462 and PR 4470 each edited the same (5) server files to restore context.",
-      "lastSeen": "08:44Z on 225-rc.1"
     }
   ],
   "walk": [

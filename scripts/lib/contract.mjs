@@ -295,7 +295,7 @@ export function morningCardProblems(items, date) {
       rank: item.number,
       date,
       title: item.problem,
-      peoplePerDay: 0,
+      peoplePerDay: null,
       trend: 'flat',
       cause: 'unknown',
       stage: 'daily-use',
@@ -359,6 +359,19 @@ export async function loadContract(root) {
   problemIds.forEach((id, index) => {
     if (problemIds.indexOf(id) !== index) problems.push(`problems: duplicate id ${id}`);
   });
+  // The ranked panel is the lowest ranks. A morning card already numbers its
+  // items 1..n. Older register files keep those same ranks, so they sort
+  // ahead of the card and look like today's top problems. Keep the newest
+  // card's ranks and publish every other problem below them.
+  const cardProblems = additions.problems.filter((problem) => typeof problem.source === 'string' && problem.source.endsWith(' morning card'));
+  if (cardProblems.length) {
+    const latest = cardProblems.reduce((max, problem) => (problem.date > max ? problem.date : max), '');
+    const current = additions.problems.filter((problem) => problem.source === `${latest} morning card`);
+    const floor = current.reduce((max, problem) => Math.max(max, problem.rank), 0);
+    for (const problem of additions.problems) {
+      if (problem.source !== `${latest} morning card`) problem.rank += floor;
+    }
+  }
   additions.problems.sort((a, b) => a.rank - b.rank || String(a.id).localeCompare(String(b.id)));
   additions.walk.sort((a, b) => String(b.date).localeCompare(String(a.date)));
   additions.themes = [];

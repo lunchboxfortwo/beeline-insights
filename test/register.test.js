@@ -166,9 +166,17 @@ test('a dated morning card file becomes one dashboard problem per item', async (
     fix: 'Give presence its own pool.',
   }];
   await writeFile(join(root, 'problems/2026-11-17.json'), JSON.stringify(card));
+  await writeFile(join(root, 'problems/old-register.json'), JSON.stringify({
+    id: 'old-register', kind: 'problem', rank: 1, date: '2026-11-09', title: 'Old register item',
+    peoplePerDay: 2, trend: 'down', cause: 'server', stage: 'daily-use', source: 'sentry', scope: 'people',
+  }));
   const feed = await buildFeed({ root, today: '2026-11-17' });
-  assert.equal(feed.problems.length, 1);
+  assert.equal(feed.problems.length, 2);
   assert.equal(feed.problems[0].id, 'db-pool');
+  assert.equal(feed.problems[0].rank, 1);
+  assert.equal(feed.problems[0].peoplePerDay, null);
+  assert.equal(feed.problems[1].id, 'old-register');
+  assert.equal(feed.problems[1].rank, 2);
   assert.equal(feed.problems[0].evidence.length, 324);
   assert.equal(feed.problems[0].fix, card[0].fix);
   assert.equal(feed.problems[0].lastSeen, card[0].lastSeen);

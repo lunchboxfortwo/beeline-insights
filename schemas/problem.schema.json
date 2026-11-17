@@ -34,8 +34,10 @@
       "maxLength": 200
     },
     "peoplePerDay": {
-      "type": "integer",
-      "minimum": 0
+      "anyOf": [
+        { "type": "integer", "minimum": 0 },
+        { "type": "null" }
+      ]
     },
     "trend": {
       "enum": [
