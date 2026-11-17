@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { buildFeed } from '../scripts/build-feed.mjs';
 import { gradeExperiment, gradeExperiments } from '../scripts/grade-experiments.mjs';
 import { journeyFromSnapshot } from '../scripts/journey.mjs';
-import { experimentErrors, insightsErrors, parseDigest, reachErrors, schemaErrors } from '../scripts/lib/contract.mjs';
+import { morningCardProblems, experimentErrors, insightsErrors, parseDigest, reachErrors, schemaErrors } from '../scripts/lib/contract.mjs';
 import { addDays } from '../scripts/lib/analysis.mjs';
 import { validate } from '../scripts/validate.mjs';
 
@@ -261,4 +261,17 @@ test('the repository files pass validation', async () => {
   const { easternDate } = await import('../scripts/snapshot.mjs');
   // Theme freshness is checked by npm run validate, not here: the daily snapshot job runs npm test first.
   assert.deepEqual(await validate({ root, today: easternDate(), fresh: false }), []);
+});
+
+test('morning cards preserve measured people and leave unmeasured counts null', () => {
+  const items = [
+    { number: 1, key: 'measured', peoplePerDay: 2 },
+    { number: 2, key: 'unmeasured' },
+    { number: 3, key: 'explicit-null', peoplePerDay: null },
+    { number: 4, key: 'zero', peoplePerDay: 0 },
+  ].map(item => ({ problem: 'Problem', evidence: 'Evidence', lastSeen: 'Today', fix: 'Fix', ...item }));
+  assert.deepEqual(schemaErrors(items, 'morning-card.schema.json'), []);
+  const result = morningCardProblems(items, '2026-11-17');
+  assert.deepEqual(result.errors, []);
+  assert.deepEqual(result.problems.map(row => row.peoplePerDay), [2, null, null, 0]);
 });

@@ -295,7 +295,7 @@ export function morningCardProblems(items, date) {
       rank: item.number,
       date,
       title: item.problem,
-      peoplePerDay: null,
+      peoplePerDay: item.peoplePerDay ?? null,
       trend: 'flat',
       cause: 'unknown',
       stage: 'daily-use',
