@@ -1,0 +1,82 @@
+[
+  {
+    "number": 1,
+    "key": "db/long-running-pool-exhaustion",
+    "problem": "Chat lists stall and requests time out.",
+    "evidence": "The presence query on the chat list averages (11.1 s) since 12Z, (312) runs, max (28 s). Before 12Z: (1,072) runs, avg (15.4 s), max (68 s). Pool timeouts: (9) at 11:36Z on 227-rc.1, (116) between 00Z and 06Z. Came back after PR 4308; that PR fixed command pickup, not presence. member-presence.ts is unchanged since 13 Nov.",
+    "lastSeen": "14:53Z on 228-rc.1",
+    "fix": "Give presence its own small pool with a time limit, and compute presence once per agent, not once per chat. Confidence: high."
+  },
+  {
+    "number": 2,
+    "key": "connectors/free-agent-squire-offer-error",
+    "problem": "A person who taps \"connect Squire\" for a free agent gets a server error.",
+    "evidence": "The phone offers the option, then the server throws a plain error (BEELINE-SERVER-5A). (2) people, at 12:24Z and 14:23Z, on 227 and 228-rc.1.",
+    "lastSeen": "14:23Z on 228-rc.1",
+    "fix": "Do not offer Squire for free-agent helpers, and return the guidance as a normal refusal, not a Sentry error. Confidence: medium (phone screen not reproduced)."
+  },
+  {
+    "number": 3,
+    "key": "memory/digest-requester-authority",
+    "problem": "Scheduled digest turns cannot read or save memory.",
+    "evidence": "Came back after PR 4462.",
+    "lastSeen": "12:25Z on 227-rc.1 (Jellybean's Sentry digest)",
+    "fix": "Give scheduler and subscription turns a requester for memory, with a test of a scheduler-woken turn. Confidence: high."
+  },
+  {
+    "number": 4,
+    "key": "session/mcp-closed-notice",
+    "problem": "Session setup says Squire is \"connection closed\" while it works.",
+    "evidence": "Reproduced 14:45Z in this run: every Squire call worked.",
+    "lastSeen": "14:45Z",
+    "fix": "Drop or correct the notice when the registry route serves the tools. Confidence: high."
+  },
+  {
+    "number": 5,
+    "key": "bridge/oauth-redirect-unregistered",
+    "problem": "Private bridge reconnect fails with \"redirect_uri_unregistered\".",
+    "evidence": "14 min after PR 4442 changed connector metadata. No fix since.",
+    "lastSeen": "00:23Z on 222",
+    "fix": "Investigation thread to compare the stored redirect list with the bridge callback. Confidence: medium."
+  },
+  {
+    "number": 6,
+    "key": "scheduler/resume-loses-tmp",
+    "problem": "A resumed scheduled run lost its temporary files.",
+    "evidence": "No fix since.",
+    "lastSeen": "08:29Z on 225-rc.1",
+    "fix": "Keep loop captures in the agent home, not /tmp. Confidence: medium."
+  },
+  {
+    "number": 7,
+    "key": "squire/cloudflare-challenge-empty",
+    "problem": "Squire shows a Cloudflare challenge as \"network_busy\".",
+    "evidence": "Squire is a separate service; I cannot see its fixes from here.",
+    "lastSeen": "00:15Z",
+    "fix": "Report the challenge type and stop after a zero-step attempt. Confidence: medium."
+  },
+  {
+    "number": 8,
+    "key": "squire/github-raw-and-release-list",
+    "problem": "Squire rejects GitHub raw file reads, and the release list comes back empty.",
+    "evidence": "Workaround used this run.",
+    "lastSeen": "10:05Z on 225-rc.1",
+    "fix": "Pass raw bodies through; check the empty release list. Confidence: medium."
+  },
+  {
+    "number": 9,
+    "key": "ci/nightly-checks-not-run",
+    "problem": "Main has had no full nightly check for 4 nights.",
+    "evidence": "The workflow is active on GitHub, and the file is on main. Last failed dispatch: 07:27Z today (release thread).",
+    "lastSeen": "07:27Z (release thread)",
+    "fix": "Run the full checks on squire after the 2 AM release (release-local --leg release_checks already exists), and delete the failing agent dispatch schedule. Confidence: high."
+  },
+  {
+    "number": 10,
+    "key": "health/server/queued-context-transport-coupling",
+    "problem": "Queued-work context is built twice and drifts.",
+    "evidence": "PR 4462 and PR 4470 each edited the same (5) server files to restore context.",
+    "lastSeen": "08:44Z on 225-rc.1",
+    "fix": "Build the context once and write the command and its event in one transaction, with the same wire format. Confidence: medium."
+  }
+]
