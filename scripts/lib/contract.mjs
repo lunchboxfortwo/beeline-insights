@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { SERIES, addDays, isDate, readJSON } from './analysis.mjs';
 
 const SCHEMA_DIR = fileURLToPath(new URL('../../schemas/', import.meta.url));
-export const SCHEMA_FILES = ['insights', 'experiment', 'reach', 'digest', 'problem', 'walk', 'retention', 'theme', 'feed'].map((name) => `${name}.schema.json`);
+export const SCHEMA_FILES = ['insights', 'experiment', 'reach', 'digest', 'problem', 'walk', 'retention', 'theme', 'feed', 'morning-card'].map((name) => `${name}.schema.json`);
 const schemas = Object.fromEntries(await Promise.all(SCHEMA_FILES.map(async (file) => [file, JSON.parse(await readFile(join(SCHEMA_DIR, file), 'utf8'))])));
 
 const typeOf = (value) => value === null ? 'null' : Array.isArray(value) ? 'array'
@@ -50,6 +50,7 @@ function check(value, schema, root, path, errors) {
   if (typeof value === 'number') {
     if (!Number.isFinite(value)) return fail('expected a finite number');
     if (schema.minimum !== undefined && value < schema.minimum) return fail(`expected at least ${schema.minimum}`);
+    if (schema.maximum !== undefined && value > schema.maximum) return fail(`expected at most ${schema.maximum}`);
   }
   if (Array.isArray(value) && schema.minItems !== undefined && value.length < schema.minItems) fail(`expected at least ${schema.minItems} items`);
   if (Array.isArray(value) && schema.maxItems !== undefined && value.length > schema.maxItems) fail(`expected at most ${schema.maxItems} items`);
@@ -253,6 +254,66 @@ async function list(directory, suffix) {
   }
 }
 
+const CARD_FILE = /^(\d{4}-\d{2}-\d{2})\.json$/;
+const PROBLEM_ID = /^[a-z0-9][a-z0-9-]*$/;
+
+// The dashboard renders observation text only up to 300 characters.
+function noteChunks(text) {
+  const parts = [];
+  let rest = text.trim();
+  while (rest.length > 300) {
+    let cut = rest.lastIndexOf(' ', 300);
+    if (cut < 150) cut = 300;
+    parts.push(rest.slice(0, cut).trim());
+    rest = rest.slice(cut).trim();
+  }
+  if (rest) parts.push(rest);
+  return parts;
+}
+
+// A dated problems file is one morning card: up to 10 items. The feed still
+// publishes one ranked problem per item, which is what the dashboard lists.
+export function morningCardProblems(items, date) {
+  const errors = [];
+  const seenNumbers = new Set();
+  const seenIds = new Set();
+  const problems = [];
+  items.forEach((item, index) => {
+    const id = String(item.key).replaceAll('/', '-');
+    if (!PROBLEM_ID.test(id)) errors.push(`[${index}].key: cannot be a problem id`);
+    if (seenNumbers.has(item.number)) errors.push(`[${index}].number: duplicate`);
+    if (seenIds.has(id)) errors.push(`[${index}].key: duplicate`);
+    seenNumbers.add(item.number);
+    seenIds.add(id);
+    const observations = [
+      ...noteChunks(item.evidence),
+      ...noteChunks(`Last seen ${item.lastSeen}`),
+      ...noteChunks(`Proposed fix: ${item.fix}`),
+    ].map((text) => ({ date, text }));
+    problems.push({
+      id,
+      rank: item.number,
+      date,
+      title: item.problem,
+      peoplePerDay: 0,
+      trend: 'flat',
+      cause: 'unknown',
+      stage: 'daily-use',
+      source: `${date} morning card`,
+      kind: 'problem',
+      scope: 'people',
+      lastHit: date,
+      whatHappens: item.problem,
+      observations,
+      problem: item.problem,
+      fix: item.fix,
+      evidence: item.evidence,
+      lastSeen: item.lastSeen,
+    });
+  });
+  return { errors, problems: errors.length ? [] : problems };
+}
+
 // Reads every contract input under root. Problems are collected as "file: field: message".
 export async function loadContract(root) {
   const problems = [];
@@ -274,10 +335,30 @@ export async function loadContract(root) {
     additions[folder] = [];
     for (const file of await list(join(root, folder), '.json')) {
       const value = await readJSON(join(root, folder, file));
+      const dated = folder === 'problems' ? CARD_FILE.exec(file) : null;
+      if (dated && Array.isArray(value)) {
+        const where = `${folder}/${file}`;
+        if (!isDate(dated[1])) add(where, ['filename: expected a real date']);
+        const shape = schemaErrors(value, 'morning-card.schema.json');
+        add(where, shape);
+        if (shape.length || !isDate(dated[1])) continue;
+        const card = morningCardProblems(value, dated[1]);
+        add(where, card.errors);
+        for (const problem of card.problems) {
+          const itemErrors = aggregateErrors(problem, 'problem');
+          add(where, itemErrors.map((error) => `${problem.id}: ${error}`));
+          if (!itemErrors.length) additions.problems.push(problem);
+        }
+        continue;
+      }
       add(`${folder}/${file}`, aggregateErrors(value, kind, file));
       additions[folder].push(value);
     }
   }
+  const problemIds = additions.problems.map((problem) => problem.id);
+  problemIds.forEach((id, index) => {
+    if (problemIds.indexOf(id) !== index) problems.push(`problems: duplicate id ${id}`);
+  });
   additions.problems.sort((a, b) => a.rank - b.rank || String(a.id).localeCompare(String(b.id)));
   additions.walk.sort((a, b) => String(b.date).localeCompare(String(a.date)));
   additions.themes = [];

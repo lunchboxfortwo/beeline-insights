@@ -153,6 +153,31 @@ test('CLI names the offending filename for capacity and every required experimen
 });
 
 
+test('a dated morning card file becomes one dashboard problem per item', async (t) => {
+  const root = await mkdtemp(join(tmpdir(), 'morning-card-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  await mkdir(join(root, 'problems'));
+  const card = [{
+    number: 1,
+    key: 'db/pool',
+    problem: 'Chat lists stall and requests time out.',
+    evidence: 'x'.repeat(324),
+    lastSeen: '14:53Z on 228-rc.1',
+    fix: 'Give presence its own pool.',
+  }];
+  await writeFile(join(root, 'problems/2026-11-17.json'), JSON.stringify(card));
+  const feed = await buildFeed({ root, today: '2026-11-17' });
+  assert.equal(feed.problems.length, 1);
+  assert.equal(feed.problems[0].id, 'db-pool');
+  assert.equal(feed.problems[0].evidence.length, 324);
+  assert.equal(feed.problems[0].fix, card[0].fix);
+  assert.equal(feed.problems[0].lastSeen, card[0].lastSeen);
+  assert.ok(feed.problems[0].observations.every((note) => note.text.length <= 300));
+  assert.match(feed.problems[0].observations.map((note) => note.text).join(' '), /Last seen 14:53Z/);
+  await writeFile(join(root, 'problems/2026-11-17.json'), JSON.stringify([{ ...card[0], problem: '' }]));
+  await assert.rejects(buildFeed({ root, today: '2026-11-17' }), /problem: expected nonempty text/);
+});
+
 test('retention requires the no-agent baseline and reconciles every group to the overall totals', () => {
   const missing = structuredClone(retention);
   delete missing.groups.noAgent;

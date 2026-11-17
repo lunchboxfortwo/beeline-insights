@@ -154,6 +154,26 @@
           }
         }
       }
+    },
+    "problem": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "fix": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300
+    },
+    "evidence": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "lastSeen": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
     }
   }
 }
