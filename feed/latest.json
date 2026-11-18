@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T19:36:42.510Z",
+  "generatedAt": "2026-11-18T15:32:22.062Z",
   "insights": {
     "generatedAt": "2026-11-03T14:08:00.000Z",
     "window": {
@@ -763,6 +763,37 @@
       ]
     },
     {
+      "id": "scheduled-loops-lost-model-login",
+      "kind": "problem",
+      "rank": 11,
+      "date": "2026-11-18",
+      "title": "Scheduled agent loops fail silently on an unknown model or a missing login.",
+      "peoplePerDay": 1,
+      "trend": "up",
+      "cause": "unknown",
+      "stage": "operate",
+      "source": "morning-card",
+      "scope": "single",
+      "lastHit": "2026-11-18",
+      "lastSeen": "2026-11-18T14:08Z",
+      "whatHappens": "Codebase-health, latency and CI runs (07:50Z, 08:00Z, 08:35Z) answered \"unknown provider for model gpt-6.1-sol\". Errors loop, X ads pull and morning card (10:00Z, 13:30Z, 14:00Z) posted nothing. A sign-in card showed at 14:08Z. No 2 AM release run is recorded.",
+      "fix": "one owner card at the first failed scheduled turn, and rerun missed runs after recovery (proposed).",
+      "observations": [
+        {
+          "date": "2026-11-18",
+          "text": "Codebase-health, latency and CI runs (07:50Z, 08:00Z, 08:35Z) answered \"unknown provider for model gpt-6.1-sol\"."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "Errors loop, X ads pull and morning card (10:00Z, 13:30Z, 14:00Z) posted nothing. A sign-in card showed at 14:08Z. No 2 AM release run is recorded."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "Proposed fix: one owner card at the first failed scheduled turn, and rerun missed runs after recovery (proposed)."
+        }
+      ]
+    },
+    {
       "id": "signin-lost",
       "kind": "problem",
       "rank": 11,
@@ -847,6 +878,57 @@
         {
           "date": "2026-11-03",
           "text": "Sign-in log, outside, iOS 0.2.22, 3 Nov: first iOS try since 28 Oct. 1 install tapped 13 times in 97 s (8 GitHub, 5 Google); each closed as cancelled 3-5 s later. The server logged no start for any, and no iOS start since its log began 29 Oct. Changes: iOS fails before the provider page."
+        }
+      ]
+    },
+    {
+      "id": "db-pool-presence",
+      "kind": "problem",
+      "rank": 12,
+      "date": "2026-11-18",
+      "title": "Chat lists stall and pushes are lost when the database pool fills.",
+      "peoplePerDay": null,
+      "trend": "down",
+      "cause": "unknown",
+      "stage": "operate",
+      "source": "morning-card",
+      "scope": "people",
+      "lastHit": "2026-11-18",
+      "lastSeen": "2026-11-18T10:33Z",
+      "whatHappens": "323 pool waits, 171 connect timeouts and 20 failed pushes between 18Z and 22:41Z on 17 Nov. Small bursts at 05Z, 07Z and 10Z on 18 Nov, none after 10:33Z. The presence query is still slow on live (66 slow runs since 11Z, max 6.4 s). Came back after PR 4483 and PR 4498.",
+      "fix": "a separate presence pool with a time limit (proposed).",
+      "observations": [
+        {
+          "date": "2026-11-18",
+          "text": "323 pool waits, 171 connect timeouts and 20 failed pushes between 18Z and 22:41Z on 17 Nov. Small bursts at 05Z, 07Z and 10Z on 18 Nov, none after 10:33Z."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "The presence query is still slow on live (66 slow runs since 11Z, max 6.4 s). Came back after PR 4483 and PR 4498."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "Proposed fix: a separate presence pool with a time limit (proposed)."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "People per day not measured: no database read in the card run."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "possible regression, causal PR not identified"
+        }
+      ],
+      "fixes": [
+        {
+          "date": "2026-11-18",
+          "text": "PR 4483",
+          "state": "tried"
+        },
+        {
+          "date": "2026-11-18",
+          "text": "PR 4498",
+          "state": "tried"
         }
       ]
     },
@@ -946,6 +1028,33 @@
       ]
     },
     {
+      "id": "github-token-burst",
+      "kind": "problem",
+      "rank": 13,
+      "date": "2026-11-18",
+      "title": "Bursts of GitHub token requests load the server.",
+      "peoplePerDay": 1,
+      "trend": "up",
+      "cause": "unknown",
+      "stage": "operate",
+      "source": "morning-card",
+      "scope": "single",
+      "lastHit": "2026-11-18",
+      "lastSeen": "2026-11-18T15:10Z",
+      "whatHappens": "3,265 token requests and 2,143 resource checks in 20-22Z on 17 Nov, against about 60/h normally. This matched the pool-wait peak. 243 more at 14-15Z on 18 Nov.",
+      "fix": "cache one token per room until it is near expiry (proposed).",
+      "observations": [
+        {
+          "date": "2026-11-18",
+          "text": "3,265 token requests and 2,143 resource checks in 20-22Z on 17 Nov, against about 60/h normally. This matched the pool-wait peak. 243 more at 14-15Z on 18 Nov."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "Proposed fix: cache one token per room until it is near expiry (proposed)."
+        }
+      ]
+    },
+    {
       "id": "mobile-storage-full",
       "kind": "problem",
       "rank": 13,
@@ -986,6 +1095,64 @@
         {
           "date": "2026-11-09",
           "text": "One fatal event starts in an evaluated Node script constructing the GitHub client. The main service outage is unconfirmed. Hold while identifying the script and its configuration source."
+        }
+      ]
+    },
+    {
+      "id": "thread-pr-open-link",
+      "kind": "problem",
+      "rank": 14,
+      "date": "2026-11-18",
+      "title": "Agents cannot open PRs, and a hand-opened PR cannot merge through its thread.",
+      "peoplePerDay": 1,
+      "trend": "up",
+      "cause": "unknown",
+      "stage": "build",
+      "source": "morning-card",
+      "scope": "single",
+      "lastHit": "2026-11-18",
+      "lastSeen": "2026-11-18T14:23Z",
+      "whatHappens": "the PR call fails with \"Could not resolve to a Repository\". Approval failed 4 times and checks failed 7 times on live with \"no pull request\".",
+      "fix": "open PRs through the App route, and link an existing PR by head branch (proposed).",
+      "observations": [
+        {
+          "date": "2026-11-18",
+          "text": "the PR call fails with \"Could not resolve to a Repository\". Approval failed 4 times and checks failed 7 times on live with \"no pull request\"."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "Proposed fix: open PRs through the App route, and link an existing PR by head branch (proposed)."
+        }
+      ]
+    },
+    {
+      "id": "pi-mcp-config-partial",
+      "kind": "problem",
+      "rank": 15,
+      "date": "2026-11-18",
+      "title": "A free-agent tool config was read half-written.",
+      "peoplePerDay": null,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "operate",
+      "source": "morning-card",
+      "scope": "single",
+      "lastHit": "2026-11-18",
+      "lastSeen": "2026-11-18T03:05Z",
+      "whatHappens": "\"Unexpected end of JSON input\" on 2 machines at 03:05Z.",
+      "fix": "write to a temporary file and rename it into place (proposed).",
+      "observations": [
+        {
+          "date": "2026-11-18",
+          "text": "\"Unexpected end of JSON input\" on 2 machines at 03:05Z."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "Proposed fix: write to a temporary file and rename it into place (proposed)."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "People per day not measured: free-agent logs carry no person."
         }
       ]
     },
@@ -1050,6 +1217,71 @@
       "source": "feedback",
       "lastHit": "2026-11-09",
       "whatHappens": "Repository reads reject pagination and return file metadata"
+    },
+    {
+      "id": "squire-connection-closed-notice",
+      "kind": "problem",
+      "rank": 16,
+      "date": "2026-11-18",
+      "title": "Session setup says Squire is connection closed while it works.",
+      "peoplePerDay": 1,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "operate",
+      "source": "morning-card",
+      "scope": "single",
+      "lastHit": "2026-11-18",
+      "lastSeen": "2026-11-18T15:15Z",
+      "whatHappens": "reproduced on 234-rc.2 on 18 Nov. Setup said CONNECTION_CLOSED, and registry-route Squire calls worked. Reported 17 Nov.",
+      "fix": "correct the notice when the registry route serves the tools (proposed).",
+      "observations": [
+        {
+          "date": "2026-11-18",
+          "text": "reproduced on 234-rc.2 on 18 Nov. Setup said CONNECTION_CLOSED, and registry-route Squire calls worked. Reported 17 Nov."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "Proposed fix: correct the notice when the registry route serves the tools (proposed)."
+        }
+      ]
+    },
+    {
+      "id": "full-nightly-checks-missing",
+      "kind": "problem",
+      "rank": 17,
+      "date": "2026-11-18",
+      "title": "No full nightly check result after the 2 AM release.",
+      "peoplePerDay": 1,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "build",
+      "source": "morning-card",
+      "scope": "single",
+      "lastHit": "2026-11-18",
+      "lastSeen": "2026-11-18T15:15Z",
+      "whatHappens": "no release-checks result newer than 17 Nov 12:00 is on squire, after PR 4480.",
+      "fix": "rerun release_checks on 301995f8 and check the release schedule (proposed).",
+      "observations": [
+        {
+          "date": "2026-11-18",
+          "text": "no release-checks result newer than 17 Nov 12:00 is on squire, after PR 4480."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "Proposed fix: rerun release_checks on 301995f8 and check the release schedule (proposed)."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "possible regression, causal PR not identified"
+        }
+      ],
+      "fixes": [
+        {
+          "date": "2026-11-18",
+          "text": "PR 4480",
+          "state": "tried"
+        }
+      ]
     },
     {
       "peoplePerDay": 0,
@@ -1388,6 +1620,10 @@
         {
           "source": "snapshot",
           "text": "Of 18 people who signed up in the 7 days to 2026-11-16, 11 sent a message within 24 hours and 1 came back the next day (6%, from 5% on 2026-11-15)."
+        },
+        {
+          "source": "snapshot",
+          "text": "Of 16 people who signed up in the 7 days to 2026-11-17, 9 sent a message within 24 hours and 1 came back the next day (6.25%)."
         }
       ],
       "against": [
@@ -1674,6 +1910,11 @@
             "date": "2026-11-16",
             "value": 0.6111,
             "samples": 18
+          },
+          {
+            "date": "2026-11-17",
+            "value": 0.5625,
+            "samples": 16
           }
         ]
       }
@@ -2005,6 +2246,11 @@
             "date": "2026-11-16",
             "value": 0,
             "samples": 946
+          },
+          {
+            "date": "2026-11-17",
+            "value": 0,
+            "samples": 956
           }
         ]
       }
@@ -2336,6 +2582,11 @@
             "date": "2026-11-16",
             "value": 0.0465,
             "samples": 946
+          },
+          {
+            "date": "2026-11-17",
+            "value": 0.0366,
+            "samples": 956
           }
         ]
       }
@@ -2675,6 +2926,11 @@
             "date": "2026-11-16",
             "value": 0.2759,
             "samples": 946
+          },
+          {
+            "date": "2026-11-17",
+            "value": 0.2584,
+            "samples": 956
           }
         ]
       }
@@ -3009,6 +3265,11 @@
             "date": "2026-11-16",
             "value": 0.1543,
             "samples": 946
+          },
+          {
+            "date": "2026-11-17",
+            "value": 0.159,
+            "samples": 956
           }
         ]
       }
@@ -3356,6 +3617,11 @@
             "date": "2026-11-16",
             "value": 0.1501,
             "samples": 946
+          },
+          {
+            "date": "2026-11-17",
+            "value": 0.1444,
+            "samples": 956
           }
         ]
       }

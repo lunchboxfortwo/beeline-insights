@@ -1,0 +1,31 @@
+{
+  "id": "scheduled-loops-lost-model-login",
+  "kind": "problem",
+  "rank": 1,
+  "date": "2026-11-18",
+  "title": "Scheduled agent loops fail silently on an unknown model or a missing login.",
+  "peoplePerDay": 1,
+  "trend": "up",
+  "cause": "unknown",
+  "stage": "operate",
+  "source": "morning-card",
+  "scope": "single",
+  "lastHit": "2026-11-18",
+  "lastSeen": "2026-11-18T14:08Z",
+  "whatHappens": "Codebase-health, latency and CI runs (07:50Z, 08:00Z, 08:35Z) answered \"unknown provider for model gpt-6.1-sol\". Errors loop, X ads pull and morning card (10:00Z, 13:30Z, 14:00Z) posted nothing. A sign-in card showed at 14:08Z. No 2 AM release run is recorded.",
+  "fix": "one owner card at the first failed scheduled turn, and rerun missed runs after recovery (proposed).",
+  "observations": [
+    {
+      "date": "2026-11-18",
+      "text": "Codebase-health, latency and CI runs (07:50Z, 08:00Z, 08:35Z) answered \"unknown provider for model gpt-6.1-sol\"."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "Errors loop, X ads pull and morning card (10:00Z, 13:30Z, 14:00Z) posted nothing. A sign-in card showed at 14:08Z. No 2 AM release run is recorded."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "Proposed fix: one owner card at the first failed scheduled turn, and rerun missed runs after recovery (proposed)."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "db-pool-presence",
+  "kind": "problem",
+  "rank": 2,
+  "date": "2026-11-18",
+  "title": "Chat lists stall and pushes are lost when the database pool fills.",
+  "peoplePerDay": null,
+  "trend": "down",
+  "cause": "unknown",
+  "stage": "operate",
+  "source": "morning-card",
+  "scope": "people",
+  "lastHit": "2026-11-18",
+  "lastSeen": "2026-11-18T10:33Z",
+  "whatHappens": "323 pool waits, 171 connect timeouts and 20 failed pushes between 18Z and 22:41Z on 17 Nov. Small bursts at 05Z, 07Z and 10Z on 18 Nov, none after 10:33Z. The presence query is still slow on live (66 slow runs since 11Z, max 6.4 s). Came back after PR 4483 and PR 4498.",
+  "fix": "a separate presence pool with a time limit (proposed).",
+  "observations": [
+    {
+      "date": "2026-11-18",
+      "text": "323 pool waits, 171 connect timeouts and 20 failed pushes between 18Z and 22:41Z on 17 Nov. Small bursts at 05Z, 07Z and 10Z on 18 Nov, none after 10:33Z."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "The presence query is still slow on live (66 slow runs since 11Z, max 6.4 s). Came back after PR 4483 and PR 4498."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "Proposed fix: a separate presence pool with a time limit (proposed)."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "People per day not measured: no database read in the card run."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "possible regression, causal PR not identified"
+    }
+  ],
+  "fixes": [
+    {
+      "date": "2026-11-18",
+      "text": "PR 4483",
+      "state": "tried"
+    },
+    {
+      "date": "2026-11-18",
+      "text": "PR 4498",
+      "state": "tried"
+    }
+  ]
+}

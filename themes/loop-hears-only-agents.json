@@ -98,6 +98,10 @@
     {
       "source": "snapshot",
       "text": "Of 18 people who signed up in the 7 days to 2026-11-16, 11 sent a message within 24 hours and 1 came back the next day (6%, from 5% on 2026-11-15)."
+    },
+    {
+      "source": "snapshot",
+      "text": "Of 16 people who signed up in the 7 days to 2026-11-17, 9 sent a message within 24 hours and 1 came back the next day (6.25%)."
     }
   ],
   "against": [
@@ -384,6 +388,11 @@
         "date": "2026-11-16",
         "value": 0.6111,
         "samples": 18
+      },
+      {
+        "date": "2026-11-17",
+        "value": 0.5625,
+        "samples": 16
       }
     ]
   }

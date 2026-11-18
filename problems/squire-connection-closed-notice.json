@@ -1,0 +1,27 @@
+{
+  "id": "squire-connection-closed-notice",
+  "kind": "problem",
+  "rank": 6,
+  "date": "2026-11-18",
+  "title": "Session setup says Squire is connection closed while it works.",
+  "peoplePerDay": 1,
+  "trend": "flat",
+  "cause": "unknown",
+  "stage": "operate",
+  "source": "morning-card",
+  "scope": "single",
+  "lastHit": "2026-11-18",
+  "lastSeen": "2026-11-18T15:15Z",
+  "whatHappens": "reproduced on 234-rc.2 on 18 Nov. Setup said CONNECTION_CLOSED, and registry-route Squire calls worked. Reported 17 Nov.",
+  "fix": "correct the notice when the registry route serves the tools (proposed).",
+  "observations": [
+    {
+      "date": "2026-11-18",
+      "text": "reproduced on 234-rc.2 on 18 Nov. Setup said CONNECTION_CLOSED, and registry-route Squire calls worked. Reported 17 Nov."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "Proposed fix: correct the notice when the registry route serves the tools (proposed)."
+    }
+  ]
+}
