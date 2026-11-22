@@ -271,7 +271,7 @@ function noteChunks(text) {
   return parts;
 }
 
-// A dated problems file is one morning card: up to 10 items. The feed still
+// A dated problems file is one morning card: up to 50 items. The feed still
 // publishes one ranked problem per item, which is what the dashboard lists.
 export function morningCardProblems(items, date) {
   const errors = [];
@@ -279,12 +279,15 @@ export function morningCardProblems(items, date) {
   const seenIds = new Set();
   const problems = [];
   items.forEach((item, index) => {
-    const id = String(item.key).replaceAll('/', '-');
+    const id = String(item.key).replace(/[/_]/g, '-');
     if (!PROBLEM_ID.test(id)) errors.push(`[${index}].key: cannot be a problem id`);
     if (seenNumbers.has(item.number)) errors.push(`[${index}].number: duplicate`);
     if (seenIds.has(id)) errors.push(`[${index}].key: duplicate`);
     seenNumbers.add(item.number);
     seenIds.add(id);
+    if (Object.hasOwn(item, 'peoplePerDay') && item.peoplePerDay === null && !item.peopleReason) {
+      errors.push(`[${index}].peopleReason: required for explicit null peoplePerDay`);
+    }
     const observations = [
       ...noteChunks(item.evidence),
       ...noteChunks(`Last seen ${item.lastSeen}`),
@@ -295,7 +298,8 @@ export function morningCardProblems(items, date) {
       rank: item.number,
       date,
       title: item.problem,
-      peoplePerDay: null,
+      peoplePerDay: item.peoplePerDay ?? null,
+      ...(item.peopleReason !== undefined ? { peopleReason: item.peopleReason } : {}),
       trend: 'flat',
       cause: 'unknown',
       stage: 'daily-use',
@@ -331,6 +335,7 @@ export async function loadContract(root) {
   }
   problems.push(...registerErrors(experiments));
   const additions = {};
+  const datedKeys = new Set();
   for (const [folder, kind] of [['problems', 'problem'], ['walk', 'walk']]) {
     additions[folder] = [];
     for (const file of await list(join(root, folder), '.json')) {
@@ -344,11 +349,14 @@ export async function loadContract(root) {
         if (shape.length || !isDate(dated[1])) continue;
         const card = morningCardProblems(value, dated[1]);
         add(where, card.errors);
-        for (const problem of card.problems) {
+        for (const [index, problem] of card.problems.entries()) {
+          const key = value[index].key;
+          if (datedKeys.has(key)) problem.id += `-${dated[1]}`;
           const itemErrors = aggregateErrors(problem, 'problem');
           add(where, itemErrors.map((error) => `${problem.id}: ${error}`));
           if (!itemErrors.length) additions.problems.push(problem);
         }
+        value.forEach((item) => datedKeys.add(item.key));
         continue;
       }
       add(`${folder}/${file}`, aggregateErrors(value, kind, file));

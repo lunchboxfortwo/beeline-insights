@@ -1,0 +1,38 @@
+{
+  "id": "full-nightly-checks-missing",
+  "kind": "problem",
+  "rank": 7,
+  "date": "2026-11-18",
+  "title": "No full nightly check result after the 2 AM release.",
+  "peoplePerDay": 1,
+  "trend": "flat",
+  "cause": "unknown",
+  "stage": "build",
+  "source": "morning-card",
+  "scope": "single",
+  "lastHit": "2026-11-18",
+  "lastSeen": "2026-11-18T15:15Z",
+  "whatHappens": "no release-checks result newer than 17 Nov 12:00 is on squire, after PR 4480.",
+  "fix": "rerun release_checks on 301995f8 and check the release schedule (proposed).",
+  "observations": [
+    {
+      "date": "2026-11-18",
+      "text": "no release-checks result newer than 17 Nov 12:00 is on squire, after PR 4480."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "Proposed fix: rerun release_checks on 301995f8 and check the release schedule (proposed)."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "possible regression, causal PR not identified"
+    }
+  ],
+  "fixes": [
+    {
+      "date": "2026-11-18",
+      "text": "PR 4480",
+      "state": "tried"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "github-token-burst",
+  "kind": "problem",
+  "rank": 3,
+  "date": "2026-11-18",
+  "title": "Bursts of GitHub token requests load the server.",
+  "peoplePerDay": 1,
+  "trend": "up",
+  "cause": "unknown",
+  "stage": "operate",
+  "source": "morning-card",
+  "scope": "single",
+  "lastHit": "2026-11-18",
+  "lastSeen": "2026-11-18T15:10Z",
+  "whatHappens": "3,265 token requests and 2,143 resource checks in 20-22Z on 17 Nov, against about 60/h normally. This matched the pool-wait peak. 243 more at 14-15Z on 18 Nov.",
+  "fix": "cache one token per room until it is near expiry (proposed).",
+  "observations": [
+    {
+      "date": "2026-11-18",
+      "text": "3,265 token requests and 2,143 resource checks in 20-22Z on 17 Nov, against about 60/h normally. This matched the pool-wait peak. 243 more at 14-15Z on 18 Nov."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "Proposed fix: cache one token per room until it is near expiry (proposed)."
+    }
+  ]
+}
