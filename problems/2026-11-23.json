@@ -1,0 +1,108 @@
+[
+  {
+    "number": 1,
+    "key": "release/live-delivery-over-target",
+    "problem": "Release checks got slower: full checks 2089 s (was 1572 s); live delivery 675 s against a 600 s target.",
+    "evidence": "v0.1.244 release.json (withinTarget false). https://github.com/lunchboxfortwo/beeline/releases/tag/v0.1.244",
+    "lastSeen": "01:36Z on 66454540 (v0.1.244)",
+    "fix": "Profile the server deploy step; split full checks across squire's 4 job slots. Confidence: high.",
+    "peoplePerDay": null,
+    "peopleReason": "release-time measure, not per person"
+  },
+  {
+    "number": 2,
+    "key": "release/nightly-0200-not-published",
+    "problem": "No 02:00 ET release was published while main was 15 commits ahead; merged fixes waited about 12 h more.",
+    "evidence": "Releases API: nothing after v0.1.244 (01:37Z); no Actions run 02:00-13:19Z.",
+    "lastSeen": "checked 14:00Z on 66454540",
+    "fix": "Investigation: Claude asked for the 02:00 run outcome. Confidence: medium.",
+    "peoplePerDay": null,
+    "peopleReason": "release-time measure, not per person"
+  },
+  {
+    "number": 3,
+    "key": "db/push-outbox-lock-timeout",
+    "problem": "A release migration rebuilt push_outbox triggers and locked push delivery; both live servers failed one pass.",
+    "evidence": "https://beeline-bt.sentry.io/issues/7852131559/",
+    "lastSeen": "21:49Z on 7809731c (v0.1.243)",
+    "fix": "Skip dropping and recreating triggers when their definition is unchanged (background-due-source.ts). Confidence: medium.",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 4,
+    "key": "thread/approval-citation-refused",
+    "problem": "Brief revisions, holds and message reads that cite a human message are refused because delivery ids and read ids differ.",
+    "evidence": "Server log 23 Nov: 6 reviseCornerBrief refusals, 11 getRoomMessage 404s; fb_ab09cbdc and 13 more.",
+    "lastSeen": "04:51Z on 66454540",
+    "fix": "Brief half merged (#87), not live. Accept a delivery id wherever a message id is accepted, for holds and message reads. Confidence: high.",
+    "peoplePerDay": null,
+    "peopleReason": "hit the owner only; 0 outside people"
+  },
+  {
+    "number": 5,
+    "key": "insights/feed-stale-reviewer-never-woken",
+    "problem": "Insights dashboard is 6 days stale: PR beeline-insights#1 is ready but reviewer is never woken in a repo with no CI.",
+    "evidence": "https://github.com/lunchboxfortwo/beeline-insights/pull/1; fb_451d70d8",
+    "lastSeen": "checked 14:06Z",
+    "fix": "#86 merged, not live; reviewer asked to review PR 1 now. Confidence: high.",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 6,
+    "key": "corner/checkout-deps-missing",
+    "problem": "Agent checkouts report ready but cannot run tests (missing packages, Vitest, mobile deps, writable /var/tmp, Node types).",
+    "evidence": "fb_8afabaac, fb_b4396e3e, fb_0b5b13ba, fb_6a83e3a8 (after #54); 14 reports from 4 agents",
+    "lastSeen": "08:56Z on helper v0.1.244",
+    "fix": "Prepare installs every workspace the brief touches, gives tests a writable temp dir, and its ready check runs one test file. Confidence: high.",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 7,
+    "key": "review/stale-wake-context",
+    "problem": "Reviewers and implementers get wakes for heads already reviewed or superseded.",
+    "evidence": "fb_c61ea86d, fb_afee20f1, fb_40ffbb3d, fb_b4a42bbf (after rc.3 deploy); 11 reports from 4 agents",
+    "lastSeen": "after 00:25Z on 66454540",
+    "fix": "Key review wakes to current head and brief revision; drop a wake whose head has a verdict. Confidence: medium.",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 9,
+    "key": "ci/server-shard-runner-queue",
+    "problem": "PR checks 5% slower (837 s vs 795 s median); server shard 1 683 s vs 603 s, last in 29 of 61 runs.",
+    "evidence": "#beeline/issues-triage jellybean-25533",
+    "lastSeen": "09:15Z on 66454540",
+    "fix": "Split shard 1's slowest suites across the other shards; remeasure. Confidence: medium.",
+    "peoplePerDay": null,
+    "peopleReason": "CI only"
+  },
+  {
+    "number": 10,
+    "key": "ci/main-red-hours-unmeasured",
+    "problem": "Main red hours stay unmeasured: retained release-check attempts need Jellybean's host grant 9370056b.",
+    "evidence": "#beeline/issues-triage jellybean-25533",
+    "lastSeen": "09:15Z on 66454540",
+    "fix": "OPEN QUESTION: owner decides the host grant. Confidence: high.",
+    "peoplePerDay": null,
+    "peopleReason": "CI only"
+  },
+  {
+    "number": 11,
+    "key": "latency/web/route-cold-load",
+    "problem": "Browser breaches doubled overnight under shared-host CPU load (16 tap, 88 load; worst p95 447.5 ms, 1658 ms), so this data cannot rank fixes. Also covers 2 related latency/web keys.",
+    "evidence": "#beeline/latency-nov23-investigation jellybean-25532",
+    "lastSeen": "reproduced 11:10Z on 66454540",
+    "fix": "Rerun the 14 taps and 81 route states with a CPU-load gate; rank fixes only for remaining breaches. Confidence: medium.",
+    "peoplePerDay": null,
+    "peopleReason": "synthetic rig"
+  },
+  {
+    "number": 12,
+    "key": "db/room-access-slow-read",
+    "problem": "Room and thread reads are slow; slow-query records grew 4.5x (2393 vs 527); pool timeouts dropped read state from some room loads.",
+    "evidence": "raw server logs 22-23 Nov",
+    "lastSeen": "14:05Z on 66454540",
+    "fix": "EXPLAIN ANALYZE live thread-read and members plans via read-only route; cut cost; remeasure. Confidence: medium.",
+    "peoplePerDay": null,
+    "peopleReason": "query logs carry no identity"
+  }
+]
