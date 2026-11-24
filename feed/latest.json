@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T14:10:55.172Z",
+  "generatedAt": "2026-11-24T14:21:19.468Z",
   "insights": {
     "generatedAt": "2026-11-03T14:08:00.000Z",
     "window": {
@@ -403,410 +403,510 @@
   ],
   "problems": [
     {
-      "id": "release-helper-darwin-arm64-stale",
+      "id": "release-nightly-0200-not-published-2026-11-24",
       "rank": 1,
-      "date": "2026-11-19",
-      "title": "Apple Silicon helper carried from v0.1.208 in v0.1.237",
+      "date": "2026-11-24",
+      "title": "No 02:00 ET release ran for the second night; no schedule or timer triggers it. 4 merged PRs wait (#123, #125, #126, #127).",
       "peoplePerDay": null,
-      "peopleReason": "no table records helper architecture; 0 feedback rows from v0.1.208 in 24 h",
+      "peopleReason": "release-time measure",
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Apple Silicon helper carried from v0.1.208 in v0.1.237",
+      "lastHit": "2026-11-24",
+      "whatHappens": "No 02:00 ET release ran for the second night; no schedule or timer triggers it. 4 merged PRs wait (#123, #125, #126, #127).",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: release; confidence: high"
+          "date": "2026-11-24",
+          "text": "Releases API: newest v0.1.245 at 03:14Z; no release Actions run after 03:11Z; agent_schedules has no release schedule; release-corner silent since 16 Nov."
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T06:51:43Z"
+          "date": "2026-11-24",
+          "text": "Last seen checked 14:00Z on 4f396c7d"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: Cross-build arm64 on the Intel Mac and verify it with lipo and a signature check instead of a native run. Also fail the release when a platform is carried for more than 3 releases."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Restore a 02:00 ET schedule for Jellybean in release-corner that runs the squire release of main and posts the outcome line. Confidence: high."
         }
       ],
-      "problem": "Apple Silicon helper carried from v0.1.208 in v0.1.237",
-      "fix": "Cross-build arm64 on the Intel Mac and verify it with lipo and a signature check instead of a native run. Also fail the release when a platform is carried for more than 3 releases.",
-      "evidence": "Loop: release; confidence: high",
-      "lastSeen": "2026-11-19T06:51:43Z"
+      "problem": "No 02:00 ET release ran for the second night; no schedule or timer triggers it. 4 merged PRs wait (#123, #125, #126, #127).",
+      "fix": "Restore a 02:00 ET schedule for Jellybean in release-corner that runs the squire release of main and posts the outcome line. Confidence: high.",
+      "evidence": "Releases API: newest v0.1.245 at 03:14Z; no release Actions run after 03:11Z; agent_schedules has no release schedule; release-corner silent since 16 Nov.",
+      "lastSeen": "checked 14:00Z on 4f396c7d"
     },
     {
-      "id": "db-long-running-pool-exhaustion-2026-11-19",
+      "id": "release-live-delivery-over-target-2026-11-24",
       "rank": 2,
-      "date": "2026-11-19",
-      "title": "Database pool runs out of connections at deploy time; 20 timeouts at the 13:54Z v0.1.238 deploy",
-      "peoplePerDay": 1,
+      "date": "2026-11-24",
+      "title": "Live delivery took 644 s against a 600 s target (was 675 s).",
+      "peoplePerDay": null,
+      "peopleReason": "release-time measure",
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Database pool runs out of connections at deploy time; 20 timeouts at the 13:54Z v0.1.238 deploy",
+      "lastHit": "2026-11-24",
+      "whatHappens": "Live delivery took 644 s against a 600 s target (was 675 s).",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: errors; confidence: medium"
+          "date": "2026-11-24",
+          "text": "v0.1.245 release.json delivery.live (withinTarget false)"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T13:54:55Z"
+          "date": "2026-11-24",
+          "text": "Last seen 03:13Z on 4f396c7d (v0.1.245)"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: Limit startup catch-up work while a machine starts. Give the workspace-member and chat-list queries a time limit or their own pool."
+          "date": "2026-11-24",
+          "text": "Proposed fix: #125 (merged, not live) stops rebuilding at promotion; remeasure on the next release. Confidence: medium."
         }
       ],
-      "problem": "Database pool runs out of connections at deploy time; 20 timeouts at the 13:54Z v0.1.238 deploy",
-      "fix": "Limit startup catch-up work while a machine starts. Give the workspace-member and chat-list queries a time limit or their own pool.",
-      "evidence": "Loop: errors; confidence: medium",
-      "lastSeen": "2026-11-19T13:54:55Z"
+      "problem": "Live delivery took 644 s against a 600 s target (was 675 s).",
+      "fix": "#125 (merged, not live) stops rebuilding at promotion; remeasure on the next release. Confidence: medium.",
+      "evidence": "v0.1.245 release.json delivery.live (withinTarget false)",
+      "lastSeen": "03:13Z on 4f396c7d (v0.1.245)"
     },
     {
-      "id": "deploy-proxy-refused-during-restart",
+      "id": "daemon-watch-self-503",
       "rank": 3,
-      "date": "2026-11-19",
-      "title": "Each deploy refuses requests and cuts request bodies",
-      "peoplePerDay": null,
-      "peopleReason": "proxy logs carry no identity",
+      "date": "2026-11-24",
+      "title": "A thread asking to be woken when it merges gets a 503 server error instead of a refusal.",
+      "peoplePerDay": 0,
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Each deploy refuses requests and cuts request bodies",
+      "lastHit": "2026-11-24",
+      "whatHappens": "A thread asking to be woken when it merges gets a 503 server error instead of a refusal.",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: errors; confidence: medium"
+          "date": "2026-11-24",
+          "text": "https://beeline-bt.sentry.io/issues/7864454141/"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T13:54:52Z"
+          "date": "2026-11-24",
+          "text": "Last seen 03:05Z on 4f396c7d"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: Send traffic to a new machine only after its readiness check passes, and drain the old one before it stops."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Throw CommandRefusalError(400) in corner-reports.ts:51 with a plain reason; add a test. Confidence: high."
         }
       ],
-      "problem": "Each deploy refuses requests and cuts request bodies",
-      "fix": "Send traffic to a new machine only after its readiness check passes, and drain the old one before it stops.",
-      "evidence": "Loop: errors; confidence: medium",
-      "lastSeen": "2026-11-19T13:54:52Z"
+      "problem": "A thread asking to be woken when it merges gets a 503 server error instead of a refusal.",
+      "fix": "Throw CommandRefusalError(400) in corner-reports.ts:51 with a plain reason; add a test. Confidence: high.",
+      "evidence": "https://beeline-bt.sentry.io/issues/7864454141/",
+      "lastSeen": "03:05Z on 4f396c7d"
     },
     {
-      "id": "free-agents-fly-start-race-at-deploy",
+      "id": "auth-github-exchange-invalid-ticket-503",
       "rank": 4,
-      "date": "2026-11-19",
-      "title": "Free-agent catch-up cannot observe about 30 machines after a deploy",
-      "peoplePerDay": null,
-      "peopleReason": "catch-up failures carry no person",
+      "date": "2026-11-24",
+      "title": "An invalid GitHub sign-in ticket returns 503 and goes to Sentry; Google returns 401.",
+      "peoplePerDay": 0,
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Free-agent catch-up cannot observe about 30 machines after a deploy",
+      "lastHit": "2026-11-24",
+      "whatHappens": "An invalid GitHub sign-in ticket returns 503 and goes to Sentry; Google returns 401.",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: errors; confidence: medium"
+          "date": "2026-11-24",
+          "text": "https://beeline-bt.sentry.io/issues/7865215844/ ; server log 13:29:42-43Z"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T06:24:43Z"
+          "date": "2026-11-24",
+          "text": "Last seen 13:29Z on 4f396c7d"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: Back off on a Fly 429, and retry the check after the machine starts."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Add a GitHub sign-in error mapped to 401 like GoogleSignInError in server-route.ts; add a test. Confidence: high."
         }
       ],
-      "problem": "Free-agent catch-up cannot observe about 30 machines after a deploy",
-      "fix": "Back off on a Fly 429, and retry the check after the machine starts.",
-      "evidence": "Loop: errors; confidence: medium",
-      "lastSeen": "2026-11-19T06:24:43Z"
+      "problem": "An invalid GitHub sign-in ticket returns 503 and goes to Sentry; Google returns 401.",
+      "fix": "Add a GitHub sign-in error mapped to 401 like GoogleSignInError in server-route.ts; add a test. Confidence: high.",
+      "evidence": "https://beeline-bt.sentry.io/issues/7865215844/ ; server log 13:29:42-43Z",
+      "lastSeen": "13:29Z on 4f396c7d"
     },
     {
-      "id": "mobile-android-x86-64-libcxx-missing",
+      "id": "github-webhook-check-rollup-fetch-failed",
       "rank": 5,
-      "date": "2026-11-19",
-      "title": "Android 0.2.22 crashes at native load on x86_64 (libc++_shared.so missing)",
+      "date": "2026-11-24",
+      "title": "One GitHub webhook failed with 503 because the check-summary refresh could not reach GitHub.",
       "peoplePerDay": 0,
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Android 0.2.22 crashes at native load on x86_64 (libc++_shared.so missing)",
+      "lastHit": "2026-11-24",
+      "whatHappens": "One GitHub webhook failed with 503 because the check-summary refresh could not reach GitHub.",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: errors; confidence: medium"
+          "date": "2026-11-24",
+          "text": "https://beeline-bt.sentry.io/issues/7864193594/"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T00:55:38Z"
+          "date": "2026-11-24",
+          "text": "Last seen 23:17Z on 4f396c7d"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: Package lib/x86_64/libc++_shared.so in the AAB, or drop x86_64 from abiFilters."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Retry transient fetch errors inside the refresh instead of failing the webhook. Confidence: medium."
         }
       ],
-      "problem": "Android 0.2.22 crashes at native load on x86_64 (libc++_shared.so missing)",
-      "fix": "Package lib/x86_64/libc++_shared.so in the AAB, or drop x86_64 from abiFilters.",
-      "evidence": "Loop: errors; confidence: medium",
-      "lastSeen": "2026-11-19T00:55:38Z"
+      "problem": "One GitHub webhook failed with 503 because the check-summary refresh could not reach GitHub.",
+      "fix": "Retry transient fetch errors inside the refresh instead of failing the webhook. Confidence: medium.",
+      "evidence": "https://beeline-bt.sentry.io/issues/7864193594/",
+      "lastSeen": "23:17Z on 4f396c7d"
     },
     {
-      "id": "loops-scheduled-session-no-checkout-no-gh",
+      "id": "schedule-parked-forever-after-lock-timeout",
       "rank": 6,
-      "date": "2026-11-19",
-      "title": "Scheduled loop sessions are told a checkout exists but have none; workspace tool works",
+      "date": "2026-11-24",
+      "title": "One lock timeout parks a recurring schedule for good: it never runs again until someone edits it.",
       "peoplePerDay": 0,
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Scheduled loop sessions are told a checkout exists but have none; workspace tool works",
+      "lastHit": "2026-11-24",
+      "whatHappens": "One lock timeout parks a recurring schedule for good: it never runs again until someone edits it.",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: feedback; confidence: high"
+          "date": "2026-11-24",
+          "text": "server log 13:30:00Z schedule 7c3d04a0 parked (55P03); agent_schedules next_run_at = failed_due_at = 13:30Z"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T14:05:14Z"
+          "date": "2026-11-24",
+          "text": "Last seen 13:30Z on 4f396c7d"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: Create the checkout before a scheduled turn starts, or make the setup text say \"call workspace\"."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Retry retryable database errors on the next tick; on a permanent failure skip only that occurrence and advance to the next cron time. Confidence: high."
         }
       ],
-      "problem": "Scheduled loop sessions are told a checkout exists but have none; workspace tool works",
-      "fix": "Create the checkout before a scheduled turn starts, or make the setup text say \"call workspace\".",
-      "evidence": "Loop: feedback; confidence: high",
-      "lastSeen": "2026-11-19T14:05:14Z"
+      "problem": "One lock timeout parks a recurring schedule for good: it never runs again until someone edits it.",
+      "fix": "Retry retryable database errors on the next tick; on a permanent failure skip only that occurrence and advance to the next cron time. Confidence: high.",
+      "evidence": "server log 13:30:00Z schedule 7c3d04a0 parked (55P03); agent_schedules next_run_at = failed_due_at = 13:30Z",
+      "lastSeen": "13:30Z on 4f396c7d"
     },
     {
-      "id": "squire-notice-connection-closed-while-working",
+      "id": "loops-scheduled-run-stale-thread-context",
       "rank": 7,
-      "date": "2026-11-19",
-      "title": "Session setup reports Squire CONNECTION_CLOSED while the registry route works",
+      "date": "2026-11-24",
+      "title": "Schedules re-deliver runs already reported, or with stale context.",
       "peoplePerDay": 0,
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Session setup reports Squire CONNECTION_CLOSED while the registry route works",
+      "lastHit": "2026-11-24",
+      "whatHappens": "Schedules re-deliver runs already reported, or with stale context.",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: feedback; confidence: high"
+          "date": "2026-11-24",
+          "text": "fb_8afa41b7 and 6 more"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T14:14:00Z"
+          "date": "2026-11-24",
+          "text": "Last seen 08:30Z on 4f396c7d"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: Drop or correct the notice when the registry route serves the tools."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Skip a re-delivery when the run's report already exists in the target thread. Confidence: medium."
         }
       ],
-      "problem": "Session setup reports Squire CONNECTION_CLOSED while the registry route works",
-      "fix": "Drop or correct the notice when the registry route serves the tools.",
-      "evidence": "Loop: feedback; confidence: high",
-      "lastSeen": "2026-11-19T14:14:00Z"
+      "problem": "Schedules re-deliver runs already reported, or with stale context.",
+      "fix": "Skip a re-delivery when the run's report already exists in the target thread. Confidence: medium.",
+      "evidence": "fb_8afa41b7 and 6 more",
+      "lastSeen": "08:30Z on 4f396c7d"
     },
     {
-      "id": "loops-procedures-contradict-contract",
+      "id": "attachments-read-message-empty",
       "rank": 8,
-      "date": "2026-11-19",
-      "title": "Three loop procedures contradict loops-contract on old-build drops and open questions",
+      "date": "2026-11-24",
+      "title": "Listed messages and attachments come back empty or not found.",
       "peoplePerDay": 0,
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Three loop procedures contradict loops-contract on old-build drops and open questions",
+      "lastHit": "2026-11-24",
+      "whatHappens": "Listed messages and attachments come back empty or not found.",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: feedback; confidence: high"
+          "date": "2026-11-24",
+          "text": "fb_a05bc185 and 4 more; getRoomMessage 403/404"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T09:15:00Z"
+          "date": "2026-11-24",
+          "text": "Last seen 10:23Z on 4f396c7d"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: Rewrite the three procedures to defer to loops-contract."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Investigation: reproduce one listed-then-unreadable id on live; fix the access check. Confidence: medium."
         }
       ],
-      "problem": "Three loop procedures contradict loops-contract on old-build drops and open questions",
-      "fix": "Rewrite the three procedures to defer to loops-contract.",
-      "evidence": "Loop: feedback; confidence: high",
-      "lastSeen": "2026-11-19T09:15:00Z"
+      "problem": "Listed messages and attachments come back empty or not found.",
+      "fix": "Investigation: reproduce one listed-then-unreadable id on live; fix the access check. Confidence: medium.",
+      "evidence": "fb_a05bc185 and 4 more; getRoomMessage 403/404",
+      "lastSeen": "10:23Z on 4f396c7d"
     },
     {
-      "id": "ci-nightly-full-checks-missing",
+      "id": "review-stale-wake-context-2026-11-24",
       "rank": 9,
-      "date": "2026-11-19",
-      "title": "Nightly release runs no full checks (--full-checks never passed); 3rd night without results",
+      "date": "2026-11-24",
+      "title": "Reviewer wakes say checks passed while the head is pending; zero-check PRs never wake reviewers.",
       "peoplePerDay": 0,
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Nightly release runs no full checks (--full-checks never passed); 3rd night without results",
+      "lastHit": "2026-11-24",
+      "whatHappens": "Reviewer wakes say checks passed while the head is pending; zero-check PRs never wake reviewers.",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: ci; confidence: medium"
+          "date": "2026-11-24",
+          "text": "fb_ecab1283 fb_6fedda52 fb_62a363c4"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T06:51:19Z"
+          "date": "2026-11-24",
+          "text": "Last seen 00:34Z on 4f396c7d"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: The nightly trigger passes --full-checks, or the nightly makes full checks the default. Then record the result path in release.json."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Derive the wake from the head's rollup at wake time; treat no required checks as complete. Confidence: medium."
         }
       ],
-      "problem": "Nightly release runs no full checks (--full-checks never passed); 3rd night without results",
-      "fix": "The nightly trigger passes --full-checks, or the nightly makes full checks the default. Then record the result path in release.json.",
-      "evidence": "Loop: ci; confidence: medium",
-      "lastSeen": "2026-11-19T06:51:19Z"
+      "problem": "Reviewer wakes say checks passed while the head is pending; zero-check PRs never wake reviewers.",
+      "fix": "Derive the wake from the head's rollup at wake time; treat no required checks as complete. Confidence: medium.",
+      "evidence": "fb_ecab1283 fb_6fedda52 fb_62a363c4",
+      "lastSeen": "00:34Z on 4f396c7d"
     },
     {
-      "id": "prompts-grader-truthfulness-false-pass",
+      "id": "corner-checkout-deps-missing-2026-11-24",
       "rank": 10,
-      "date": "2026-11-19",
-      "title": "Grader computes truthfulness but never applies it to a sample's pass",
+      "date": "2026-11-24",
+      "title": "Grunt checkout prepare stops on missing Node type definitions, after #101 shipped.",
       "peoplePerDay": 0,
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Grader computes truthfulness but never applies it to a sample's pass",
+      "lastHit": "2026-11-24",
+      "whatHappens": "Grunt checkout prepare stops on missing Node type definitions, after #101 shipped.",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: prompt-replay; confidence: high"
+          "date": "2026-11-24",
+          "text": "fb_a8481c02 fb_75982995"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T14:10:00Z"
+          "date": "2026-11-24",
+          "text": "Last seen 04:01Z on 4f396c7d"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: A sample passes only if pass && truthfulness !== false. Add a test with that reply."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Investigation: reproduce prepare on the Grunt repo. Confidence: low."
         }
       ],
-      "problem": "Grader computes truthfulness but never applies it to a sample's pass",
-      "fix": "A sample passes only if pass && truthfulness !== false. Add a test with that reply.",
-      "evidence": "Loop: prompt-replay; confidence: high",
-      "lastSeen": "2026-11-19T14:10:00Z"
+      "problem": "Grunt checkout prepare stops on missing Node type definitions, after #101 shipped.",
+      "fix": "Investigation: reproduce prepare on the Grunt repo. Confidence: low.",
+      "evidence": "fb_a8481c02 fb_75982995",
+      "lastSeen": "04:01Z on 4f396c7d"
     },
     {
-      "id": "latency-web-inventory-coverage",
+      "id": "insights-feed-stale-reviewer-never-woken-2026-11-24",
       "rank": 11,
-      "date": "2026-11-19",
-      "title": "No authenticated latency fixture; 26 taps and 45 routes unmeasured on 5723a931",
-      "peoplePerDay": null,
-      "peopleReason": "coverage gap, no product measurement",
+      "date": "2026-11-24",
+      "title": "Dashboard feed is 2 days stale: PR beeline-insights#2 conflicts after #1 and #3 merged.",
+      "peoplePerDay": 0,
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "No authenticated latency fixture; 26 taps and 45 routes unmeasured on 5723a931",
+      "lastHit": "2026-11-24",
+      "whatHappens": "Dashboard feed is 2 days stale: PR beeline-insights#2 conflicts after #1 and #3 merged.",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: latency; confidence: high"
+          "date": "2026-11-24",
+          "text": "https://github.com/lunchboxfortwo/beeline-insights/pull/2 (dirty)"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T14:30:00Z"
+          "date": "2026-11-24",
+          "text": "Last seen checked 14:10Z"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: Create a saved reviewer session and a disposable workspace for the loop, then time each tap from input to visible result."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Today's card-feed thread carries 23 and 24 Nov together. Confidence: high."
         }
       ],
-      "problem": "No authenticated latency fixture; 26 taps and 45 routes unmeasured on 5723a931",
-      "fix": "Create a saved reviewer session and a disposable workspace for the loop, then time each tap from input to visible result.",
-      "evidence": "Loop: latency; confidence: high",
-      "lastSeen": "2026-11-19T14:30:00Z"
+      "problem": "Dashboard feed is 2 days stale: PR beeline-insights#2 conflicts after #1 and #3 merged.",
+      "fix": "Today's card-feed thread carries 23 and 24 Nov together. Confidence: high.",
+      "evidence": "https://github.com/lunchboxfortwo/beeline-insights/pull/2 (dirty)",
+      "lastSeen": "checked 14:10Z"
     },
     {
-      "id": "health-app-composer-command-state-ownership",
+      "id": "ci-body-session-bridge-final-ack-flake",
       "rank": 12,
-      "date": "2026-11-19",
-      "title": "Composer command caches pass through draft hook and chat surface; mean 80.4 files per PR touching top 3 app hotspots",
+      "date": "2026-11-24",
+      "title": "Body session-bridge test failed once, passed on rerun on the same head.",
       "peoplePerDay": null,
-      "peopleReason": "structural finding, no user-facing event",
+      "peopleReason": "CI only",
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-19 morning card",
+      "source": "2026-11-24 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-19",
-      "whatHappens": "Composer command caches pass through draft hook and chat surface; mean 80.4 files per PR touching top 3 app hotspots",
+      "lastHit": "2026-11-24",
+      "whatHappens": "Body session-bridge test failed once, passed on rerun on the same head.",
       "observations": [
         {
-          "date": "2026-11-19",
-          "text": "Loop: codebase-health; confidence: medium"
+          "date": "2026-11-24",
+          "text": "https://github.com/lunchboxfortwo/beeline/actions/runs/45358287058/job/138321538064"
         },
         {
-          "date": "2026-11-19",
-          "text": "Last seen 2026-11-19T14:30:00Z"
+          "date": "2026-11-24",
+          "text": "Last seen 08:41Z PR head 6bc857eb"
         },
         {
-          "date": "2026-11-19",
-          "text": "Proposed fix: Give command discovery, its caches and its changes one controller beside the suggestions hook, with named actions."
+          "date": "2026-11-24",
+          "text": "Proposed fix: Next diagnostic: time state write, socket reply and shutdown on the same runner. Confidence: low."
         }
       ],
-      "problem": "Composer command caches pass through draft hook and chat surface; mean 80.4 files per PR touching top 3 app hotspots",
-      "fix": "Give command discovery, its caches and its changes one controller beside the suggestions hook, with named actions.",
-      "evidence": "Loop: codebase-health; confidence: medium",
-      "lastSeen": "2026-11-19T14:30:00Z"
+      "problem": "Body session-bridge test failed once, passed on rerun on the same head.",
+      "fix": "Next diagnostic: time state write, socket reply and shutdown on the same runner. Confidence: low.",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/45358287058/job/138321538064",
+      "lastSeen": "08:41Z PR head 6bc857eb"
+    },
+    {
+      "id": "ci-coverage-retained-full-check-evidence",
+      "rank": 13,
+      "date": "2026-11-24",
+      "title": "Main red hours unmeasured: Nightly Checks has never run on lunchboxfortwo/beeline, and v0.1.245 used the quick profile.",
+      "peoplePerDay": null,
+      "peopleReason": "CI only",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-24 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-24",
+      "whatHappens": "Main red hours unmeasured: Nightly Checks has never run on lunchboxfortwo/beeline, and v0.1.245 used the quick profile.",
+      "observations": [
+        {
+          "date": "2026-11-24",
+          "text": "Actions API workflow 423888720 total_count 0; release.json checks.profile quick"
+        },
+        {
+          "date": "2026-11-24",
+          "text": "Last seen 02:16Z on 4f396c7d"
+        },
+        {
+          "date": "2026-11-24",
+          "text": "Proposed fix: Coverage gap; next step: keep full attempt records on each release. Confidence: high."
+        }
+      ],
+      "problem": "Main red hours unmeasured: Nightly Checks has never run on lunchboxfortwo/beeline, and v0.1.245 used the quick profile.",
+      "fix": "Coverage gap; next step: keep full attempt records on each release. Confidence: high.",
+      "evidence": "Actions API workflow 423888720 total_count 0; release.json checks.profile quick",
+      "lastSeen": "02:16Z on 4f396c7d"
+    },
+    {
+      "id": "latency-web-host-contention",
+      "rank": 14,
+      "date": "2026-11-24",
+      "title": "Overnight latency run has no score: host load 19.6-21.8 vs cutoff 10, second night.",
+      "peoplePerDay": null,
+      "peopleReason": "synthetic rig",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-24 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-24",
+      "whatHappens": "Overnight latency run has no score: host load 19.6-21.8 vs cutoff 10, second night.",
+      "observations": [
+        {
+          "date": "2026-11-24",
+          "text": "#beeline/issues-triage ¶jellybean-25587"
+        },
+        {
+          "date": "2026-11-24",
+          "text": "Last seen 05:09Z on 4f396c7d"
+        },
+        {
+          "date": "2026-11-24",
+          "text": "Proposed fix: Next step: rerun the capture on a quiet host before ranking fixes. Confidence: high."
+        }
+      ],
+      "problem": "Overnight latency run has no score: host load 19.6-21.8 vs cutoff 10, second night.",
+      "fix": "Next step: rerun the capture on a quiet host before ranking fixes. Confidence: high.",
+      "evidence": "#beeline/issues-triage ¶jellybean-25587",
+      "lastSeen": "05:09Z on 4f396c7d"
+    },
+    {
+      "id": "latency-server-chat-list-query-slow",
+      "rank": 15,
+      "date": "2026-11-24",
+      "title": "Slow database reads fell from 517-627 to 9 in the same hours after #121.",
+      "peoplePerDay": null,
+      "peopleReason": "query logs carry no identity",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-24 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-24",
+      "whatHappens": "Slow database reads fell from 517-627 to 9 in the same hours after #121.",
+      "observations": [
+        {
+          "date": "2026-11-24",
+          "text": "raw server logs 22-24 Nov"
+        },
+        {
+          "date": "2026-11-24",
+          "text": "Last seen 13:36Z on 4f396c7d"
+        },
+        {
+          "date": "2026-11-24",
+          "text": "Proposed fix: Recheck the full 24 h on 25 Nov, then close the question. Confidence: high."
+        }
+      ],
+      "problem": "Slow database reads fell from 517-627 to 9 in the same hours after #121.",
+      "fix": "Recheck the full 24 h on 25 Nov, then close the question. Confidence: high.",
+      "evidence": "raw server logs 22-24 Nov",
+      "lastSeen": "13:36Z on 4f396c7d"
     },
     {
       "id": "db-lock-contention",
       "kind": "problem",
-      "rank": 13,
+      "rank": 16,
       "date": "2026-11-09",
       "title": "Database contention interrupts corner updates and account deletion",
       "peoplePerDay": 0,
@@ -831,7 +931,7 @@
     },
     {
       "id": "db-long-running-pool-exhaustion",
-      "rank": 13,
+      "rank": 16,
       "date": "2026-11-17",
       "title": "Chat lists stall and requests time out.",
       "peoplePerDay": null,
@@ -867,9 +967,77 @@
       "lastSeen": "14:53Z on 228-rc.1"
     },
     {
+      "id": "release-helper-darwin-arm64-stale",
+      "rank": 16,
+      "date": "2026-11-19",
+      "title": "Apple Silicon helper carried from v0.1.208 in v0.1.237",
+      "peoplePerDay": null,
+      "peopleReason": "no table records helper architecture; 0 feedback rows from v0.1.208 in 24 h",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Apple Silicon helper carried from v0.1.208 in v0.1.237",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: release; confidence: high"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T06:51:43Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: Cross-build arm64 on the Intel Mac and verify it with lipo and a signature check instead of a native run. Also fail the release when a platform is carried for more than 3 releases."
+        }
+      ],
+      "problem": "Apple Silicon helper carried from v0.1.208 in v0.1.237",
+      "fix": "Cross-build arm64 on the Intel Mac and verify it with lipo and a signature check instead of a native run. Also fail the release when a platform is carried for more than 3 releases.",
+      "evidence": "Loop: release; confidence: high",
+      "lastSeen": "2026-11-19T06:51:43Z"
+    },
+    {
+      "id": "release-live-delivery-over-target",
+      "rank": 16,
+      "date": "2026-11-23",
+      "title": "Release checks got slower: full checks 2089 s (was 1572 s); live delivery 675 s against a 600 s target.",
+      "peoplePerDay": null,
+      "peopleReason": "release-time measure, not per person",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "Release checks got slower: full checks 2089 s (was 1572 s); live delivery 675 s against a 600 s target.",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "v0.1.244 release.json (withinTarget false). https://github.com/lunchboxfortwo/beeline/releases/tag/v0.1.244"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen 01:36Z on 66454540 (v0.1.244)"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: Profile the server deploy step; split full checks across squire's 4 job slots. Confidence: high."
+        }
+      ],
+      "problem": "Release checks got slower: full checks 2089 s (was 1572 s); live delivery 675 s against a 600 s target.",
+      "fix": "Profile the server deploy step; split full checks across squire's 4 job slots. Confidence: high.",
+      "evidence": "v0.1.244 release.json (withinTarget false). https://github.com/lunchboxfortwo/beeline/releases/tag/v0.1.244",
+      "lastSeen": "01:36Z on 66454540 (v0.1.244)"
+    },
+    {
       "id": "scheduled-loops-lost-model-login",
       "kind": "problem",
-      "rank": 13,
+      "rank": 16,
       "date": "2026-11-18",
       "title": "Scheduled agent loops fail silently on an unknown model or a missing login.",
       "peoplePerDay": 1,
@@ -900,7 +1068,7 @@
     {
       "id": "signin-lost",
       "kind": "problem",
-      "rank": 13,
+      "rank": 16,
       "date": "2026-10-31",
       "title": "New phone users tap Google or GitHub but never get signed in",
       "peoplePerDay": 1,
@@ -987,7 +1155,7 @@
     },
     {
       "id": "connectors-free-agent-squire-offer-error",
-      "rank": 14,
+      "rank": 17,
       "date": "2026-11-17",
       "title": "A person who taps \"connect Squire\" for a free agent gets a server error.",
       "peoplePerDay": null,
@@ -1019,9 +1187,42 @@
       "lastSeen": "14:23Z on 228-rc.1"
     },
     {
+      "id": "db-long-running-pool-exhaustion-2026-11-19",
+      "rank": 17,
+      "date": "2026-11-19",
+      "title": "Database pool runs out of connections at deploy time; 20 timeouts at the 13:54Z v0.1.238 deploy",
+      "peoplePerDay": 1,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Database pool runs out of connections at deploy time; 20 timeouts at the 13:54Z v0.1.238 deploy",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: errors; confidence: medium"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T13:54:55Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: Limit startup catch-up work while a machine starts. Give the workspace-member and chat-list queries a time limit or their own pool."
+        }
+      ],
+      "problem": "Database pool runs out of connections at deploy time; 20 timeouts at the 13:54Z v0.1.238 deploy",
+      "fix": "Limit startup catch-up work while a machine starts. Give the workspace-member and chat-list queries a time limit or their own pool.",
+      "evidence": "Loop: errors; confidence: medium",
+      "lastSeen": "2026-11-19T13:54:55Z"
+    },
+    {
       "id": "db-pool-presence",
       "kind": "problem",
-      "rank": 14,
+      "rank": 17,
       "date": "2026-11-18",
       "title": "Chat lists stall and pushes are lost when the database pool fills.",
       "peoplePerDay": null,
@@ -1072,7 +1273,7 @@
     {
       "id": "mobile-background-color-refusal",
       "kind": "problem",
-      "rank": 14,
+      "rank": 17,
       "date": "2026-11-09",
       "title": "Phones report a rejected background colour update",
       "peoplePerDay": 0,
@@ -1094,7 +1295,7 @@
     {
       "id": "next-day-return",
       "kind": "problem",
-      "rank": 14,
+      "rank": 17,
       "date": "2026-10-31",
       "title": "New people who write to an agent do not come back the next day",
       "peoplePerDay": 0,
@@ -1165,9 +1366,110 @@
       ]
     },
     {
+      "id": "release-nightly-0200-not-published",
+      "rank": 17,
+      "date": "2026-11-23",
+      "title": "No 02:00 ET release was published while main was 15 commits ahead; merged fixes waited about 12 h more.",
+      "peoplePerDay": null,
+      "peopleReason": "release-time measure, not per person",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "No 02:00 ET release was published while main was 15 commits ahead; merged fixes waited about 12 h more.",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "Releases API: nothing after v0.1.244 (01:37Z); no Actions run 02:00-13:19Z."
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen checked 14:00Z on 66454540"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: Investigation: Claude asked for the 02:00 run outcome. Confidence: medium."
+        }
+      ],
+      "problem": "No 02:00 ET release was published while main was 15 commits ahead; merged fixes waited about 12 h more.",
+      "fix": "Investigation: Claude asked for the 02:00 run outcome. Confidence: medium.",
+      "evidence": "Releases API: nothing after v0.1.244 (01:37Z); no Actions run 02:00-13:19Z.",
+      "lastSeen": "checked 14:00Z on 66454540"
+    },
+    {
+      "id": "db-push-outbox-lock-timeout",
+      "rank": 18,
+      "date": "2026-11-23",
+      "title": "A release migration rebuilt push_outbox triggers and locked push delivery; both live servers failed one pass.",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "A release migration rebuilt push_outbox triggers and locked push delivery; both live servers failed one pass.",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "https://beeline-bt.sentry.io/issues/7852131559/"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen 21:49Z on 7809731c (v0.1.243)"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: Skip dropping and recreating triggers when their definition is unchanged (background-due-source.ts). Confidence: medium."
+        }
+      ],
+      "problem": "A release migration rebuilt push_outbox triggers and locked push delivery; both live servers failed one pass.",
+      "fix": "Skip dropping and recreating triggers when their definition is unchanged (background-due-source.ts). Confidence: medium.",
+      "evidence": "https://beeline-bt.sentry.io/issues/7852131559/",
+      "lastSeen": "21:49Z on 7809731c (v0.1.243)"
+    },
+    {
+      "id": "deploy-proxy-refused-during-restart",
+      "rank": 18,
+      "date": "2026-11-19",
+      "title": "Each deploy refuses requests and cuts request bodies",
+      "peoplePerDay": null,
+      "peopleReason": "proxy logs carry no identity",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Each deploy refuses requests and cuts request bodies",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: errors; confidence: medium"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T13:54:52Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: Send traffic to a new machine only after its readiness check passes, and drain the old one before it stops."
+        }
+      ],
+      "problem": "Each deploy refuses requests and cuts request bodies",
+      "fix": "Send traffic to a new machine only after its readiness check passes, and drain the old one before it stops.",
+      "evidence": "Loop: errors; confidence: medium",
+      "lastSeen": "2026-11-19T13:54:52Z"
+    },
+    {
       "id": "github-token-burst",
       "kind": "problem",
-      "rank": 15,
+      "rank": 18,
       "date": "2026-11-18",
       "title": "Bursts of GitHub token requests load the server.",
       "peoplePerDay": 1,
@@ -1193,7 +1495,7 @@
     },
     {
       "id": "memory-digest-requester-authority",
-      "rank": 15,
+      "rank": 18,
       "date": "2026-11-17",
       "title": "Scheduled digest turns cannot read or save memory.",
       "peoplePerDay": null,
@@ -1227,7 +1529,7 @@
     {
       "id": "mobile-storage-full",
       "kind": "problem",
-      "rank": 15,
+      "rank": 18,
       "date": "2026-11-09",
       "title": "Android storage writes fail when the local database fills",
       "peoplePerDay": 0,
@@ -1247,9 +1549,43 @@
       ]
     },
     {
+      "id": "free-agents-fly-start-race-at-deploy",
+      "rank": 19,
+      "date": "2026-11-19",
+      "title": "Free-agent catch-up cannot observe about 30 machines after a deploy",
+      "peoplePerDay": null,
+      "peopleReason": "catch-up failures carry no person",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Free-agent catch-up cannot observe about 30 machines after a deploy",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: errors; confidence: medium"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T06:24:43Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: Back off on a Fly 429, and retry the check after the machine starts."
+        }
+      ],
+      "problem": "Free-agent catch-up cannot observe about 30 machines after a deploy",
+      "fix": "Back off on a Fly 429, and retry the check after the machine starts.",
+      "evidence": "Loop: errors; confidence: medium",
+      "lastSeen": "2026-11-19T06:24:43Z"
+    },
+    {
       "id": "github-diagnostic-config",
       "kind": "problem",
-      "rank": 16,
+      "rank": 19,
       "date": "2026-11-09",
       "title": "A diagnostic script starts without GitHub configuration",
       "peoplePerDay": 0,
@@ -1270,7 +1606,7 @@
     },
     {
       "id": "session-mcp-closed-notice",
-      "rank": 16,
+      "rank": 19,
       "date": "2026-11-17",
       "title": "Session setup says Squire is \"connection closed\" while it works.",
       "peoplePerDay": null,
@@ -1302,9 +1638,43 @@
       "lastSeen": "14:45Z"
     },
     {
+      "id": "thread-approval-citation-refused",
+      "rank": 19,
+      "date": "2026-11-23",
+      "title": "Brief revisions, holds and message reads that cite a human message are refused because delivery ids and read ids differ.",
+      "peoplePerDay": null,
+      "peopleReason": "hit the owner only; 0 outside people",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "Brief revisions, holds and message reads that cite a human message are refused because delivery ids and read ids differ.",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "Server log 23 Nov: 6 reviseCornerBrief refusals, 11 getRoomMessage 404s; fb_ab09cbdc and 13 more."
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen 04:51Z on 66454540"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: Brief half merged (#87), not live. Accept a delivery id wherever a message id is accepted, for holds and message reads. Confidence: high."
+        }
+      ],
+      "problem": "Brief revisions, holds and message reads that cite a human message are refused because delivery ids and read ids differ.",
+      "fix": "Brief half merged (#87), not live. Accept a delivery id wherever a message id is accepted, for holds and message reads. Confidence: high.",
+      "evidence": "Server log 23 Nov: 6 reviseCornerBrief refusals, 11 getRoomMessage 404s; fb_ab09cbdc and 13 more.",
+      "lastSeen": "04:51Z on 66454540"
+    },
+    {
       "id": "thread-pr-open-link",
       "kind": "problem",
-      "rank": 16,
+      "rank": 19,
       "date": "2026-11-18",
       "title": "Agents cannot open PRs, and a hand-opened PR cannot merge through its thread.",
       "peoplePerDay": 1,
@@ -1330,7 +1700,7 @@
     },
     {
       "id": "bridge-oauth-redirect-unregistered",
-      "rank": 17,
+      "rank": 20,
       "date": "2026-11-17",
       "title": "Private bridge reconnect fails with \"redirect_uri_unregistered\".",
       "peoplePerDay": null,
@@ -1362,9 +1732,75 @@
       "lastSeen": "00:23Z on 222"
     },
     {
+      "id": "insights-feed-stale-reviewer-never-woken",
+      "rank": 20,
+      "date": "2026-11-23",
+      "title": "Insights dashboard is 6 days stale: PR beeline-insights#1 is ready but reviewer is never woken in a repo with no CI.",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "Insights dashboard is 6 days stale: PR beeline-insights#1 is ready but reviewer is never woken in a repo with no CI.",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "https://github.com/lunchboxfortwo/beeline-insights/pull/1; fb_451d70d8"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen checked 14:06Z"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: #86 merged, not live; reviewer asked to review PR 1 now. Confidence: high."
+        }
+      ],
+      "problem": "Insights dashboard is 6 days stale: PR beeline-insights#1 is ready but reviewer is never woken in a repo with no CI.",
+      "fix": "#86 merged, not live; reviewer asked to review PR 1 now. Confidence: high.",
+      "evidence": "https://github.com/lunchboxfortwo/beeline-insights/pull/1; fb_451d70d8",
+      "lastSeen": "checked 14:06Z"
+    },
+    {
+      "id": "mobile-android-x86-64-libcxx-missing",
+      "rank": 20,
+      "date": "2026-11-19",
+      "title": "Android 0.2.22 crashes at native load on x86_64 (libc++_shared.so missing)",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Android 0.2.22 crashes at native load on x86_64 (libc++_shared.so missing)",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: errors; confidence: medium"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T00:55:38Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: Package lib/x86_64/libc++_shared.so in the AAB, or drop x86_64 from abiFilters."
+        }
+      ],
+      "problem": "Android 0.2.22 crashes at native load on x86_64 (libc++_shared.so missing)",
+      "fix": "Package lib/x86_64/libc++_shared.so in the AAB, or drop x86_64 from abiFilters.",
+      "evidence": "Loop: errors; confidence: medium",
+      "lastSeen": "2026-11-19T00:55:38Z"
+    },
+    {
       "id": "pi-mcp-config-partial",
       "kind": "problem",
-      "rank": 17,
+      "rank": 20,
       "date": "2026-11-18",
       "title": "A free-agent tool config was read half-written.",
       "peoplePerDay": null,
@@ -1394,7 +1830,7 @@
     },
     {
       "id": "review-deps-install-refused",
-      "rank": 17,
+      "rank": 20,
       "kind": "regression",
       "scope": "single",
       "title": "Mobile work starts before its required dependencies are available",
@@ -1429,8 +1865,74 @@
       ]
     },
     {
+      "id": "corner-checkout-deps-missing",
+      "rank": 21,
+      "date": "2026-11-23",
+      "title": "Agent checkouts report ready but cannot run tests (missing packages, Vitest, mobile deps, writable /var/tmp, Node types).",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "Agent checkouts report ready but cannot run tests (missing packages, Vitest, mobile deps, writable /var/tmp, Node types).",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "fb_8afabaac, fb_b4396e3e, fb_0b5b13ba, fb_6a83e3a8 (after #54); 14 reports from 4 agents"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen 08:56Z on helper v0.1.244"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: Prepare installs every workspace the brief touches, gives tests a writable temp dir, and its ready check runs one test file. Confidence: high."
+        }
+      ],
+      "problem": "Agent checkouts report ready but cannot run tests (missing packages, Vitest, mobile deps, writable /var/tmp, Node types).",
+      "fix": "Prepare installs every workspace the brief touches, gives tests a writable temp dir, and its ready check runs one test file. Confidence: high.",
+      "evidence": "fb_8afabaac, fb_b4396e3e, fb_0b5b13ba, fb_6a83e3a8 (after #54); 14 reports from 4 agents",
+      "lastSeen": "08:56Z on helper v0.1.244"
+    },
+    {
+      "id": "loops-scheduled-session-no-checkout-no-gh",
+      "rank": 21,
+      "date": "2026-11-19",
+      "title": "Scheduled loop sessions are told a checkout exists but have none; workspace tool works",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Scheduled loop sessions are told a checkout exists but have none; workspace tool works",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: feedback; confidence: high"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T14:05:14Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: Create the checkout before a scheduled turn starts, or make the setup text say \"call workspace\"."
+        }
+      ],
+      "problem": "Scheduled loop sessions are told a checkout exists but have none; workspace tool works",
+      "fix": "Create the checkout before a scheduled turn starts, or make the setup text say \"call workspace\".",
+      "evidence": "Loop: feedback; confidence: high",
+      "lastSeen": "2026-11-19T14:05:14Z"
+    },
+    {
       "id": "personal-github-proxy-502",
-      "rank": 18,
+      "rank": 21,
       "date": "2026-11-09",
       "observations": [
         {
@@ -1456,7 +1958,7 @@
     },
     {
       "id": "scheduler-resume-loses-tmp",
-      "rank": 18,
+      "rank": 21,
       "date": "2026-11-17",
       "title": "A resumed scheduled run lost its temporary files.",
       "peoplePerDay": null,
@@ -1490,7 +1992,7 @@
     {
       "id": "squire-connection-closed-notice",
       "kind": "problem",
-      "rank": 18,
+      "rank": 21,
       "date": "2026-11-18",
       "title": "Session setup says Squire is connection closed while it works.",
       "peoplePerDay": 1,
@@ -1517,7 +2019,7 @@
     {
       "id": "full-nightly-checks-missing",
       "kind": "problem",
-      "rank": 19,
+      "rank": 22,
       "date": "2026-11-18",
       "title": "No full nightly check result after the 2 AM release.",
       "peoplePerDay": 1,
@@ -1553,8 +2055,41 @@
       ]
     },
     {
+      "id": "review-stale-wake-context",
+      "rank": 22,
+      "date": "2026-11-23",
+      "title": "Reviewers and implementers get wakes for heads already reviewed or superseded.",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "Reviewers and implementers get wakes for heads already reviewed or superseded.",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "fb_c61ea86d, fb_afee20f1, fb_40ffbb3d, fb_b4a42bbf (after rc.3 deploy); 11 reports from 4 agents"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen after 00:25Z on 66454540"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: Key review wakes to current head and brief revision; drop a wake whose head has a verdict. Confidence: medium."
+        }
+      ],
+      "problem": "Reviewers and implementers get wakes for heads already reviewed or superseded.",
+      "fix": "Key review wakes to current head and brief revision; drop a wake whose head has a verdict. Confidence: medium.",
+      "evidence": "fb_c61ea86d, fb_afee20f1, fb_40ffbb3d, fb_b4a42bbf (after rc.3 deploy); 11 reports from 4 agents",
+      "lastSeen": "after 00:25Z on 66454540"
+    },
+    {
       "id": "squire-cloudflare-challenge-empty",
-      "rank": 19,
+      "rank": 22,
       "date": "2026-11-17",
       "title": "Squire shows a Cloudflare challenge as \"network_busy\".",
       "peoplePerDay": null,
@@ -1586,6 +2121,39 @@
       "lastSeen": "00:15Z"
     },
     {
+      "id": "squire-notice-connection-closed-while-working",
+      "rank": 22,
+      "date": "2026-11-19",
+      "title": "Session setup reports Squire CONNECTION_CLOSED while the registry route works",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Session setup reports Squire CONNECTION_CLOSED while the registry route works",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: feedback; confidence: high"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T14:14:00Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: Drop or correct the notice when the registry route serves the tools."
+        }
+      ],
+      "problem": "Session setup reports Squire CONNECTION_CLOSED while the registry route works",
+      "fix": "Drop or correct the notice when the registry route serves the tools.",
+      "evidence": "Loop: feedback; confidence: high",
+      "lastSeen": "2026-11-19T14:14:00Z"
+    },
+    {
       "peoplePerDay": 0,
       "date": "2026-11-09",
       "stage": "daily-use",
@@ -1593,7 +2161,7 @@
       "scope": "single",
       "id": "stale-order-redelivery",
       "kind": "problem",
-      "rank": 19,
+      "rank": 22,
       "trend": "flat",
       "cause": "server",
       "lastHit": "2026-11-09",
@@ -1617,7 +2185,7 @@
     },
     {
       "id": "background-watcher-liveness",
-      "rank": 20,
+      "rank": 23,
       "date": "2026-11-09",
       "observations": [
         {
@@ -1652,8 +2220,41 @@
       "whatHappens": "Native builds end before the next turn can collect their results"
     },
     {
+      "id": "loops-procedures-contradict-contract",
+      "rank": 23,
+      "date": "2026-11-19",
+      "title": "Three loop procedures contradict loops-contract on old-build drops and open questions",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Three loop procedures contradict loops-contract on old-build drops and open questions",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: feedback; confidence: high"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T09:15:00Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: Rewrite the three procedures to defer to loops-contract."
+        }
+      ],
+      "problem": "Three loop procedures contradict loops-contract on old-build drops and open questions",
+      "fix": "Rewrite the three procedures to defer to loops-contract.",
+      "evidence": "Loop: feedback; confidence: high",
+      "lastSeen": "2026-11-19T09:15:00Z"
+    },
+    {
       "id": "squire-github-raw-and-release-list",
-      "rank": 20,
+      "rank": 23,
       "date": "2026-11-17",
       "title": "Squire rejects GitHub raw file reads, and the release list comes back empty.",
       "peoplePerDay": null,
@@ -1686,7 +2287,7 @@
     },
     {
       "id": "ci-nightly-checks-not-run",
-      "rank": 21,
+      "rank": 24,
       "date": "2026-11-17",
       "title": "Main has had no full nightly check for 4 nights.",
       "peoplePerDay": null,
@@ -1718,9 +2319,76 @@
       "lastSeen": "07:27Z (release thread)"
     },
     {
+      "id": "ci-nightly-full-checks-missing",
+      "rank": 24,
+      "date": "2026-11-19",
+      "title": "Nightly release runs no full checks (--full-checks never passed); 3rd night without results",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Nightly release runs no full checks (--full-checks never passed); 3rd night without results",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: ci; confidence: medium"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T06:51:19Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: The nightly trigger passes --full-checks, or the nightly makes full checks the default. Then record the result path in release.json."
+        }
+      ],
+      "problem": "Nightly release runs no full checks (--full-checks never passed); 3rd night without results",
+      "fix": "The nightly trigger passes --full-checks, or the nightly makes full checks the default. Then record the result path in release.json.",
+      "evidence": "Loop: ci; confidence: medium",
+      "lastSeen": "2026-11-19T06:51:19Z"
+    },
+    {
+      "id": "ci-server-shard-runner-queue",
+      "rank": 24,
+      "date": "2026-11-23",
+      "title": "PR checks 5% slower (837 s vs 795 s median); server shard 1 683 s vs 603 s, last in 29 of 61 runs.",
+      "peoplePerDay": null,
+      "peopleReason": "CI only",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "PR checks 5% slower (837 s vs 795 s median); server shard 1 683 s vs 603 s, last in 29 of 61 runs.",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "#beeline/issues-triage jellybean-25533"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen 09:15Z on 66454540"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: Split shard 1's slowest suites across the other shards; remeasure. Confidence: medium."
+        }
+      ],
+      "problem": "PR checks 5% slower (837 s vs 795 s median); server shard 1 683 s vs 603 s, last in 29 of 61 runs.",
+      "fix": "Split shard 1's slowest suites across the other shards; remeasure. Confidence: medium.",
+      "evidence": "#beeline/issues-triage jellybean-25533",
+      "lastSeen": "09:15Z on 66454540"
+    },
+    {
       "id": "workflow-recovery",
       "kind": "problem",
-      "rank": 21,
+      "rank": 24,
       "date": "2026-11-09",
       "title": "Failed workflow runs cannot resume and answers miss their cards",
       "peoplePerDay": 0,
@@ -1748,7 +2416,7 @@
       "stage": "daily-use",
       "source": "feedback",
       "title": "An agent appears to stop before finishing the requested work",
-      "rank": 22,
+      "rank": 25,
       "date": "2026-11-09",
       "scope": "people",
       "lastHit": "2026-11-08",
@@ -1762,8 +2430,42 @@
       ]
     },
     {
+      "id": "ci-main-red-hours-unmeasured",
+      "rank": 25,
+      "date": "2026-11-23",
+      "title": "Main red hours stay unmeasured: retained release-check attempts need Jellybean's host grant 9370056b.",
+      "peoplePerDay": null,
+      "peopleReason": "CI only",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "Main red hours stay unmeasured: retained release-check attempts need Jellybean's host grant 9370056b.",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "#beeline/issues-triage jellybean-25533"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen 09:15Z on 66454540"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: OPEN QUESTION: owner decides the host grant. Confidence: high."
+        }
+      ],
+      "problem": "Main red hours stay unmeasured: retained release-check attempts need Jellybean's host grant 9370056b.",
+      "fix": "OPEN QUESTION: owner decides the host grant. Confidence: high.",
+      "evidence": "#beeline/issues-triage jellybean-25533",
+      "lastSeen": "09:15Z on 66454540"
+    },
+    {
       "id": "health-server-queued-context-transport-coupling",
-      "rank": 22,
+      "rank": 25,
       "date": "2026-11-17",
       "title": "Queued-work context is built twice and drifts.",
       "peoplePerDay": null,
@@ -1793,6 +2495,175 @@
       "fix": "Build the context once and write the command and its event in one transaction, with the same wire format. Confidence: medium.",
       "evidence": "PR 4462 and PR 4470 each edited the same (5) server files to restore context.",
       "lastSeen": "08:44Z on 225-rc.1"
+    },
+    {
+      "id": "prompts-grader-truthfulness-false-pass",
+      "rank": 25,
+      "date": "2026-11-19",
+      "title": "Grader computes truthfulness but never applies it to a sample's pass",
+      "peoplePerDay": 0,
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Grader computes truthfulness but never applies it to a sample's pass",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: prompt-replay; confidence: high"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T14:10:00Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: A sample passes only if pass && truthfulness !== false. Add a test with that reply."
+        }
+      ],
+      "problem": "Grader computes truthfulness but never applies it to a sample's pass",
+      "fix": "A sample passes only if pass && truthfulness !== false. Add a test with that reply.",
+      "evidence": "Loop: prompt-replay; confidence: high",
+      "lastSeen": "2026-11-19T14:10:00Z"
+    },
+    {
+      "id": "latency-web-inventory-coverage",
+      "rank": 26,
+      "date": "2026-11-19",
+      "title": "No authenticated latency fixture; 26 taps and 45 routes unmeasured on 5723a931",
+      "peoplePerDay": null,
+      "peopleReason": "coverage gap, no product measurement",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "No authenticated latency fixture; 26 taps and 45 routes unmeasured on 5723a931",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: latency; confidence: high"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T14:30:00Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: Create a saved reviewer session and a disposable workspace for the loop, then time each tap from input to visible result."
+        }
+      ],
+      "problem": "No authenticated latency fixture; 26 taps and 45 routes unmeasured on 5723a931",
+      "fix": "Create a saved reviewer session and a disposable workspace for the loop, then time each tap from input to visible result.",
+      "evidence": "Loop: latency; confidence: high",
+      "lastSeen": "2026-11-19T14:30:00Z"
+    },
+    {
+      "id": "latency-web-route-cold-load",
+      "rank": 26,
+      "date": "2026-11-23",
+      "title": "Browser breaches doubled overnight under shared-host CPU load (16 tap, 88 load; worst p95 447.5 ms, 1658 ms), so this data cannot rank fixes. Also covers 2 related latency/web keys.",
+      "peoplePerDay": null,
+      "peopleReason": "synthetic rig",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "Browser breaches doubled overnight under shared-host CPU load (16 tap, 88 load; worst p95 447.5 ms, 1658 ms), so this data cannot rank fixes. Also covers 2 related latency/web keys.",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "#beeline/latency-nov23-investigation jellybean-25532"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen reproduced 11:10Z on 66454540"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: Rerun the 14 taps and 81 route states with a CPU-load gate; rank fixes only for remaining breaches. Confidence: medium."
+        }
+      ],
+      "problem": "Browser breaches doubled overnight under shared-host CPU load (16 tap, 88 load; worst p95 447.5 ms, 1658 ms), so this data cannot rank fixes. Also covers 2 related latency/web keys.",
+      "fix": "Rerun the 14 taps and 81 route states with a CPU-load gate; rank fixes only for remaining breaches. Confidence: medium.",
+      "evidence": "#beeline/latency-nov23-investigation jellybean-25532",
+      "lastSeen": "reproduced 11:10Z on 66454540"
+    },
+    {
+      "id": "db-room-access-slow-read",
+      "rank": 27,
+      "date": "2026-11-23",
+      "title": "Room and thread reads are slow; slow-query records grew 4.5x (2393 vs 527); pool timeouts dropped read state from some room loads.",
+      "peoplePerDay": null,
+      "peopleReason": "query logs carry no identity",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-23 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-23",
+      "whatHappens": "Room and thread reads are slow; slow-query records grew 4.5x (2393 vs 527); pool timeouts dropped read state from some room loads.",
+      "observations": [
+        {
+          "date": "2026-11-23",
+          "text": "raw server logs 22-23 Nov"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Last seen 14:05Z on 66454540"
+        },
+        {
+          "date": "2026-11-23",
+          "text": "Proposed fix: EXPLAIN ANALYZE live thread-read and members plans via read-only route; cut cost; remeasure. Confidence: medium."
+        }
+      ],
+      "problem": "Room and thread reads are slow; slow-query records grew 4.5x (2393 vs 527); pool timeouts dropped read state from some room loads.",
+      "fix": "EXPLAIN ANALYZE live thread-read and members plans via read-only route; cut cost; remeasure. Confidence: medium.",
+      "evidence": "raw server logs 22-23 Nov",
+      "lastSeen": "14:05Z on 66454540"
+    },
+    {
+      "id": "health-app-composer-command-state-ownership",
+      "rank": 27,
+      "date": "2026-11-19",
+      "title": "Composer command caches pass through draft hook and chat surface; mean 80.4 files per PR touching top 3 app hotspots",
+      "peoplePerDay": null,
+      "peopleReason": "structural finding, no user-facing event",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-19 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-19",
+      "whatHappens": "Composer command caches pass through draft hook and chat surface; mean 80.4 files per PR touching top 3 app hotspots",
+      "observations": [
+        {
+          "date": "2026-11-19",
+          "text": "Loop: codebase-health; confidence: medium"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Last seen 2026-11-19T14:30:00Z"
+        },
+        {
+          "date": "2026-11-19",
+          "text": "Proposed fix: Give command discovery, its caches and its changes one controller beside the suggestions hook, with named actions."
+        }
+      ],
+      "problem": "Composer command caches pass through draft hook and chat surface; mean 80.4 files per PR touching top 3 app hotspots",
+      "fix": "Give command discovery, its caches and its changes one controller beside the suggestions hook, with named actions.",
+      "evidence": "Loop: codebase-health; confidence: medium",
+      "lastSeen": "2026-11-19T14:30:00Z"
     }
   ],
   "walk": [
@@ -2340,6 +3211,16 @@
             "date": "2026-11-21",
             "value": 0.1304,
             "samples": 23
+          },
+          {
+            "date": "2026-11-22",
+            "value": 0.087,
+            "samples": 23
+          },
+          {
+            "date": "2026-11-23",
+            "value": 0.12,
+            "samples": 25
           }
         ]
       }
@@ -2696,6 +3577,16 @@
             "date": "2026-11-21",
             "value": 0,
             "samples": 328
+          },
+          {
+            "date": "2026-11-22",
+            "value": 0,
+            "samples": 352
+          },
+          {
+            "date": "2026-11-23",
+            "value": 0,
+            "samples": 367
           }
         ]
       }
@@ -3052,6 +3943,16 @@
             "date": "2026-11-21",
             "value": 0.0274,
             "samples": 328
+          },
+          {
+            "date": "2026-11-22",
+            "value": 0.0256,
+            "samples": 352
+          },
+          {
+            "date": "2026-11-23",
+            "value": 0.0381,
+            "samples": 367
           }
         ]
       }
@@ -3416,6 +4317,16 @@
             "date": "2026-11-21",
             "value": 0.3171,
             "samples": 328
+          },
+          {
+            "date": "2026-11-22",
+            "value": 0.2869,
+            "samples": 352
+          },
+          {
+            "date": "2026-11-23",
+            "value": 0.2807,
+            "samples": 367
           }
         ]
       }
@@ -3775,6 +4686,16 @@
             "date": "2026-11-21",
             "value": 0.122,
             "samples": 328
+          },
+          {
+            "date": "2026-11-22",
+            "value": 0.1222,
+            "samples": 352
+          },
+          {
+            "date": "2026-11-23",
+            "value": 0.1335,
+            "samples": 367
           }
         ]
       }
@@ -4147,6 +5068,16 @@
             "date": "2026-11-21",
             "value": 0.0976,
             "samples": 328
+          },
+          {
+            "date": "2026-11-22",
+            "value": 0.0909,
+            "samples": 352
+          },
+          {
+            "date": "2026-11-23",
+            "value": 0.1008,
+            "samples": 367
           }
         ]
       }

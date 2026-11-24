@@ -1,0 +1,143 @@
+[
+ {
+  "number": 1,
+  "key": "release/nightly-0200-not-published",
+  "problem": "No 02:00 ET release ran for the second night; no schedule or timer triggers it. 4 merged PRs wait (#123, #125, #126, #127).",
+  "evidence": "Releases API: newest v0.1.245 at 03:14Z; no release Actions run after 03:11Z; agent_schedules has no release schedule; release-corner silent since 16 Nov.",
+  "lastSeen": "checked 14:00Z on 4f396c7d",
+  "fix": "Restore a 02:00 ET schedule for Jellybean in release-corner that runs the squire release of main and posts the outcome line. Confidence: high.",
+  "peoplePerDay": null,
+  "peopleReason": "release-time measure"
+ },
+ {
+  "number": 2,
+  "key": "release/live-delivery-over-target",
+  "problem": "Live delivery took 644 s against a 600 s target (was 675 s).",
+  "evidence": "v0.1.245 release.json delivery.live (withinTarget false)",
+  "lastSeen": "03:13Z on 4f396c7d (v0.1.245)",
+  "fix": "#125 (merged, not live) stops rebuilding at promotion; remeasure on the next release. Confidence: medium.",
+  "peoplePerDay": null,
+  "peopleReason": "release-time measure"
+ },
+ {
+  "number": 3,
+  "key": "daemon/watch-self-503",
+  "problem": "A thread asking to be woken when it merges gets a 503 server error instead of a refusal.",
+  "evidence": "https://beeline-bt.sentry.io/issues/7864454141/",
+  "lastSeen": "03:05Z on 4f396c7d",
+  "fix": "Throw CommandRefusalError(400) in corner-reports.ts:51 with a plain reason; add a test. Confidence: high.",
+  "peoplePerDay": 0
+ },
+ {
+  "number": 4,
+  "key": "auth/github-exchange-invalid-ticket-503",
+  "problem": "An invalid GitHub sign-in ticket returns 503 and goes to Sentry; Google returns 401.",
+  "evidence": "https://beeline-bt.sentry.io/issues/7865215844/ ; server log 13:29:42-43Z",
+  "lastSeen": "13:29Z on 4f396c7d",
+  "fix": "Add a GitHub sign-in error mapped to 401 like GoogleSignInError in server-route.ts; add a test. Confidence: high.",
+  "peoplePerDay": 0
+ },
+ {
+  "number": 5,
+  "key": "github/webhook-check-rollup-fetch-failed",
+  "problem": "One GitHub webhook failed with 503 because the check-summary refresh could not reach GitHub.",
+  "evidence": "https://beeline-bt.sentry.io/issues/7864193594/",
+  "lastSeen": "23:17Z on 4f396c7d",
+  "fix": "Retry transient fetch errors inside the refresh instead of failing the webhook. Confidence: medium.",
+  "peoplePerDay": 0
+ },
+ {
+  "number": 6,
+  "key": "schedule/parked-forever-after-lock-timeout",
+  "problem": "One lock timeout parks a recurring schedule for good: it never runs again until someone edits it.",
+  "evidence": "server log 13:30:00Z schedule 7c3d04a0 parked (55P03); agent_schedules next_run_at = failed_due_at = 13:30Z",
+  "lastSeen": "13:30Z on 4f396c7d",
+  "fix": "Retry retryable database errors on the next tick; on a permanent failure skip only that occurrence and advance to the next cron time. Confidence: high.",
+  "peoplePerDay": 0
+ },
+ {
+  "number": 7,
+  "key": "loops/scheduled-run-stale-thread-context",
+  "problem": "Schedules re-deliver runs already reported, or with stale context.",
+  "evidence": "fb_8afa41b7 and 6 more",
+  "lastSeen": "08:30Z on 4f396c7d",
+  "fix": "Skip a re-delivery when the run's report already exists in the target thread. Confidence: medium.",
+  "peoplePerDay": 0
+ },
+ {
+  "number": 8,
+  "key": "attachments/read-message-empty",
+  "problem": "Listed messages and attachments come back empty or not found.",
+  "evidence": "fb_a05bc185 and 4 more; getRoomMessage 403/404",
+  "lastSeen": "10:23Z on 4f396c7d",
+  "fix": "Investigation: reproduce one listed-then-unreadable id on live; fix the access check. Confidence: medium.",
+  "peoplePerDay": 0
+ },
+ {
+  "number": 9,
+  "key": "review/stale-wake-context",
+  "problem": "Reviewer wakes say checks passed while the head is pending; zero-check PRs never wake reviewers.",
+  "evidence": "fb_ecab1283 fb_6fedda52 fb_62a363c4",
+  "lastSeen": "00:34Z on 4f396c7d",
+  "fix": "Derive the wake from the head's rollup at wake time; treat no required checks as complete. Confidence: medium.",
+  "peoplePerDay": 0
+ },
+ {
+  "number": 10,
+  "key": "corner/checkout-deps-missing",
+  "problem": "Grunt checkout prepare stops on missing Node type definitions, after #101 shipped.",
+  "evidence": "fb_a8481c02 fb_75982995",
+  "lastSeen": "04:01Z on 4f396c7d",
+  "fix": "Investigation: reproduce prepare on the Grunt repo. Confidence: low.",
+  "peoplePerDay": 0
+ },
+ {
+  "number": 11,
+  "key": "insights/feed-stale-reviewer-never-woken",
+  "problem": "Dashboard feed is 2 days stale: PR beeline-insights#2 conflicts after #1 and #3 merged.",
+  "evidence": "https://github.com/lunchboxfortwo/beeline-insights/pull/2 (dirty)",
+  "lastSeen": "checked 14:10Z",
+  "fix": "Today's card-feed thread carries 23 and 24 Nov together. Confidence: high.",
+  "peoplePerDay": 0
+ },
+ {
+  "number": 12,
+  "key": "ci/body/session-bridge-final-ack-flake",
+  "problem": "Body session-bridge test failed once, passed on rerun on the same head.",
+  "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/45358287058/job/138321538064",
+  "lastSeen": "08:41Z PR head 6bc857eb",
+  "fix": "Next diagnostic: time state write, socket reply and shutdown on the same runner. Confidence: low.",
+  "peoplePerDay": null,
+  "peopleReason": "CI only"
+ },
+ {
+  "number": 13,
+  "key": "ci/coverage/retained-full-check-evidence",
+  "problem": "Main red hours unmeasured: Nightly Checks has never run on lunchboxfortwo/beeline, and v0.1.245 used the quick profile.",
+  "evidence": "Actions API workflow 423888720 total_count 0; release.json checks.profile quick",
+  "lastSeen": "02:16Z on 4f396c7d",
+  "fix": "Coverage gap; next step: keep full attempt records on each release. Confidence: high.",
+  "peoplePerDay": null,
+  "peopleReason": "CI only"
+ },
+ {
+  "number": 14,
+  "key": "latency/web/host-contention",
+  "problem": "Overnight latency run has no score: host load 19.6-21.8 vs cutoff 10, second night.",
+  "evidence": "#beeline/issues-triage \u00b6jellybean-25587",
+  "lastSeen": "05:09Z on 4f396c7d",
+  "fix": "Next step: rerun the capture on a quiet host before ranking fixes. Confidence: high.",
+  "peoplePerDay": null,
+  "peopleReason": "synthetic rig"
+ },
+ {
+  "number": 15,
+  "key": "latency/server/chat-list-query-slow",
+  "problem": "Slow database reads fell from 517-627 to 9 in the same hours after #121.",
+  "evidence": "raw server logs 22-24 Nov",
+  "lastSeen": "13:36Z on 4f396c7d",
+  "fix": "Recheck the full 24 h on 25 Nov, then close the question. Confidence: high.",
+  "peoplePerDay": null,
+  "peopleReason": "query logs carry no identity"
+ }
+]

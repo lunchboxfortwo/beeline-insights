@@ -143,18 +143,15 @@
     },
     {
       "key": "corner/checkout-deps-missing",
-      "lastPresentedAt": "2026-11-08T14:05:00Z",
-      "sourceSha": "74a7c22631bdc53cf1838d33e86c09104086ed36",
-      "evidence": [
-        "#beeline/a1378e1f18cd23a037775893d6e1f7f3722fdb06125eae924d1f8f470b75595b"
-      ],
-      "impact": "2 reports 7 Nov: no deps, read-only worktrees",
-      "cardRunId": "3f0835b7f7d85f6af78626f9c437a9bdca38131598016b9db231902304926eda",
-      "cardMessageId": "99d9ca664fa28a61dddcd605f8b00b28fef915d12a362fc3a9b3408244765550",
-      "status": "verified",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T04:01:57Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "fb_a8481c02 fb_75982995",
+      "impact": "Grunt checkout prepare stops on missing Node type definitions, after #101 shipped.",
+      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
+      "status": "reported",
       "cornerAddress": null,
-      "fixSha": "#4089",
-      "lastFollowUp": null
+      "fixSha": null
     },
     {
       "key": "triage/digest-vs-brief",
@@ -753,15 +750,15 @@
     },
     {
       "key": "latency/web/route-cold-load",
-      "cornerAddress": null,
-      "fixSha": null,
-      "lastPresentedAt": "2026-11-13T14:13:00Z",
-      "sourceSha": "1c65435aa2929f24c2c270444ebb70e2ac309848",
-      "evidence": "#beeline/morning card 13 Nov",
-      "impact": "every declared route breaches cold",
-      "cardMessageId": "f62d9c875a6da1e67ab74d4a8a77c8444c389721f912312b6d34bac670e5f332",
+      "lastPresentedAt": "2026-11-23T14:10:00Z",
+      "lastSeenAt": "2026-11-23T11:10:28Z",
+      "sourceSha": "664545401437e913647704901e57addb631bd53b",
+      "evidence": "#beeline/latency-nov23-investigation jellybean-25532",
+      "impact": "Browser breaches doubled overnight under shared-host CPU load (16 tap, 88 load; worst p95 447.5 ms and 1658 ms); data cannot rank fixes. Also covers latency/web/rendered-feedback-breaches and latency/web/inventory-coverage.",
+      "cardMessageId": "610c91a9f9befbb7ced384b0f17fe819de13e9f76ff6ed68e1374e8bb1436f2e",
       "status": "reported",
-      "lastSeenAt": "2026-11-13T08:00:00Z"
+      "cornerAddress": null,
+      "fixSha": null
     },
     {
       "key": "squire/card-release-lost-session",
@@ -1043,15 +1040,15 @@
     },
     {
       "key": "review/stale-wake-context",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T00:34:00Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "fb_ecab1283 fb_6fedda52 fb_62a363c4",
+      "impact": "Reviewer wakes say checks passed while the head is pending; zero-check PRs never wake reviewers.",
+      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
       "status": "reported",
       "cornerAddress": null,
-      "fixSha": null,
-      "lastPresentedAt": "2026-11-11T14:10:00Z",
-      "lastSeenAt": "2026-11-11T05:02:00Z",
-      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
-      "impact": "5 agent reports",
-      "evidence": "feedback_items 11 Nov",
-      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46"
+      "fixSha": null
     },
     {
       "key": "corner/false-merge-conflict-wake",
@@ -1367,15 +1364,15 @@
     },
     {
       "key": "ci/server-shard-runner-queue",
-      "fixSha": null,
-      "lastPresentedAt": "2026-11-13T14:13:00Z",
-      "lastSeenAt": "2026-11-12T23:11:16Z",
-      "sourceSha": "1c65435aa2929f24c2c270444ebb70e2ac309848",
-      "evidence": "#beeline/morning card 13 Nov",
-      "impact": "911 s queue vs 3 s median",
-      "cardMessageId": "f62d9c875a6da1e67ab74d4a8a77c8444c389721f912312b6d34bac670e5f332",
+      "lastPresentedAt": "2026-11-23T14:10:00Z",
+      "lastSeenAt": "2026-11-23T09:15:15Z",
+      "sourceSha": "664545401437e913647704901e57addb631bd53b",
+      "evidence": "#beeline/issues-triage jellybean-25533",
+      "impact": "PR checks 5% slower (837 s vs 795 s median); server shard 1 683 s vs 603 s, last in 29 of 61 runs.",
+      "cardMessageId": "610c91a9f9befbb7ced384b0f17fe819de13e9f76ff6ed68e1374e8bb1436f2e",
       "status": "reported",
-      "cornerAddress": null
+      "cornerAddress": null,
+      "fixSha": null
     },
     {
       "key": "ci/helper-darwin-x64-cold-cargo-cache",
@@ -1552,6 +1549,210 @@
       "lastSeenAt": "2026-11-19T14:30:00Z",
       "sourceSha": "5723a931b7cd04f9008531795e7f7c3f7898ac54",
       "cardMessageId": "efd6b7c70ef7f767fed5661d65446eea871deafd02b72f623d7072c2850e16d8"
+    },
+    {
+      "key": "release/live-delivery-over-target",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T03:13:52Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "v0.1.245 release.json delivery.live (withinTarget false)",
+      "impact": "Live delivery took 644 s against a 600 s target (was 675 s).",
+      "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "release/nightly-0200-not-published",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T14:00:00Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "Releases API: newest v0.1.245 at 03:14Z; no release Actions run after 03:11Z; agent_schedules has no release schedule; release-corner silent since 16 Nov.",
+      "impact": "No 02:00 ET release ran for the second night; no schedule or timer triggers it. 4 merged PRs wait (#123, #125, #126, #127).",
+      "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "db/push-outbox-lock-timeout",
+      "lastPresentedAt": "2026-11-23T14:10:00Z",
+      "lastSeenAt": "2026-11-22T21:49:42Z",
+      "sourceSha": "664545401437e913647704901e57addb631bd53b",
+      "evidence": "https://beeline-bt.sentry.io/issues/7852131559/",
+      "impact": "A release migration rebuilt push_outbox triggers and locked push delivery; both live servers failed one pass.",
+      "cardMessageId": "64273d5066fb6bd1fc420296f8d7b0c41ccfffdea352296f141b3f733cd3b186",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "thread/approval-citation-refused",
+      "lastPresentedAt": "2026-11-23T14:10:00Z",
+      "lastSeenAt": "2026-11-23T04:51:00Z",
+      "sourceSha": "664545401437e913647704901e57addb631bd53b",
+      "evidence": "Server log 23 Nov: 6 reviseCornerBrief refusals, 11 getRoomMessage 404s; fb_ab09cbdc and 13 more.",
+      "impact": "Brief revisions, holds and message reads that cite a human message are refused because delivery ids and read ids differ.",
+      "cardMessageId": "64273d5066fb6bd1fc420296f8d7b0c41ccfffdea352296f141b3f733cd3b186",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "insights/feed-stale-reviewer-never-woken",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T14:10:00Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "https://github.com/lunchboxfortwo/beeline-insights/pull/2 (dirty)",
+      "impact": "Dashboard feed is 2 days stale: PR beeline-insights#2 conflicts after #1 and #3 merged.",
+      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "ci/main-red-hours-unmeasured",
+      "lastPresentedAt": "2026-11-23T14:10:00Z",
+      "lastSeenAt": "2026-11-23T09:15:15Z",
+      "sourceSha": "664545401437e913647704901e57addb631bd53b",
+      "evidence": "#beeline/issues-triage jellybean-25533",
+      "impact": "Main red hours stay unmeasured: retained release-check attempts need Jellybean's host grant 9370056b.",
+      "cardMessageId": "610c91a9f9befbb7ced384b0f17fe819de13e9f76ff6ed68e1374e8bb1436f2e",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "db/room-access-slow-read",
+      "lastPresentedAt": "2026-11-23T14:10:00Z",
+      "lastSeenAt": "2026-11-23T14:05:00Z",
+      "sourceSha": "664545401437e913647704901e57addb631bd53b",
+      "evidence": "raw server logs 22-23 Nov",
+      "impact": "Room and thread reads are slow; slow-query records grew 4.5x (2393 vs 527); pool timeouts dropped read state from some room loads.",
+      "cardMessageId": "610c91a9f9befbb7ced384b0f17fe819de13e9f76ff6ed68e1374e8bb1436f2e",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "daemon/watch-self-503",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T03:05:01Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "https://beeline-bt.sentry.io/issues/7864454141/",
+      "impact": "A thread asking to be woken when it merges gets a 503 server error instead of a refusal.",
+      "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "auth/github-exchange-invalid-ticket-503",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T13:29:43Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "https://beeline-bt.sentry.io/issues/7865215844/ ; server log 13:29:42-43Z",
+      "impact": "An invalid GitHub sign-in ticket returns 503 and goes to Sentry; Google returns 401.",
+      "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "github/webhook-check-rollup-fetch-failed",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-23T23:17:50Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "https://beeline-bt.sentry.io/issues/7864193594/",
+      "impact": "One GitHub webhook failed with 503 because the check-summary refresh could not reach GitHub.",
+      "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "schedule/parked-forever-after-lock-timeout",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T13:30:00Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "server log 13:30:00Z schedule 7c3d04a0 parked (55P03); agent_schedules next_run_at = failed_due_at = 13:30Z",
+      "impact": "One lock timeout parks a recurring schedule for good: it never runs again until someone edits it.",
+      "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "loops/scheduled-run-stale-thread-context",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T08:30:48Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "fb_8afa41b7 and 6 more",
+      "impact": "Schedules re-deliver runs already reported, or with stale context.",
+      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "attachments/read-message-empty",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T10:23:56Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "fb_a05bc185 and 4 more; getRoomMessage 403/404",
+      "impact": "Listed messages and attachments come back empty or not found.",
+      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "ci/body/session-bridge-final-ack-flake",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T08:41:11Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/45358287058/job/138321538064",
+      "impact": "Body session-bridge test failed once, passed on rerun on the same head.",
+      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "ci/coverage/retained-full-check-evidence",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T02:16:36Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "Actions API workflow 423888720 total_count 0; release.json checks.profile quick",
+      "impact": "Main red hours unmeasured: Nightly Checks has never run on lunchboxfortwo/beeline, and v0.1.245 used the quick profile.",
+      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "latency/web/host-contention",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T10:09:00Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "#beeline/issues-triage ¶jellybean-25587",
+      "impact": "Overnight latency run has no score: host load 19.6-21.8 vs cutoff 10, second night.",
+      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "latency/server/chat-list-query-slow",
+      "lastPresentedAt": "2026-11-24T14:30:00Z",
+      "lastSeenAt": "2026-11-24T13:36:00Z",
+      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "evidence": "raw server logs 22-24 Nov",
+      "impact": "Slow database reads fell from 517-627 to 9 in the same hours after #121.",
+      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
     }
   ],
   "scores": [
@@ -1814,6 +2015,31 @@
         "fullChecks": "not run",
         "appHotspotMeanFilesPerPR": 80.4
       }
+    },
+    {
+      "date": "2026-11-23",
+      "liveSha": "664545401437e913647704901e57addb631bd53b",
+      "liveVersion": "v0.1.244-rc.3",
+      "itemsShown": 12,
+      "approved": 0,
+      "staleCaughtByStep2b": 1,
+      "staleCorrectedByOwner": 0,
+      "gateRunId": "5895da7c74dee2f311059415036c4955d538136ed18c57cef823457b4ec7d24a"
+    },
+    {
+      "date": "2026-11-24",
+      "liveSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
+      "liveVersion": "v0.1.245-rc.10",
+      "itemsShown": 15,
+      "approvable": 9,
+      "approved": 0,
+      "staleCaughtByStep2b": 2,
+      "staleCorrectedByOwner": 0,
+      "gateRunId": "49174cf9bfabf98674afc9c77ff6da0d7b09e5d946aa2a8ca6f26d736f730bef",
+      "cardMessageIds": [
+        "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
+        "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487"
+      ]
     }
   ]
 }
