@@ -325,6 +325,31 @@
         "date": "2026-11-16",
         "value": 0,
         "samples": 946
+      },
+      {
+        "date": "2026-11-17",
+        "value": 0,
+        "samples": 956
+      },
+      {
+        "date": "2026-11-18",
+        "value": 0,
+        "samples": 833
+      },
+      {
+        "date": "2026-11-19",
+        "value": 0,
+        "samples": 543
+      },
+      {
+        "date": "2026-11-20",
+        "value": 0,
+        "samples": 521
+      },
+      {
+        "date": "2026-11-21",
+        "value": 0,
+        "samples": 328
       }
     ]
   }

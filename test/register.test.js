@@ -182,6 +182,46 @@ test('a dated morning card file becomes one dashboard problem per item', async (
   assert.equal(feed.problems[0].lastSeen, card[0].lastSeen);
   assert.ok(feed.problems[0].observations.every((note) => note.text.length <= 300));
   assert.match(feed.problems[0].observations.map((note) => note.text).join(' '), /Last seen 14:53Z/);
+  assert.equal(Object.hasOwn(feed.problems[0], 'peopleReason'), false);
+  const expanded = Array.from({ length: 12 }, (_, i) => ({
+    ...card[0], number: i + 1, key: i === 0 ? 'mobile/android-x86_64-libcxx-missing' : `card/item-${i + 1}`,
+    peoplePerDay: i === 1 ? 1 : i === 2 ? 0 : null,
+    ...([1, 2].includes(i) ? {} : { peopleReason: 'No person identity in source.' }),
+  }));
+  await writeFile(join(root, 'problems/2026-11-17.json'), JSON.stringify(expanded));
+  const measured = await buildFeed({ root, today: '2026-11-17' });
+  const saved = JSON.parse(await readFile(join(root, 'feed/latest.json'), 'utf8'));
+  assert.deepEqual(saved, measured);
+  assert.equal(saved.problems.length, 13);
+  assert.equal(saved.problems[0].id, 'mobile-android-x86-64-libcxx-missing');
+  assert.equal(JSON.parse(await readFile(join(root, 'problems/2026-11-17.json'), 'utf8'))[0].key, expanded[0].key);
+  expanded.forEach((item, i) => {
+    assert.equal(saved.problems[i].peoplePerDay, item.peoplePerDay);
+    assert.equal(saved.problems[i].peopleReason, item.peopleReason);
+  });
+  for (const [change, error] of [
+    [(items) => { delete items[0].peopleReason; }, /peopleReason/],
+    [(items) => { items[1].number = 1; }, /number: duplicate/],
+    [(items) => { delete items[1].number; }, /missing number/],
+  ]) {
+    const invalid = structuredClone(expanded);
+    change(invalid);
+    await writeFile(join(root, 'problems/2026-11-17.json'), JSON.stringify(invalid));
+    await assert.rejects(buildFeed({ root, today: '2026-11-17' }), error);
+  }
+  const recurring = { ...card[0], key: 'db/long-running-pool-exhaustion' };
+  // Write the later card first: file discovery must still keep the earliest ID.
+  await writeFile(join(root, 'problems/2026-11-19.json'), JSON.stringify([recurring]));
+  await writeFile(join(root, 'problems/2026-11-17.json'), JSON.stringify([recurring]));
+  const repeated = await buildFeed({ root, today: '2026-11-19' });
+  assert.equal(repeated.problems.find((p) => p.date === '2026-11-17').id, 'db-long-running-pool-exhaustion');
+  assert.equal(repeated.problems.find((p) => p.date === '2026-11-19').id, 'db-long-running-pool-exhaustion-2026-11-19');
+  for (const date of ['2026-11-17', '2026-11-19']) {
+    assert.equal(JSON.parse(await readFile(join(root, `problems/${date}.json`), 'utf8'))[0].key, recurring.key);
+  }
+  await writeFile(join(root, 'problems/2026-11-19.json'), JSON.stringify([recurring, { ...recurring, number: 2 }]));
+  await assert.rejects(buildFeed({ root, today: '2026-11-19' }), /key: duplicate/);
+  await rm(join(root, 'problems/2026-11-19.json'));
   await writeFile(join(root, 'problems/2026-11-17.json'), JSON.stringify([{ ...card[0], problem: '' }]));
   await assert.rejects(buildFeed({ root, today: '2026-11-17' }), /problem: expected nonempty text/);
 });

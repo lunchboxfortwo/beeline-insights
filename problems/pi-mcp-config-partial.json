@@ -1,0 +1,31 @@
+{
+  "id": "pi-mcp-config-partial",
+  "kind": "problem",
+  "rank": 5,
+  "date": "2026-11-18",
+  "title": "A free-agent tool config was read half-written.",
+  "peoplePerDay": null,
+  "trend": "flat",
+  "cause": "unknown",
+  "stage": "operate",
+  "source": "morning-card",
+  "scope": "single",
+  "lastHit": "2026-11-18",
+  "lastSeen": "2026-11-18T03:05Z",
+  "whatHappens": "\"Unexpected end of JSON input\" on 2 machines at 03:05Z.",
+  "fix": "write to a temporary file and rename it into place (proposed).",
+  "observations": [
+    {
+      "date": "2026-11-18",
+      "text": "\"Unexpected end of JSON input\" on 2 machines at 03:05Z."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "Proposed fix: write to a temporary file and rename it into place (proposed)."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "People per day not measured: free-agent logs carry no person."
+    }
+  ]
+}

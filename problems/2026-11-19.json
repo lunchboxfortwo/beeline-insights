@@ -1,0 +1,115 @@
+[
+  {
+    "number": 1,
+    "key": "release/helper-darwin-arm64-stale",
+    "problem": "Apple Silicon helper carried from v0.1.208 in v0.1.237",
+    "fix": "Cross-build arm64 on the Intel Mac and verify it with lipo and a signature check instead of a native run. Also fail the release when a platform is carried for more than 3 releases.",
+    "lastSeen": "2026-11-19T06:51:43Z",
+    "evidence": "Loop: release; confidence: high",
+    "peoplePerDay": null,
+    "peopleReason": "no table records helper architecture; 0 feedback rows from v0.1.208 in 24 h"
+  },
+  {
+    "number": 2,
+    "key": "db/long-running-pool-exhaustion",
+    "problem": "Database pool runs out of connections at deploy time; 20 timeouts at the 13:54Z v0.1.238 deploy",
+    "fix": "Limit startup catch-up work while a machine starts. Give the workspace-member and chat-list queries a time limit or their own pool.",
+    "lastSeen": "2026-11-19T13:54:55Z",
+    "evidence": "Loop: errors; confidence: medium",
+    "peoplePerDay": 1
+  },
+  {
+    "number": 3,
+    "key": "deploy/proxy-refused-during-restart",
+    "problem": "Each deploy refuses requests and cuts request bodies",
+    "fix": "Send traffic to a new machine only after its readiness check passes, and drain the old one before it stops.",
+    "lastSeen": "2026-11-19T13:54:52Z",
+    "evidence": "Loop: errors; confidence: medium",
+    "peoplePerDay": null,
+    "peopleReason": "proxy logs carry no identity"
+  },
+  {
+    "number": 4,
+    "key": "free-agents/fly-start-race-at-deploy",
+    "problem": "Free-agent catch-up cannot observe about 30 machines after a deploy",
+    "fix": "Back off on a Fly 429, and retry the check after the machine starts.",
+    "lastSeen": "2026-11-19T06:24:43Z",
+    "evidence": "Loop: errors; confidence: medium",
+    "peoplePerDay": null,
+    "peopleReason": "catch-up failures carry no person"
+  },
+  {
+    "number": 5,
+    "key": "mobile/android-x86_64-libcxx-missing",
+    "problem": "Android 0.2.22 crashes at native load on x86_64 (libc++_shared.so missing)",
+    "fix": "Package lib/x86_64/libc++_shared.so in the AAB, or drop x86_64 from abiFilters.",
+    "lastSeen": "2026-11-19T00:55:38Z",
+    "evidence": "Loop: errors; confidence: medium",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 6,
+    "key": "loops/scheduled-session-no-checkout-no-gh",
+    "problem": "Scheduled loop sessions are told a checkout exists but have none; workspace tool works",
+    "fix": "Create the checkout before a scheduled turn starts, or make the setup text say \"call workspace\".",
+    "lastSeen": "2026-11-19T14:05:14Z",
+    "evidence": "Loop: feedback; confidence: high",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 7,
+    "key": "squire/notice-connection-closed-while-working",
+    "problem": "Session setup reports Squire CONNECTION_CLOSED while the registry route works",
+    "fix": "Drop or correct the notice when the registry route serves the tools.",
+    "lastSeen": "2026-11-19T14:14:00Z",
+    "evidence": "Loop: feedback; confidence: high",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 8,
+    "key": "loops/procedures-contradict-contract",
+    "problem": "Three loop procedures contradict loops-contract on old-build drops and open questions",
+    "fix": "Rewrite the three procedures to defer to loops-contract.",
+    "lastSeen": "2026-11-19T09:15:00Z",
+    "evidence": "Loop: feedback; confidence: high",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 9,
+    "key": "ci/nightly-full-checks-missing",
+    "problem": "Nightly release runs no full checks (--full-checks never passed); 3rd night without results",
+    "fix": "The nightly trigger passes --full-checks, or the nightly makes full checks the default. Then record the result path in release.json.",
+    "lastSeen": "2026-11-19T06:51:19Z",
+    "evidence": "Loop: ci; confidence: medium",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 10,
+    "key": "prompts/grader-truthfulness-false-pass",
+    "problem": "Grader computes truthfulness but never applies it to a sample's pass",
+    "fix": "A sample passes only if pass && truthfulness !== false. Add a test with that reply.",
+    "lastSeen": "2026-11-19T14:10:00Z",
+    "evidence": "Loop: prompt-replay; confidence: high",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 11,
+    "key": "latency/web/inventory-coverage",
+    "problem": "No authenticated latency fixture; 26 taps and 45 routes unmeasured on 5723a931",
+    "fix": "Create a saved reviewer session and a disposable workspace for the loop, then time each tap from input to visible result.",
+    "lastSeen": "2026-11-19T14:30:00Z",
+    "evidence": "Loop: latency; confidence: high",
+    "peoplePerDay": null,
+    "peopleReason": "coverage gap, no product measurement"
+  },
+  {
+    "number": 12,
+    "key": "health/app/composer-command-state-ownership",
+    "problem": "Composer command caches pass through draft hook and chat surface; mean 80.4 files per PR touching top 3 app hotspots",
+    "fix": "Give command discovery, its caches and its changes one controller beside the suggestions hook, with named actions.",
+    "lastSeen": "2026-11-19T14:30:00Z",
+    "evidence": "Loop: codebase-health; confidence: medium",
+    "peoplePerDay": null,
+    "peopleReason": "structural finding, no user-facing event"
+  }
+]

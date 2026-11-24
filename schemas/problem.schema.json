@@ -176,6 +176,11 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 200
+    },
+    "peopleReason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
     }
   }
 }

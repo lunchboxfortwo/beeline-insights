@@ -1,0 +1,27 @@
+{
+  "id": "thread-pr-open-link",
+  "kind": "problem",
+  "rank": 4,
+  "date": "2026-11-18",
+  "title": "Agents cannot open PRs, and a hand-opened PR cannot merge through its thread.",
+  "peoplePerDay": 1,
+  "trend": "up",
+  "cause": "unknown",
+  "stage": "build",
+  "source": "morning-card",
+  "scope": "single",
+  "lastHit": "2026-11-18",
+  "lastSeen": "2026-11-18T14:23Z",
+  "whatHappens": "the PR call fails with \"Could not resolve to a Repository\". Approval failed 4 times and checks failed 7 times on live with \"no pull request\".",
+  "fix": "open PRs through the App route, and link an existing PR by head branch (proposed).",
+  "observations": [
+    {
+      "date": "2026-11-18",
+      "text": "the PR call fails with \"Could not resolve to a Repository\". Approval failed 4 times and checks failed 7 times on live with \"no pull request\"."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "Proposed fix: open PRs through the App route, and link an existing PR by head branch (proposed)."
+    }
+  ]
+}
