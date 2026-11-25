@@ -323,17 +323,17 @@
     },
     {
       "key": "latency/web/open-room/synchronous-click-render",
-      "lastPresentedAt": "2026-11-13T14:13:00Z",
-      "sourceSha": "1c65435aa2929f24c2c270444ebb70e2ac309848",
-      "evidence": "#beeline/morning card 13 Nov",
-      "impact": "p95 196.3 ms open, 151.9 ms DM",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "sourceSha": "b4b2a0e7",
+      "evidence": "Jellybean latency card #jellybean-25907",
+      "impact": "Opening a direct chat breaches 150 ms (p95 162/167 ms); React DOM takes 74-78 ms.",
       "cardRunId": null,
-      "cardMessageId": "f62d9c875a6da1e67ab74d4a8a77c8444c389721f912312b6d34bac670e5f332",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null,
       "lastFollowUp": null,
-      "lastSeenAt": "2026-11-13T08:00:00Z"
+      "lastSeenAt": "10:13Z on b4b2a0e7"
     },
     {
       "key": "latency/web/inventory-coverage",
@@ -519,13 +519,13 @@
       "key": "latency/web/rendered-feedback-breaches",
       "cornerAddress": null,
       "fixSha": null,
-      "lastPresentedAt": "2026-11-13T14:13:00Z",
-      "sourceSha": "1c65435aa2929f24c2c270444ebb70e2ac309848",
-      "impact": "thread open/create, file Send, thread close breach",
-      "evidence": "#beeline/morning card 13 Nov",
-      "cardMessageId": "f62d9c875a6da1e67ab74d4a8a77c8444c389721f912312b6d34bac670e5f332",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "sourceSha": "b4b2a0e7",
+      "impact": "Creating a thread breaches 150 ms (p95 159/160 ms); SQL is 49-72 ms of 52-76 ms server time.",
+      "evidence": "Jellybean latency card #jellybean-25907",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
       "status": "reported",
-      "lastSeenAt": "2026-11-13T08:00:00Z"
+      "lastSeenAt": "10:14Z on b4b2a0e7"
     },
     {
       "key": "db/account-delete-deadlock",
@@ -750,12 +750,12 @@
     },
     {
       "key": "latency/web/route-cold-load",
-      "lastPresentedAt": "2026-11-23T14:10:00Z",
-      "lastSeenAt": "2026-11-23T11:10:28Z",
-      "sourceSha": "664545401437e913647704901e57addb631bd53b",
-      "evidence": "#beeline/latency-nov23-investigation jellybean-25532",
-      "impact": "Browser breaches doubled overnight under shared-host CPU load (16 tap, 88 load; worst p95 447.5 ms and 1658 ms); data cannot rank fixes. Also covers latency/web/rendered-feedback-breaches and latency/web/inventory-coverage.",
-      "cardMessageId": "610c91a9f9befbb7ced384b0f17fe819de13e9f76ff6ed68e1374e8bb1436f2e",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "10:54Z on b4b2a0e7",
+      "sourceSha": "b4b2a0e7",
+      "evidence": "Jellybean latency card #jellybean-25907",
+      "impact": "Cold page loads breach 450 ms; cold root p95 639 ms, first socket operation at about 500 ms.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
@@ -908,12 +908,12 @@
     },
     {
       "key": "agents/cross-room-message-read-denied",
-      "lastPresentedAt": "2026-11-11T14:10:00Z",
-      "lastSeenAt": "2026-11-11T03:01:00Z",
-      "sourceSha": "18463a81ce4a2f97f390e715c9468a92ae962692",
-      "evidence": "server logs + feedback 11 Nov",
-      "impact": "6 membership refusals/24h, 3 reports",
-      "cardMessageId": "1952be11e013143b25d651f54ab66d0fee7fcb1d5bd330af5f9d66874692ea46",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "12:24Z on d6152bbd",
+      "sourceSha": "d6152bbd",
+      "evidence": "fb_da5d67bf (11:54Z), fb_487fcc13 (12:24Z)",
+      "impact": "A message that the thread list shows returns 403, or a sentence fragment, when read by id.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
@@ -1552,12 +1552,12 @@
     },
     {
       "key": "release/live-delivery-over-target",
-      "lastPresentedAt": "2026-11-24T14:30:00Z",
-      "lastSeenAt": "2026-11-24T03:13:52Z",
-      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
-      "evidence": "v0.1.245 release.json delivery.live (withinTarget false)",
-      "impact": "Live delivery took 644 s against a 600 s target (was 675 s).",
-      "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "09:44Z on d6152bbd",
+      "sourceSha": "d6152bbd",
+      "evidence": "v0.1.247-rc.3 release.json delivery.live: server 1105 s, website 950 s, mobile-ota 662 s; checks 220 s",
+      "impact": "Live delivery took 1,105 s against a 600 s target (693 s on v0.1.246-rc.2, 644 s on v0.1.245); #125 did not move it.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
@@ -1570,9 +1570,9 @@
       "evidence": "Releases API: newest v0.1.245 at 03:14Z; no release Actions run after 03:11Z; agent_schedules has no release schedule; release-corner silent since 16 Nov.",
       "impact": "No 02:00 ET release ran for the second night; no schedule or timer triggers it. 4 merged PRs wait (#123, #125, #126, #127).",
       "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
-      "status": "reported",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": "d6152bbd"
     },
     {
       "key": "db/push-outbox-lock-timeout",
@@ -1642,9 +1642,9 @@
       "evidence": "https://beeline-bt.sentry.io/issues/7864454141/",
       "impact": "A thread asking to be woken when it merges gets a 503 server error instead of a refusal.",
       "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
-      "status": "reported",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": "d6152bbd"
     },
     {
       "key": "auth/github-exchange-invalid-ticket-503",
@@ -1654,18 +1654,18 @@
       "evidence": "https://beeline-bt.sentry.io/issues/7865215844/ ; server log 13:29:42-43Z",
       "impact": "An invalid GitHub sign-in ticket returns 503 and goes to Sentry; Google returns 401.",
       "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
-      "status": "reported",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": "d6152bbd"
     },
     {
       "key": "github/webhook-check-rollup-fetch-failed",
-      "lastPresentedAt": "2026-11-24T14:30:00Z",
-      "lastSeenAt": "2026-11-23T23:17:50Z",
-      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
-      "evidence": "https://beeline-bt.sentry.io/issues/7864193594/",
-      "impact": "One GitHub webhook failed with 503 because the check-summary refresh could not reach GitHub.",
-      "cardMessageId": "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "19:20Z 24 Nov on b4b2a0e7",
+      "sourceSha": "b4b2a0e7",
+      "evidence": "Sentry SERVER-56 (3 at 05:16Z) and SERVER-5W (1 at 19:20Z)",
+      "impact": "A GitHub 503 during the check-summary refresh fails the webhook; PR check state lags until the next event.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
@@ -1732,24 +1732,120 @@
     },
     {
       "key": "latency/web/host-contention",
-      "lastPresentedAt": "2026-11-24T14:30:00Z",
-      "lastSeenAt": "2026-11-24T10:09:00Z",
-      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
-      "evidence": "#beeline/issues-triage ¶jellybean-25587",
-      "impact": "Overnight latency run has no score: host load 19.6-21.8 vs cutoff 10, second night.",
-      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "10:12Z on squire",
+      "sourceSha": "squire",
+      "evidence": "Jellybean latency card #jellybean-25907; fb_99946cca",
+      "impact": "Overnight latency reruns run on a busy host (mean load 13-26); 4 taps had one usable pass; the continuation lost its capture.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
     },
     {
       "key": "latency/server/chat-list-query-slow",
-      "lastPresentedAt": "2026-11-24T14:30:00Z",
-      "lastSeenAt": "2026-11-24T13:36:00Z",
-      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
-      "evidence": "raw server logs 22-24 Nov",
-      "impact": "Slow database reads fell from 517-627 to 9 in the same hours after #121.",
-      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "08:07Z on b4b2a0e7",
+      "sourceSha": "b4b2a0e7",
+      "evidence": "~/.local/share/beeline-log-walk/raw/beeline-server/2026-11-2{4,5}.log, 24 Nov 02:33Z-25 Nov 02:33Z",
+      "impact": "Slow DB reads held an 86% drop (335 vs 2,393 per day at equal webhook load); 317 of 335 fell in the 3 rollout hours.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "release/play-service-account-invalid",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "checked 08:20Z on d6152bbd",
+      "sourceSha": "d6152bbd",
+      "evidence": "release-corner #jellybean-25896; GitHub denied secret metadata; vault has reporting credentials only",
+      "impact": "Release cannot read live Android runtime data from Google Play; OTA uses previously recorded Android targets.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "mobile/secure-store-locked-read",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "13:14Z on b4b2a0e7",
+      "sourceSha": "b4b2a0e7",
+      "evidence": "https://beeline-bt.sentry.io/issues/7867015259/ (BEELINE-MOBILE-19), 1 event, route index, unhandled rejection; OTA bundle has no source maps",
+      "impact": "iPhone app hits an unhandled keychain read error (User interaction is not allowed) when it starts while the phone is locked.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "free-agents/reconcile-null-machine-config",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "18:29Z 24 Nov on 4f396c7d",
+      "sourceSha": "4f396c7d",
+      "evidence": "Server log TypeError reading 'metadata' at 18:29Z 24 Nov; apps/server/src/free-agents.ts:694 unchanged on live",
+      "impact": "A Fly machine with no config stops the whole free-agent catch-up pass.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "agents/cross-place-report-undeliverable",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "13:40Z on d6152bbd",
+      "sourceSha": "d6152bbd",
+      "evidence": "11 feedback reports 05:12Z-13:40Z (fb_fc7a56f0, fb_3ef21620, fb_8e2ac415, fb_3075937f, fb_0d8c8ce4, fb_6f946a31, fb_16a81d93, fb_05ecaad1, fb_90472e50, fb_70f122c7, fb_f9e3b19b)",
+      "impact": "Since #147/#150 agents cannot post into another chat or thread, and some reply/review/brief ids are refused; loop reports get stranded.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "helper/antigravity-stable-search-schema",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "12:31Z on helper v0.1.245",
+      "sourceSha": "helper v0.1.245",
+      "evidence": "fb_733210cc, fb_f8ce2f61; chloropine report in #beeline; Neon worked after a next-channel update",
+      "impact": "Antigravity agents on stable helpers (v0.1.245) cannot start: the executor rejects the old search-tool regex. Fix #141 is only on next.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "agents/proxy-no-login-sign-in-wall",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "23:07Z 24 Nov on b4b2a0e7",
+      "sourceSha": "b4b2a0e7",
+      "evidence": "2 cancelled turns 23:06Z and 23:07Z 24 Nov; sign-in card posted 02:34Z; 3 pieces of work queued",
+      "impact": "BBC's turns are cancelled because the login proxy has no login serving gpt-6.1-sol.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "squire/drive-stale-controls",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "13:30Z (external tool)",
+      "sourceSha": null,
+      "evidence": "fb_d36ee604, fb_01aa6ab9, fb_fade858c; Ruby X ads drive 13:30Z",
+      "impact": "Squire browser drives click stale controls or fail to start and stop early.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "status": "reported",
+      "cornerAddress": null,
+      "fixSha": null
+    },
+    {
+      "key": "skills/agent-home-path",
+      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastSeenAt": "11:45Z on d6152bbd",
+      "sourceSha": "d6152bbd",
+      "evidence": "fb_70287b20 (11:45Z)",
+      "impact": "Skill reads fail when an agent resolves them against its working directory instead of agent-home.",
+      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
       "status": "reported",
       "cornerAddress": null,
       "fixSha": null
@@ -2040,6 +2136,22 @@
         "e00b3bd8cb031ddd625f6c03e74480ea82ce3c55d553ddba19f9342b624dd981",
         "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487"
       ]
+    },
+    {
+      "date": "2026-11-25",
+      "liveSha": "d6152bbd5b8e4f519f433fe1ea1839a361c09db5",
+      "liveVersion": "v0.1.247-rc.3",
+      "itemsShown": 16,
+      "approvable": 5,
+      "approved": null,
+      "staleCaughtByStep2b": 3,
+      "staleCorrectedByOwner": 0,
+      "gateRunId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "scoreNotes": [
+        "release/live-delivery-over-target: fix #125 did not move the score (1105 s vs 644 s)",
+        "latency/server/chat-list-query-slow: #121 held, slow queries down 86% at equal webhook load"
+      ],
+      "cardMessageIds": "posted as Ruby's turn reply in #beeline after gate run a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21"
     }
   ]
 }
