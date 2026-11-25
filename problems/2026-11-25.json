@@ -1,0 +1,153 @@
+[
+  {
+    "number": 1,
+    "key": "release/live-delivery-over-target",
+    "problem": "Live delivery took 1,105 s against a 600 s target (693 s on v0.1.246-rc.2, 644 s on v0.1.245); #125 did not move it.",
+    "evidence": "v0.1.247-rc.3 release.json delivery.live: server 1105 s, website 950 s, mobile-ota 662 s; checks 220 s",
+    "lastSeen": "09:44Z on d6152bbd",
+    "fix": "Investigation: split the server step into image build, push and machine rollout from release records, then propose a measured fix. Confidence: high (timing), low (cause).",
+    "peoplePerDay": null,
+    "peopleReason": "release-time measure"
+  },
+  {
+    "number": 2,
+    "key": "release/play-service-account-invalid",
+    "problem": "Release cannot read live Android runtime data from Google Play; OTA uses previously recorded Android targets.",
+    "evidence": "release-corner #jellybean-25896; GitHub denied secret metadata; vault has reporting credentials only",
+    "lastSeen": "checked 08:20Z on d6152bbd",
+    "fix": "OPEN QUESTION: a repository admin replaces GOOGLE_PLAY_SERVICE_ACCOUNT_JSON in Actions secrets. Confidence: medium.",
+    "peoplePerDay": null,
+    "peopleReason": "release-pipeline credential"
+  },
+  {
+    "number": 3,
+    "key": "mobile/secure-store-locked-read",
+    "problem": "iPhone app hits an unhandled keychain read error (User interaction is not allowed) when it starts while the phone is locked.",
+    "evidence": "https://beeline-bt.sentry.io/issues/7867015259/ (BEELINE-MOBILE-19), 1 event, route index, unhandled rejection; OTA bundle has no source maps",
+    "lastSeen": "13:14Z on b4b2a0e7",
+    "fix": "Catch the locked-keychain error in monolith-session reads and retry on app active; store session tokens with AFTER_FIRST_UNLOCK on iOS; upload OTA source maps. Confidence: medium.",
+    "peoplePerDay": 1
+  },
+  {
+    "number": 4,
+    "key": "free-agents/reconcile-null-machine-config",
+    "problem": "A Fly machine with no config stops the whole free-agent catch-up pass.",
+    "evidence": "Server log TypeError reading 'metadata' at 18:29Z 24 Nov; apps/server/src/free-agents.ts:694 unchanged on live",
+    "lastSeen": "18:29Z 24 Nov on 4f396c7d",
+    "fix": "Use machine.config?.metadata in both reads in reconcileAll and add a test. Confidence: high.",
+    "peoplePerDay": null,
+    "peopleReason": "no failed free-agent turn tied to the event"
+  },
+  {
+    "number": 5,
+    "key": "github/webhook-check-rollup-fetch-failed",
+    "problem": "A GitHub 503 during the check-summary refresh fails the webhook; PR check state lags until the next event.",
+    "evidence": "Sentry SERVER-56 (3 at 05:16Z) and SERVER-5W (1 at 19:20Z)",
+    "lastSeen": "19:20Z 24 Nov on b4b2a0e7",
+    "fix": "Retry the GitHub check read with a short backoff before failing the webhook. Confidence: medium.",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 6,
+    "key": "agents/cross-place-report-undeliverable",
+    "problem": "Since #147/#150 agents cannot post into another chat or thread, and some reply/review/brief ids are refused; loop reports get stranded.",
+    "evidence": "11 feedback reports 05:12Z-13:40Z (fb_fc7a56f0, fb_3ef21620, fb_8e2ac415, fb_3075937f, fb_0d8c8ce4, fb_6f946a31, fb_16a81d93, fb_05ecaad1, fb_90472e50, fb_70f122c7, fb_f9e3b19b)",
+    "lastSeen": "13:40Z on d6152bbd",
+    "fix": "message normal accepts any chat or thread the agent belongs to and posts without waking; reply and review reply accept the turn-context id; retired ops return a refusal naming message. Confidence: high.",
+    "peoplePerDay": 2
+  },
+  {
+    "number": 7,
+    "key": "helper/antigravity-stable-search-schema",
+    "problem": "Antigravity agents on stable helpers (v0.1.245) cannot start: the executor rejects the old search-tool regex. Fix #141 is only on next.",
+    "evidence": "fb_733210cc, fb_f8ce2f61; chloropine report in #beeline; Neon worked after a next-channel update",
+    "lastSeen": "12:31Z on helper v0.1.245",
+    "fix": "OPEN QUESTION: promote v0.1.247 to stable (owner command in release-corner). Confidence: high.",
+    "peoplePerDay": 1
+  },
+  {
+    "number": 8,
+    "key": "agents/cross-room-message-read-denied",
+    "problem": "A message that the thread list shows returns 403, or a sentence fragment, when read by id.",
+    "evidence": "fb_da5d67bf (11:54Z), fb_487fcc13 (12:24Z)",
+    "lastSeen": "12:24Z on d6152bbd",
+    "fix": "Apply the message-list visibility rule in read(facet:message), store and return the full body, test both cases. Confidence: medium.",
+    "peoplePerDay": 1
+  },
+  {
+    "number": 9,
+    "key": "agents/proxy-no-login-sign-in-wall",
+    "problem": "BBC's turns are cancelled because the login proxy has no login serving gpt-6.1-sol.",
+    "evidence": "2 cancelled turns 23:06Z and 23:07Z 24 Nov; sign-in card posted 02:34Z; 3 pieces of work queued",
+    "lastSeen": "23:07Z 24 Nov on b4b2a0e7",
+    "fix": "BBC's owner signs in from the card; no code change. Confidence: medium.",
+    "peoplePerDay": 1
+  },
+  {
+    "number": 10,
+    "key": "squire/drive-stale-controls",
+    "problem": "Squire browser drives click stale controls or fail to start and stop early.",
+    "evidence": "fb_d36ee604, fb_01aa6ab9, fb_fade858c; Ruby X ads drive 13:30Z",
+    "lastSeen": "13:30Z (external tool)",
+    "fix": "External: send the traces to Trusty Squire. No repo change. Confidence: medium.",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 11,
+    "key": "skills/agent-home-path",
+    "problem": "Skill reads fail when an agent resolves them against its working directory instead of agent-home.",
+    "evidence": "fb_70287b20 (11:45Z)",
+    "lastSeen": "11:45Z on d6152bbd",
+    "fix": "Investigation: check whether the skill listing gives a relative path, then fix or drop. Confidence: low.",
+    "peoplePerDay": 0
+  },
+  {
+    "number": 12,
+    "key": "latency/web/route-cold-load",
+    "problem": "Cold page loads breach 450 ms; cold root p95 639 ms, first socket operation at about 500 ms.",
+    "evidence": "Jellybean latency card #jellybean-25907",
+    "lastSeen": "10:54Z on b4b2a0e7",
+    "fix": "Investigation: split entry evaluation from first React mount and measure one module deferral. Confidence: high (timing), medium (cause).",
+    "peoplePerDay": null,
+    "peopleReason": "synthetic browser fixture"
+  },
+  {
+    "number": 13,
+    "key": "latency/web/open-room/synchronous-click-render",
+    "problem": "Opening a direct chat breaches 150 ms (p95 162/167 ms); React DOM takes 74-78 ms.",
+    "evidence": "Jellybean latency card #jellybean-25907",
+    "lastSeen": "10:13Z on b4b2a0e7",
+    "fix": "Investigation: profile the navigation render against the socket receive. Confidence: medium.",
+    "peoplePerDay": null,
+    "peopleReason": "synthetic browser fixture"
+  },
+  {
+    "number": 14,
+    "key": "latency/web/rendered-feedback-breaches",
+    "problem": "Creating a thread breaches 150 ms (p95 159/160 ms); SQL is 49-72 ms of 52-76 ms server time.",
+    "evidence": "Jellybean latency card #jellybean-25907",
+    "lastSeen": "10:14Z on b4b2a0e7",
+    "fix": "Investigation: correlate transaction reply and React commit. Confidence: medium.",
+    "peoplePerDay": null,
+    "peopleReason": "synthetic browser fixture"
+  },
+  {
+    "number": 15,
+    "key": "latency/server/chat-list-query-slow",
+    "problem": "Slow DB reads held an 86% drop (335 vs 2,393 per day at equal webhook load); 317 of 335 fell in the 3 rollout hours.",
+    "evidence": "~/.local/share/beeline-log-walk/raw/beeline-server/2026-11-2{4,5}.log, 24 Nov 02:33Z-25 Nov 02:33Z",
+    "lastSeen": "08:07Z on b4b2a0e7",
+    "fix": "Investigation: check whether new machines take traffic before their DB pool is warm. Confidence: high (counts).",
+    "peoplePerDay": null,
+    "peopleReason": "server logs carry no viewer"
+  },
+  {
+    "number": 16,
+    "key": "latency/web/host-contention",
+    "problem": "Overnight latency reruns run on a busy host (mean load 13-26); 4 taps had one usable pass; the continuation lost its capture.",
+    "evidence": "Jellybean latency card #jellybean-25907; fb_99946cca",
+    "lastSeen": "10:12Z on squire",
+    "fix": "Investigation: quiet-window launch with a load check, keep the checkout until the continuation ends. Confidence: high.",
+    "peoplePerDay": 0
+  }
+]
