@@ -1,0 +1,192 @@
+[
+ {
+  "number": 1,
+  "key": "release/server-dockerfile-config-path",
+  "problem": "Nightly release fails at the server build: root-relative toml dockerfile path is joined onto apps/infra.",
+  "evidence": "release run 45772384836; issue #193; release-local-tools.mjs:29",
+  "lastSeen": "07:38Z on 03216898",
+  "fix": "Resolve the toml dockerfile from the repo root; test fallback build without a prebuilt image. In thread server-dockerfile-path. Confidence: high.",
+  "peoplePerDay": null,
+  "peopleReason": "release-time failure, no person-facing event"
+ },
+ {
+  "number": 2,
+  "key": "workitem/attach-link-invalid-url-500",
+  "problem": "Attaching a non-absolute link to a task returns 500.",
+  "evidence": "Sentry BEELINE-SERVER-5Y; work-item-detail.ts:138; fb_53009063",
+  "lastSeen": "00:53Z on d481038e",
+  "fix": "Catch the URL parse error and return 400; accept Beeline place and message links. Confidence: high.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 3,
+  "key": "phone/running-update-not-found",
+  "problem": "All 10 reportRunningUpdate calls in 24 h got 404; device update receipts never record.",
+  "evidence": "server raw log 2026-11-26 (10x status=404); server.ts:562 httpPhoneOperation refuses phone writes over HTTP",
+  "lastSeen": "02:21Z on d481038e",
+  "fix": "Send the running-update report over the live socket after connect; test that refresh then report stores a receipt. Confidence: medium.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 4,
+  "key": "github/webhook-check-rollup-fetch-failed",
+  "problem": "A failed checks read fails the GitHub webhook; PR check state lags.",
+  "evidence": "Sentry BEELINE-SERVER-56 x2, A x1",
+  "lastSeen": "17:49Z on d6152bbd",
+  "fix": "Return 202 and retry the checks read in the background. Confidence: high.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 5,
+  "key": "phone/media-upload-aborted-500",
+  "problem": "Client-aborted phone uploads are logged as server 500s.",
+  "evidence": "Sentry BEELINE-SERVER-6 x2",
+  "lastSeen": "02:09Z on d481038e",
+  "fix": "Log client aborts as 499, not a Sentry 500. Confidence: low.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 6,
+  "key": "review/stale-wake-context",
+  "problem": "Review wakes say checks passed while checks are pending or failed.",
+  "evidence": "~30 agent reports; github-operations.ts:679-683",
+  "lastSeen": "08:45Z on d481038e",
+  "fix": "Build the wake text from the stored wake cause and live check verdict. Confidence: high.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 7,
+  "key": "tools/read-pr-number-ignored",
+  "problem": "read(facet:pr, pullRequest:N) ignores N and reads the caller's own thread.",
+  "evidence": "fb_565e272e, fb_7439f59d, fb_03cd7977, fb_10096a4d, fb_17a5e0b6; github-operations-read-pr-checks-status.ts:436-445",
+  "lastSeen": "09:18Z on d481038e",
+  "fix": "Resolve N among reachable threads in the parent chat or refuse naming N. Confidence: high.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 8,
+  "key": "workspace/codegraph-readonly-open-fails",
+  "problem": "Code index reports ready but cannot open on read-only chat checkouts.",
+  "evidence": "fb_ede44b77, fb_3731ce3e, fb_10027c42; reproduced 10:04Z",
+  "lastSeen": "reproduced 10:04Z on d481038e",
+  "fix": "Open the index immutable or without side files in apps/body/src/codegraph.ts; report ready after a test query. Confidence: high.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 9,
+  "key": "agents/cross-room-message-read-denied",
+  "problem": "Listings and search show private hand-offs that read(facet:message) refuses.",
+  "evidence": "fb_5ebe24f5, fb_da5d67bf, fb_a324bb7e, fb_eeb35c0e, fb_623cb40f; 11 getRoomMessage 403",
+  "lastSeen": "08:31Z on d481038e",
+  "fix": "Apply the read access rule to list and search; show an unopenable placeholder. Confidence: high.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 10,
+  "key": "agents/open-block-blocks-new-blocker",
+  "problem": "An agent with an open block cannot report a different blocker (409).",
+  "evidence": "fb_fef6ce62, fb_81d7b7a9, fb_a5e2a1d3, fb_6b1ffea6, fb_c68c8fa9; session-message.ts:69",
+  "lastSeen": "18:01Z 25 Nov on d6152bbd",
+  "fix": "Let a new block replace the open one and close the old with a note. Confidence: high.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 11,
+  "key": "review/checkout-refresh-blocked",
+  "problem": "Reviewer checkout cannot refresh to the new head because of preserved local changes.",
+  "evidence": "10 agent reports; fb_ed68dfba, fb_75655633",
+  "lastSeen": "04:29Z on d481038e",
+  "fix": "Investigation: verify after the next release whether #174 stops it; else trace which step leaves the files. Confidence: medium.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 12,
+  "key": "helper/stable-channel-stale-ops",
+  "problem": "Agents on stable helper v0.1.245 get invalid_daemon_operation; finished work does not reach requesters.",
+  "evidence": "7 agent reports from 2 agents; daemon-live.ts:338",
+  "lastSeen": "00:20Z on d481038e",
+  "fix": "OPEN QUESTION: owner decides whether to promote helper v0.1.248+ to stable.",
+  "peoplePerDay": 0,
+  "peopleReason": "no outside person in the window; owner account only"
+ },
+ {
+  "number": 13,
+  "key": "ci/body/bridge-upgrade-state-lock-watch-flake",
+  "problem": "Recursive watcher hits a removed lock and fails CI with all assertions passing.",
+  "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/45657309206/job/139357552036",
+  "lastSeen": "16:47Z 25 Nov on d6152bbd",
+  "fix": "Watch the parent directory non-recursively; keep handoff assertions. Confidence: high.",
+  "peoplePerDay": null,
+  "peopleReason": "CI has no outside-person count"
+ },
+ {
+  "number": 14,
+  "key": "ci/coverage/retained-full-check-evidence",
+  "problem": "Main red time cannot be scored; local records keep quick checks only.",
+  "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/45776509281",
+  "lastSeen": "07:46Z on 03216898",
+  "fix": "Next step: score gaps from exact-head release attempt records. Confidence: high.",
+  "peoplePerDay": null,
+  "peopleReason": "coverage gap"
+ },
+ {
+  "number": 15,
+  "key": "latency/web/route-cold-load",
+  "problem": "All 45 cold route loads miss 450 ms; root 746.7 ms p95.",
+  "evidence": "issues-triage cf2a1da6 final latency attachments",
+  "lastSeen": "09:53Z on d481038e",
+  "fix": "Next step: source-mapped startup profile, then paired measure of deferring the first avoidable initializer. Confidence: high.",
+  "peoplePerDay": null,
+  "peopleReason": "synthetic fixture; outside impact not measured"
+ },
+ {
+  "number": 16,
+  "key": "latency/web/open-room/synchronous-click-render",
+  "problem": "Room open 181.4 ms p95 over 150 ms.",
+  "evidence": "tap-latency 76f77550 draft evidence",
+  "lastSeen": "09:53Z on d481038e",
+  "fix": "In tap-latency PR #163. Confidence: high.",
+  "peoplePerDay": null,
+  "peopleReason": "synthetic fixture; outside impact not measured"
+ },
+ {
+  "number": 17,
+  "key": "latency/web/rendered-feedback-breaches",
+  "problem": "Message 198.2, New thread 175.3, Close thread 182.9 ms p95; 9 taps unmeasured.",
+  "evidence": "issues-triage cf2a1da6",
+  "lastSeen": "09:53Z on d481038e",
+  "fix": "Next step: measure the 9 tap gaps; use draft evidence in tap-latency. Confidence: medium.",
+  "peoplePerDay": null,
+  "peopleReason": "synthetic fixture; outside impact not measured"
+ },
+ {
+  "number": 18,
+  "key": "latency/server/chat-list-query-slow",
+  "problem": "500 slow queries in 24 h; chat-list p95 1016 ms after the last replacement.",
+  "evidence": "issues-triage cf2a1da6; server logs",
+  "lastSeen": "00:41Z on d481038e",
+  "fix": "In tap-latency PR #163 (warm connections); compare by machine after first rollout. Confidence: medium.",
+  "peoplePerDay": null,
+  "peopleReason": "query-level measure"
+ },
+ {
+  "number": 19,
+  "key": "health/server/workflow-handoff-record-fields",
+  "problem": "Four workflow writers built the same record fields separately.",
+  "evidence": "PR #194 (merged 8ced3f18)",
+  "lastSeen": "08:33Z on d481038e",
+  "fix": "Merged in #194, not live. Confidence: high.",
+  "peoplePerDay": null,
+  "peopleReason": "structural assessment"
+ }
+]
