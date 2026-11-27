@@ -1,0 +1,92 @@
+[
+  {
+    "number": 1,
+    "key": "github/unprotected-main-merges-pending",
+    "problem": "main has no branch protection; gitHubAppClientReadRequiredChecks returns [] and cornerGateChecks reads null as passing.",
+    "evidence": "https://github.com/lunchboxfortwo/beeline/pull/230\nConsequence: 15 of 30 PRs merged before CI finished; 6 then failed (#201, #204, #216, #217, #219, #224).",
+    "lastSeen": "2026-11-27T08:46Z on a4359ad7",
+    "fix": "Merge gate uses full head check rollup when no required checks. Confidence: high.",
+    "peoplePerDay": 0,
+    "peopleReason": "No outside people affected in the card window."
+  },
+  {
+    "number": 2,
+    "key": "infra/log-collector-stale-checkout",
+    "problem": "squire log collector runs from a 5 Nov Beeline-Work clone without #206; flyctl session expired.",
+    "evidence": "https://github.com/lunchboxfortwo/beeline/pull/229\nConsequence: No production server logs since 11:50 AM ET 26 Nov; free-agent and voice logs none since 19 Nov.",
+    "lastSeen": "2026-11-27T10:00Z on n/a (host)",
+    "fix": "Reinstall via install-host.sh from lunchboxfortwo main; add 15-minute staleness check. Confidence: high.",
+    "peoplePerDay": 0,
+    "peopleReason": "No outside people affected in the card window."
+  },
+  {
+    "number": 3,
+    "key": "release/pages-deployment-read-404",
+    "problem": "awaitPagesDeployment throws on first read-after-write 404.",
+    "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/45955648252\nConsequence: v0.1.249-rc.5 server live but release not published.",
+    "lastSeen": "2026-11-27T07:22Z on a4359ad7",
+    "fix": "Treat 404 as not visible yet within the 20-try poll. Confidence: high.",
+    "peoplePerDay": 0,
+    "peopleReason": "No outside people affected in the card window."
+  },
+  {
+    "number": 4,
+    "key": "body/session-tmpdir-symlink",
+    "problem": "Sandbox TMPDIR is a symlink because bwrap binds the link onto itself.",
+    "evidence": "https://github.com/lunchboxfortwo/beeline/pull/232\nConsequence: Path-sensitive tests fail for agents (7 reports, 4 agents).",
+    "lastSeen": "2026-11-27T00:28Z on a4359ad7",
+    "fix": "Bind real root/tmp onto the short TMPDIR path. Confidence: high.",
+    "peoplePerDay": 0,
+    "peopleReason": "No outside people affected in the card window."
+  },
+  {
+    "number": 5,
+    "key": "corner/checkout-deps-missing",
+    "problem": "Session prepare and workspace race on one checkout.",
+    "evidence": "https://github.com/lunchboxfortwo/beeline/pull/231\nConsequence: ENOTEMPTY, early readiness, 3-minute timeouts (about 12 reports, 5 agents).",
+    "lastSeen": "2026-11-27T08:35Z on a4359ad7",
+    "fix": "workspace waits for in-flight prepare; clear stale .git.creating. Confidence: high.",
+    "peoplePerDay": 0,
+    "peopleReason": "No outside people affected in the card window."
+  },
+  {
+    "number": 6,
+    "key": "review/checkout-refresh-blocked",
+    "problem": "Review setup cannot refresh reviewer checkout due to preserved local changes.",
+    "evidence": "#beeline Tasks reviewer-refresh-blocked (fb_b478b316)\nConsequence: Reviewer fetches heads by hand (35 reports, 1 agent).",
+    "lastSeen": "2026-11-27T07:07Z on a4359ad7",
+    "fix": "List dirty paths after failed refresh; ignore or clean install output only. Confidence: medium.",
+    "peoplePerDay": 0,
+    "peopleReason": "No outside people affected in the card window."
+  },
+  {
+    "number": 7,
+    "key": "scheduler/silent-turn-redelivery",
+    "problem": "Scheduled message delivered again after a silent turn.",
+    "evidence": "#beeline Tasks silent-turn-redelivery\nConsequence: Agents repeat scheduled work (7 reports, 4 agents).",
+    "lastSeen": "2026-11-27T08:51Z on a4359ad7",
+    "fix": "Read agent_turns/agent_commands for repeated ids; fix server redelivery or document harness empty-output rule. Confidence: medium.",
+    "peoplePerDay": 0,
+    "peopleReason": "No outside people affected in the card window."
+  },
+  {
+    "number": 8,
+    "key": "corner/checkout-deps-missing/chad-mask",
+    "problem": "pnpm install inside prepare on chad fails: mount permission denied on /dev/shm/beeline-masks.",
+    "evidence": "#beeline Tasks chad-mask-mount\nConsequence: Checkouts on chad lack dependencies (5 reports, 1 agent).",
+    "lastSeen": "2026-11-27T05:17Z on helper on chad (unknown)",
+    "fix": "Check mask owner; remove stale mask; key mask path per user. Confidence: medium.",
+    "peoplePerDay": 0,
+    "peopleReason": "No outside people affected in the card window."
+  },
+  {
+    "number": 9,
+    "key": "corner/idle-notice-after-merge",
+    "problem": "Idle blocker emitted from facts read before the same event archives the corner.",
+    "evidence": "#beeline Tasks idle-after-merge (fb_cc9b85bf)\nConsequence: Commanders told to resume or close threads that already merged.",
+    "lastSeen": "2026-11-27T13:45Z on a4359ad7",
+    "fix": "Skip idle notices when the event archives the corner; add merge-event test. Confidence: medium.",
+    "peoplePerDay": 0,
+    "peopleReason": "No outside people affected in the card window."
+  }
+]

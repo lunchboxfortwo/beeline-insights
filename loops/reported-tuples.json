@@ -143,15 +143,17 @@
     },
     {
       "key": "corner/checkout-deps-missing",
-      "lastPresentedAt": "2026-11-24T14:30:00Z",
-      "lastSeenAt": "2026-11-24T04:01:57Z",
-      "sourceSha": "4f396c7d9c4620395bebb6b72d644d9933640e8a",
-      "evidence": "fb_a8481c02 fb_75982995",
-      "impact": "Grunt checkout prepare stops on missing Node type definitions, after #101 shipped.",
-      "cardMessageId": "7ea1de814ee1e4cb02aa9c7c55a1ada71acad6f51908d1d34a0212b305d55487",
-      "status": "reported",
-      "cornerAddress": null,
-      "fixSha": null
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "lastSeenAt": "2026-11-27T08:35Z",
+      "sourceSha": "a4359ad7",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/231",
+      "impact": "ENOTEMPTY, early readiness, 3-minute timeouts (about 12 reports, 5 agents).",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "in-fix",
+      "cornerAddress": "8f741db3-1064-4d5c-b34a-0cf37ec2079a",
+      "fixSha": "fb78f521 (#231, merged, not live)",
+      "slug": "prepare-workspace-race",
+      "workItemId": "8f741db3-1064-4d5c-b34a-0cf37ec2079a"
     },
     {
       "key": "triage/digest-vs-brief",
@@ -369,7 +371,7 @@
       "lastPresentedAt": "2026-11-08T14:05:00Z",
       "sourceSha": "74a7c22631bdc53cf1838d33e86c09104086ed36",
       "evidence": [
-        "https://github.com/Beeline-Work/beeline/actions/runs/42378681681"
+        "https://github.com/lunchboxfortwo/beeline/actions/runs/42378681681"
       ],
       "impact": "Store release shard 2 failed on random timer test; run 42378681681",
       "cardMessageId": "99d9ca664fa28a61dddcd605f8b00b28fef915d12a362fc3a9b3408244765550",
@@ -419,7 +421,7 @@
       "lastPresentedAt": "2026-11-08T14:05:00Z",
       "sourceSha": "74a7c22631bdc53cf1838d33e86c09104086ed36",
       "evidence": [
-        "https://github.com/Beeline-Work/beeline/actions/runs/42378681681"
+        "https://github.com/lunchboxfortwo/beeline/actions/runs/42378681681"
       ],
       "impact": "background-work.test.ts:121 random fail; blocks releases",
       "cardMessageId": "99d9ca664fa28a61dddcd605f8b00b28fef915d12a362fc3a9b3408244765550",
@@ -500,7 +502,7 @@
       "lastPresentedAt": "2026-11-10T14:20:00Z",
       "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
       "impact": "recurred 01:48 and 07:38 UTC; failed 2 AM release",
-      "evidence": "https://github.com/Beeline-Work/beeline/actions/runs/42408917990",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/42408917990",
       "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
       "status": "shipped"
     },
@@ -743,7 +745,7 @@
       "fixSha": null,
       "lastPresentedAt": "2026-11-10T14:20:00Z",
       "sourceSha": "69fb8dac6b94ad24e6fc12f2bd8f6bf953cbe4ce",
-      "evidence": "https://github.com/Beeline-Work/beeline/actions/workflows/nightly-checks.yml",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/actions/workflows/nightly-checks.yml",
       "impact": "runs start ~14:00 UTC not 07:07",
       "cardMessageId": "75670374b367fd82eae39488c5fcfc66b73c16099086aa0d23db780a27a14c6c",
       "status": "reported"
@@ -908,15 +910,16 @@
     },
     {
       "key": "agents/cross-room-message-read-denied",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "08:31Z on d481038e",
       "sourceSha": "d481038e",
       "evidence": "fb_5ebe24f5, fb_da5d67bf, fb_a324bb7e, fb_eeb35c0e, fb_623cb40f; 11 getRoomMessage 403",
       "impact": "Listings and search show private hand-offs that read(facet:message) refuses.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "reported",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; rc.4 #197)."
     },
     {
       "key": "free-agents/fly-rate-limit-no-backoff",
@@ -1040,15 +1043,16 @@
     },
     {
       "key": "review/stale-wake-context",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "08:45Z on d481038e",
       "sourceSha": "d481038e",
       "evidence": "~30 agent reports; github-operations.ts:679-683",
       "impact": "Review wakes say checks passed while checks are pending or failed.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "reported",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; rc.4 #200)."
     },
     {
       "key": "corner/false-merge-conflict-wake",
@@ -1660,15 +1664,16 @@
     },
     {
       "key": "github/webhook-check-rollup-fetch-failed",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "17:49Z on d6152bbd",
       "sourceSha": "d6152bbd",
       "evidence": "Sentry BEELINE-SERVER-56 x2, A x1",
       "impact": "A failed checks read fails the GitHub webhook; PR check state lags.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "reported",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; rc.4 #200)."
     },
     {
       "key": "schedule/parked-forever-after-lock-timeout",
@@ -1768,27 +1773,31 @@
     },
     {
       "key": "mobile/secure-store-locked-read",
-      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "13:14Z on b4b2a0e7",
       "sourceSha": "b4b2a0e7",
       "evidence": "https://beeline-bt.sentry.io/issues/7867015259/ (BEELINE-MOBILE-19), 1 event, route index, unhandled rejection; OTA bundle has no source maps",
       "impact": "iPhone app hits an unhandled keychain read error (User interaction is not allowed) when it starts while the phone is locked.",
-      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
       "status": "reported",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "quietSince": "2026-11-25",
+      "lastFollowUp": "2026-11-27: Quiet since 2026-11-25."
     },
     {
       "key": "free-agents/reconcile-null-machine-config",
-      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "18:29Z 24 Nov on 4f396c7d",
       "sourceSha": "4f396c7d",
       "evidence": "Server log TypeError reading 'metadata' at 18:29Z 24 Nov; apps/server/src/free-agents.ts:694 unchanged on live",
       "impact": "A Fly machine with no config stops the whole free-agent catch-up pass.",
-      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
       "status": "reported",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "quietSince": "2026-11-25",
+      "lastFollowUp": "2026-11-27: Quiet since 2026-11-25."
     },
     {
       "key": "agents/cross-place-report-undeliverable",
@@ -1828,135 +1837,149 @@
     },
     {
       "key": "squire/drive-stale-controls",
-      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "13:30Z (external tool)",
       "sourceSha": null,
       "evidence": "fb_d36ee604, fb_01aa6ab9, fb_fade858c; Ruby X ads drive 13:30Z",
       "impact": "Squire browser drives click stale controls or fail to start and stop early.",
-      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
       "status": "reported",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "quietSince": "held",
+      "lastFollowUp": "2026-11-27: Held on the morning card."
     },
     {
       "key": "skills/agent-home-path",
-      "lastPresentedAt": "2026-11-25T14:30:00Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "11:45Z on d6152bbd",
       "sourceSha": "d6152bbd",
       "evidence": "fb_70287b20 (11:45Z)",
       "impact": "Skill reads fail when an agent resolves them against its working directory instead of agent-home.",
-      "cardMessageId": "a877bdb8ea29febb80bd5621be7c29bbfbbd44d00a9c6d9e6fe57a3ec641bd21",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
       "status": "reported",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "quietSince": "2026-11-25",
+      "lastFollowUp": "2026-11-27: Quiet since 2026-11-25."
     },
     {
       "key": "release/server-dockerfile-config-path",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "07:38Z on 03216898",
       "sourceSha": "03216898",
       "evidence": "release run 45772384836; issue #193; release-local-tools.mjs:29",
       "impact": "Nightly release fails at the server build: root-relative toml dockerfile path is joined onto apps/infra.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "in-fix",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": "28df2376-0a5d-4a71-9d64-31384248dbdd",
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; #195)."
     },
     {
       "key": "workitem/attach-link-invalid-url-500",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "00:53Z on d481038e",
       "sourceSha": "d481038e",
       "evidence": "Sentry BEELINE-SERVER-5Y; work-item-detail.ts:138; fb_53009063",
       "impact": "Attaching a non-absolute link to a task returns 500.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "reported",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; rc.4 #196)."
     },
     {
       "key": "phone/running-update-not-found",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "02:21Z on d481038e",
       "sourceSha": "d481038e",
       "evidence": "server raw log 2026-11-26 (10x status=404); server.ts:562 httpPhoneOperation refuses phone writes over HTTP",
       "impact": "All 10 reportRunningUpdate calls in 24 h got 404; device update receipts never record.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "reported",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; rc.4 #196 #205)."
     },
     {
       "key": "phone/media-upload-aborted-500",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "02:09Z on d481038e",
       "sourceSha": "d481038e",
       "evidence": "Sentry BEELINE-SERVER-6 x2",
       "impact": "Client-aborted phone uploads are logged as server 500s.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "reported",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; rc.4 #196)."
     },
     {
       "key": "tools/read-pr-number-ignored",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "09:18Z on d481038e",
       "sourceSha": "d481038e",
       "evidence": "fb_565e272e, fb_7439f59d, fb_03cd7977, fb_10096a4d, fb_17a5e0b6; github-operations-read-pr-checks-status.ts:436-445",
       "impact": "read(facet:pr, pullRequest:N) ignores N and reads the caller's own thread.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "reported",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; rc.4 #200)."
     },
     {
       "key": "workspace/codegraph-readonly-open-fails",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "reproduced 10:04Z on d481038e",
       "sourceSha": "d481038e",
       "evidence": "fb_ede44b77, fb_3731ce3e, fb_10027c42; reproduced 10:04Z",
       "impact": "Code index reports ready but cannot open on read-only chat checkouts.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "reported",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; helper rc.4 #198)."
     },
     {
       "key": "agents/open-block-blocks-new-blocker",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "18:01Z 25 Nov on d6152bbd",
       "sourceSha": "d6152bbd",
       "evidence": "fb_fef6ce62, fb_81d7b7a9, fb_a5e2a1d3, fb_6b1ffea6, fb_c68c8fa9; session-message.ts:69",
       "impact": "An agent with an open block cannot report a different blocker (409).",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "reported",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; rc.4 #203)."
     },
     {
       "key": "review/checkout-refresh-blocked",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
-      "lastSeenAt": "04:29Z on d481038e",
-      "sourceSha": "d481038e",
-      "evidence": "10 agent reports; fb_ed68dfba, fb_75655633",
-      "impact": "Reviewer checkout cannot refresh to the new head because of preserved local changes.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "lastSeenAt": "2026-11-27T07:07Z",
+      "sourceSha": "a4359ad7",
+      "evidence": "#beeline Tasks reviewer-refresh-blocked (fb_b478b316)",
+      "impact": "Reviewer fetches heads by hand (35 reports, 1 agent).",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
       "status": "reported",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "slug": "reviewer-refresh-blocked",
+      "workItemId": "d1309bc4-813a-5897-a40a-afc8f592098f"
     },
     {
       "key": "helper/stable-channel-stale-ops",
-      "lastPresentedAt": "2026-11-26T14:11:51Z",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
       "lastSeenAt": "00:20Z on d481038e",
       "sourceSha": "d481038e",
       "evidence": "7 agent reports from 2 agents; daemon-live.ts:338",
       "impact": "Agents on stable helper v0.1.245 get invalid_daemon_operation; finished work does not reach requesters.",
-      "cardMessageId": "faab2608dbc5aedf18667fcf337767acc21ea9cd0a16b2264cc54f4b08847eb3",
-      "status": "reported",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "shipped",
       "cornerAddress": null,
-      "fixSha": null
+      "fixSha": null,
+      "lastFollowUp": "2026-11-27: Dropped (fixed or superseded; stable now 0.1.248-rc.2)."
     },
     {
       "key": "ci/body/bridge-upgrade-state-lock-watch-flake",
@@ -1981,6 +2004,140 @@
       "status": "reported",
       "cornerAddress": null,
       "fixSha": "8ced3f18"
+    },
+    {
+      "key": "github/unprotected-main-merges-pending",
+      "sourceSha": "a4359ad7",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/230",
+      "impact": "15 of 30 PRs merged before CI finished; 6 then failed (#201, #204, #216, #217, #219, #224).",
+      "cornerAddress": "10dfee1f-e7e8-4660-8f74-64ae4ed9ed0c",
+      "fixSha": "f5bc762d (#230, merged, not live)",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "slug": "merge-gate-checks",
+      "workItemId": "10dfee1f-e7e8-4660-8f74-64ae4ed9ed0c",
+      "status": "in-fix",
+      "lastSeenAt": "2026-11-27T08:46Z"
+    },
+    {
+      "key": "infra/log-collector-stale-checkout",
+      "sourceSha": "n/a (host)",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/229",
+      "impact": "No production server logs since 11:50 AM ET 26 Nov; free-agent and voice logs none since 19 Nov.",
+      "cornerAddress": "67943678-620b-4924-8494-4b8864de7354",
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "slug": "log-collector-repoint",
+      "workItemId": "67943678-620b-4924-8494-4b8864de7354",
+      "status": "in-fix",
+      "lastSeenAt": "2026-11-27T10:00Z"
+    },
+    {
+      "key": "release/pages-deployment-read-404",
+      "sourceSha": "a4359ad7",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/45955648252",
+      "impact": "v0.1.249-rc.5 server live but release not published.",
+      "cornerAddress": "60296237-ba07-4ef2-91b5-e923a02c1b5b",
+      "fixSha": "153eab88 (#228, merged, not live)",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "slug": "pages-404-poll",
+      "workItemId": "60296237-ba07-4ef2-91b5-e923a02c1b5b",
+      "status": "in-fix",
+      "lastSeenAt": "2026-11-27T07:22Z"
+    },
+    {
+      "key": "body/session-tmpdir-symlink",
+      "sourceSha": "a4359ad7",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/232",
+      "impact": "Path-sensitive tests fail for agents (7 reports, 4 agents).",
+      "cornerAddress": "419f8b32-ce26-447f-af29-2fd1be119dfc",
+      "fixSha": "d1962418 (#232, merged, not live)",
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "slug": "sandbox-tmpdir-dir",
+      "workItemId": "419f8b32-ce26-447f-af29-2fd1be119dfc",
+      "status": "in-fix",
+      "lastSeenAt": "2026-11-27T00:28Z"
+    },
+    {
+      "key": "scheduler/silent-turn-redelivery",
+      "sourceSha": "a4359ad7",
+      "evidence": "#beeline Tasks silent-turn-redelivery",
+      "impact": "Agents repeat scheduled work (7 reports, 4 agents).",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "slug": "silent-turn-redelivery",
+      "workItemId": "2ffae8f6-fb81-5e1e-931a-7d22346c892f",
+      "status": "reported",
+      "lastSeenAt": "2026-11-27T08:51Z"
+    },
+    {
+      "key": "corner/checkout-deps-missing/chad-mask",
+      "sourceSha": "helper on chad (unknown)",
+      "evidence": "#beeline Tasks chad-mask-mount",
+      "impact": "Checkouts on chad lack dependencies (5 reports, 1 agent).",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "slug": "chad-mask-mount",
+      "workItemId": "fb70ea6d-0214-53f7-bb8b-91e0e3cef4d8",
+      "status": "reported",
+      "lastSeenAt": "2026-11-27T05:17Z"
+    },
+    {
+      "key": "corner/idle-notice-after-merge",
+      "sourceSha": "a4359ad7",
+      "evidence": "#beeline Tasks idle-after-merge (fb_cc9b85bf)",
+      "impact": "Commanders told to resume or close threads that already merged.",
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "slug": "idle-after-merge",
+      "workItemId": "258bad83-37de-5a17-a9df-32ac25ca14e4",
+      "status": "reported",
+      "lastSeenAt": "2026-11-27T13:45Z"
+    },
+    {
+      "key": "ci/server/unregistered-self-closed",
+      "sourceSha": null,
+      "evidence": "#202",
+      "impact": null,
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "in-fix",
+      "lastFollowUp": "2026-11-27: Dropped (fixed on main; #202)."
+    },
+    {
+      "key": "ci/mobile/room-session-deferred-read",
+      "sourceSha": null,
+      "evidence": "#214",
+      "impact": null,
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "in-fix",
+      "lastFollowUp": "2026-11-27: Dropped (fixed on main; #214)."
+    },
+    {
+      "key": "ci/mobile/screen-platform-branches",
+      "sourceSha": null,
+      "evidence": "#221",
+      "impact": null,
+      "cornerAddress": null,
+      "fixSha": null,
+      "lastPresentedAt": "2026-11-27T14:04:07Z",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "status": "in-fix",
+      "lastFollowUp": "2026-11-27: Dropped (fixed on main; #221)."
     }
   ],
   "scores": [
@@ -2293,6 +2450,28 @@
       "approved": null,
       "staleCaughtByStep2b": 3,
       "staleCorrectedByOwner": 0
+    },
+    {
+      "date": "2026-11-27",
+      "cardMessageId": "861dc01aa476f8e0969832bbb09dbe7fa341b7f588daf13b8d2da066dd54392e",
+      "liveSha": "a4359ad78673a8d2a921345d6ceb453bd08f3942",
+      "liveVersion": "v0.1.249-rc.5",
+      "publishedRelease": "v0.1.249-rc.4 (1ce5499724294c3d63e13a5cd95ae3418271b5d9)",
+      "mainSha": "f5bc762d",
+      "window": "2026-11-26T14:00Z to 2026-11-27T14:00Z",
+      "itemsShown": 9,
+      "sentryPeople": 0,
+      "sentryEvents": 4,
+      "feedbackAgentReports": 207,
+      "feedbackHumanReports": 0,
+      "ciMainRedLowerBound": "2h59m36s",
+      "ciFlakes": 0,
+      "ciPrMedianSec": 815,
+      "latency": "unavailable (host load gate)",
+      "providerScannerSites": 0,
+      "filedBacklog": 4,
+      "dispatchedByOwner": 5,
+      "mergedToday": 4
     }
   ]
 }
