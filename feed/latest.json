@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T14:07:44.475Z",
+  "generatedAt": "2026-11-28T14:06:47.370Z",
   "insights": {
     "generatedAt": "2026-11-03T14:08:00.000Z",
     "window": {
@@ -403,315 +403,76 @@
   ],
   "problems": [
     {
-      "id": "github-unprotected-main-merges-pending",
+      "id": "ci-body-agent-runner-answer-teardown",
       "rank": 1,
-      "date": "2026-11-27",
-      "title": "main has no branch protection; gitHubAppClientReadRequiredChecks returns [] and cornerGateChecks reads null as passing.",
-      "peoplePerDay": 0,
-      "peopleReason": "No outside people affected in the card window.",
+      "date": "2026-11-28",
+      "title": "The configuration-change test ends after harness delivery while the runner can still write the answer store; fixture cleanup fails with ENOTEMPTY.",
+      "peoplePerDay": null,
+      "peopleReason": "CI fixtures only",
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-27 morning card",
+      "source": "2026-11-28 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-27",
-      "whatHappens": "main has no branch protection; gitHubAppClientReadRequiredChecks returns [] and cornerGateChecks reads null as passing.",
+      "lastHit": "2026-11-28",
+      "whatHappens": "The configuration-change test ends after harness delivery while the runner can still write the answer store; fixture cleanup fails with ENOTEMPTY.",
       "observations": [
         {
-          "date": "2026-11-27",
-          "text": "https://github.com/lunchboxfortwo/beeline/pull/230\nConsequence: 15 of 30 PRs merged before CI finished; 6 then failed (#201, #204, #216, #217, #219, #224)."
+          "date": "2026-11-28",
+          "text": "https://github.com/lunchboxfortwo/beeline/actions/runs/46107943122/job/140864791393\nConsequence: PR Checks fail on an unchanged head and need a rerun."
         },
         {
-          "date": "2026-11-27",
-          "text": "Last seen 2026-11-27T08:46Z on a4359ad7"
+          "date": "2026-11-28",
+          "text": "Last seen 2026-11-28T04:35:29Z on ec9cd076"
         },
         {
-          "date": "2026-11-27",
-          "text": "Proposed fix: Merge gate uses full head check rollup when no required checks. Confidence: high."
+          "date": "2026-11-28",
+          "text": "Proposed fix: Await both request IDs' posts and an empty answer directory before removing the fixture; keep config-before-start assertions. Confidence: high."
         }
       ],
-      "problem": "main has no branch protection; gitHubAppClientReadRequiredChecks returns [] and cornerGateChecks reads null as passing.",
-      "fix": "Merge gate uses full head check rollup when no required checks. Confidence: high.",
-      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/230\nConsequence: 15 of 30 PRs merged before CI finished; 6 then failed (#201, #204, #216, #217, #219, #224).",
-      "lastSeen": "2026-11-27T08:46Z on a4359ad7"
+      "problem": "The configuration-change test ends after harness delivery while the runner can still write the answer store; fixture cleanup fails with ENOTEMPTY.",
+      "fix": "Await both request IDs' posts and an empty answer directory before removing the fixture; keep config-before-start assertions. Confidence: high.",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/46107943122/job/140864791393\nConsequence: PR Checks fail on an unchanged head and need a rerun.",
+      "lastSeen": "2026-11-28T04:35:29Z on ec9cd076"
     },
     {
-      "id": "infra-log-collector-stale-checkout",
+      "id": "thread-working-label-without-turn",
       "rank": 2,
-      "date": "2026-11-27",
-      "title": "squire log collector runs from a 5 Nov Beeline-Work clone without #206; flyctl session expired.",
+      "date": "2026-11-28",
+      "title": "A thread shows '<agent> is working' from its lifecycle state while no agent turn runs.",
       "peoplePerDay": 0,
-      "peopleReason": "No outside people affected in the card window.",
       "trend": "flat",
       "cause": "unknown",
       "stage": "daily-use",
-      "source": "2026-11-27 morning card",
+      "source": "2026-11-28 morning card",
       "kind": "problem",
       "scope": "people",
-      "lastHit": "2026-11-27",
-      "whatHappens": "squire log collector runs from a 5 Nov Beeline-Work clone without #206; flyctl session expired.",
+      "lastHit": "2026-11-28",
+      "whatHappens": "A thread shows '<agent> is working' from its lifecycle state while no agent turn runs.",
       "observations": [
         {
-          "date": "2026-11-27",
-          "text": "https://github.com/lunchboxfortwo/beeline/pull/229\nConsequence: No production server logs since 11:50 AM ET 26 Nov; free-agent and voice logs none since 19 Nov."
+          "date": "2026-11-28",
+          "text": "#beeline feedback fb_613051a3 (owner report)\nConsequence: The owner cannot tell whether an agent is actually working."
         },
         {
-          "date": "2026-11-27",
-          "text": "Last seen 2026-11-27T10:00Z on n/a (host)"
+          "date": "2026-11-28",
+          "text": "Last seen 2026-11-28T03:32Z on 1ce54997"
         },
         {
-          "date": "2026-11-27",
-          "text": "Proposed fix: Reinstall via install-host.sh from lunchboxfortwo main; add 15-minute staleness check. Confidence: high."
+          "date": "2026-11-28",
+          "text": "Proposed fix: Show 'working' only while a turn is active; otherwise show the plain lifecycle state. Confidence: medium."
         }
       ],
-      "problem": "squire log collector runs from a 5 Nov Beeline-Work clone without #206; flyctl session expired.",
-      "fix": "Reinstall via install-host.sh from lunchboxfortwo main; add 15-minute staleness check. Confidence: high.",
-      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/229\nConsequence: No production server logs since 11:50 AM ET 26 Nov; free-agent and voice logs none since 19 Nov.",
-      "lastSeen": "2026-11-27T10:00Z on n/a (host)"
-    },
-    {
-      "id": "release-pages-deployment-read-404",
-      "rank": 3,
-      "date": "2026-11-27",
-      "title": "awaitPagesDeployment throws on first read-after-write 404.",
-      "peoplePerDay": 0,
-      "peopleReason": "No outside people affected in the card window.",
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-27 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-27",
-      "whatHappens": "awaitPagesDeployment throws on first read-after-write 404.",
-      "observations": [
-        {
-          "date": "2026-11-27",
-          "text": "https://github.com/lunchboxfortwo/beeline/actions/runs/45955648252\nConsequence: v0.1.249-rc.5 server live but release not published."
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Last seen 2026-11-27T07:22Z on a4359ad7"
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Proposed fix: Treat 404 as not visible yet within the 20-try poll. Confidence: high."
-        }
-      ],
-      "problem": "awaitPagesDeployment throws on first read-after-write 404.",
-      "fix": "Treat 404 as not visible yet within the 20-try poll. Confidence: high.",
-      "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/45955648252\nConsequence: v0.1.249-rc.5 server live but release not published.",
-      "lastSeen": "2026-11-27T07:22Z on a4359ad7"
-    },
-    {
-      "id": "body-session-tmpdir-symlink",
-      "rank": 4,
-      "date": "2026-11-27",
-      "title": "Sandbox TMPDIR is a symlink because bwrap binds the link onto itself.",
-      "peoplePerDay": 0,
-      "peopleReason": "No outside people affected in the card window.",
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-27 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-27",
-      "whatHappens": "Sandbox TMPDIR is a symlink because bwrap binds the link onto itself.",
-      "observations": [
-        {
-          "date": "2026-11-27",
-          "text": "https://github.com/lunchboxfortwo/beeline/pull/232\nConsequence: Path-sensitive tests fail for agents (7 reports, 4 agents)."
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Last seen 2026-11-27T00:28Z on a4359ad7"
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Proposed fix: Bind real root/tmp onto the short TMPDIR path. Confidence: high."
-        }
-      ],
-      "problem": "Sandbox TMPDIR is a symlink because bwrap binds the link onto itself.",
-      "fix": "Bind real root/tmp onto the short TMPDIR path. Confidence: high.",
-      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/232\nConsequence: Path-sensitive tests fail for agents (7 reports, 4 agents).",
-      "lastSeen": "2026-11-27T00:28Z on a4359ad7"
-    },
-    {
-      "id": "corner-checkout-deps-missing-2026-11-27",
-      "rank": 5,
-      "date": "2026-11-27",
-      "title": "Session prepare and workspace race on one checkout.",
-      "peoplePerDay": 0,
-      "peopleReason": "No outside people affected in the card window.",
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-27 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-27",
-      "whatHappens": "Session prepare and workspace race on one checkout.",
-      "observations": [
-        {
-          "date": "2026-11-27",
-          "text": "https://github.com/lunchboxfortwo/beeline/pull/231\nConsequence: ENOTEMPTY, early readiness, 3-minute timeouts (about 12 reports, 5 agents)."
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Last seen 2026-11-27T08:35Z on a4359ad7"
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Proposed fix: workspace waits for in-flight prepare; clear stale .git.creating. Confidence: high."
-        }
-      ],
-      "problem": "Session prepare and workspace race on one checkout.",
-      "fix": "workspace waits for in-flight prepare; clear stale .git.creating. Confidence: high.",
-      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/231\nConsequence: ENOTEMPTY, early readiness, 3-minute timeouts (about 12 reports, 5 agents).",
-      "lastSeen": "2026-11-27T08:35Z on a4359ad7"
-    },
-    {
-      "id": "review-checkout-refresh-blocked-2026-11-27",
-      "rank": 6,
-      "date": "2026-11-27",
-      "title": "Review setup cannot refresh reviewer checkout due to preserved local changes.",
-      "peoplePerDay": 0,
-      "peopleReason": "No outside people affected in the card window.",
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-27 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-27",
-      "whatHappens": "Review setup cannot refresh reviewer checkout due to preserved local changes.",
-      "observations": [
-        {
-          "date": "2026-11-27",
-          "text": "#beeline Tasks reviewer-refresh-blocked (fb_b478b316)\nConsequence: Reviewer fetches heads by hand (35 reports, 1 agent)."
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Last seen 2026-11-27T07:07Z on a4359ad7"
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Proposed fix: List dirty paths after failed refresh; ignore or clean install output only. Confidence: medium."
-        }
-      ],
-      "problem": "Review setup cannot refresh reviewer checkout due to preserved local changes.",
-      "fix": "List dirty paths after failed refresh; ignore or clean install output only. Confidence: medium.",
-      "evidence": "#beeline Tasks reviewer-refresh-blocked (fb_b478b316)\nConsequence: Reviewer fetches heads by hand (35 reports, 1 agent).",
-      "lastSeen": "2026-11-27T07:07Z on a4359ad7"
-    },
-    {
-      "id": "scheduler-silent-turn-redelivery",
-      "rank": 7,
-      "date": "2026-11-27",
-      "title": "Scheduled message delivered again after a silent turn.",
-      "peoplePerDay": 0,
-      "peopleReason": "No outside people affected in the card window.",
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-27 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-27",
-      "whatHappens": "Scheduled message delivered again after a silent turn.",
-      "observations": [
-        {
-          "date": "2026-11-27",
-          "text": "#beeline Tasks silent-turn-redelivery\nConsequence: Agents repeat scheduled work (7 reports, 4 agents)."
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Last seen 2026-11-27T08:51Z on a4359ad7"
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Proposed fix: Read agent_turns/agent_commands for repeated ids; fix server redelivery or document harness empty-output rule. Confidence: medium."
-        }
-      ],
-      "problem": "Scheduled message delivered again after a silent turn.",
-      "fix": "Read agent_turns/agent_commands for repeated ids; fix server redelivery or document harness empty-output rule. Confidence: medium.",
-      "evidence": "#beeline Tasks silent-turn-redelivery\nConsequence: Agents repeat scheduled work (7 reports, 4 agents).",
-      "lastSeen": "2026-11-27T08:51Z on a4359ad7"
-    },
-    {
-      "id": "corner-checkout-deps-missing-chad-mask",
-      "rank": 8,
-      "date": "2026-11-27",
-      "title": "pnpm install inside prepare on chad fails: mount permission denied on /dev/shm/beeline-masks.",
-      "peoplePerDay": 0,
-      "peopleReason": "No outside people affected in the card window.",
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-27 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-27",
-      "whatHappens": "pnpm install inside prepare on chad fails: mount permission denied on /dev/shm/beeline-masks.",
-      "observations": [
-        {
-          "date": "2026-11-27",
-          "text": "#beeline Tasks chad-mask-mount\nConsequence: Checkouts on chad lack dependencies (5 reports, 1 agent)."
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Last seen 2026-11-27T05:17Z on helper on chad (unknown)"
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Proposed fix: Check mask owner; remove stale mask; key mask path per user. Confidence: medium."
-        }
-      ],
-      "problem": "pnpm install inside prepare on chad fails: mount permission denied on /dev/shm/beeline-masks.",
-      "fix": "Check mask owner; remove stale mask; key mask path per user. Confidence: medium.",
-      "evidence": "#beeline Tasks chad-mask-mount\nConsequence: Checkouts on chad lack dependencies (5 reports, 1 agent).",
-      "lastSeen": "2026-11-27T05:17Z on helper on chad (unknown)"
-    },
-    {
-      "id": "corner-idle-notice-after-merge",
-      "rank": 9,
-      "date": "2026-11-27",
-      "title": "Idle blocker emitted from facts read before the same event archives the corner.",
-      "peoplePerDay": 0,
-      "peopleReason": "No outside people affected in the card window.",
-      "trend": "flat",
-      "cause": "unknown",
-      "stage": "daily-use",
-      "source": "2026-11-27 morning card",
-      "kind": "problem",
-      "scope": "people",
-      "lastHit": "2026-11-27",
-      "whatHappens": "Idle blocker emitted from facts read before the same event archives the corner.",
-      "observations": [
-        {
-          "date": "2026-11-27",
-          "text": "#beeline Tasks idle-after-merge (fb_cc9b85bf)\nConsequence: Commanders told to resume or close threads that already merged."
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Last seen 2026-11-27T13:45Z on a4359ad7"
-        },
-        {
-          "date": "2026-11-27",
-          "text": "Proposed fix: Skip idle notices when the event archives the corner; add merge-event test. Confidence: medium."
-        }
-      ],
-      "problem": "Idle blocker emitted from facts read before the same event archives the corner.",
-      "fix": "Skip idle notices when the event archives the corner; add merge-event test. Confidence: medium.",
-      "evidence": "#beeline Tasks idle-after-merge (fb_cc9b85bf)\nConsequence: Commanders told to resume or close threads that already merged.",
-      "lastSeen": "2026-11-27T13:45Z on a4359ad7"
+      "problem": "A thread shows '<agent> is working' from its lifecycle state while no agent turn runs.",
+      "fix": "Show 'working' only while a turn is active; otherwise show the plain lifecycle state. Confidence: medium.",
+      "evidence": "#beeline feedback fb_613051a3 (owner report)\nConsequence: The owner cannot tell whether an agent is actually working.",
+      "lastSeen": "2026-11-28T03:32Z on 1ce54997"
     },
     {
       "id": "db-lock-contention",
       "kind": "problem",
-      "rank": 10,
+      "rank": 3,
       "date": "2026-11-09",
       "title": "Database contention interrupts corner updates and account deletion",
       "peoplePerDay": 0,
@@ -736,7 +497,7 @@
     },
     {
       "id": "db-long-running-pool-exhaustion",
-      "rank": 10,
+      "rank": 3,
       "date": "2026-11-17",
       "title": "Chat lists stall and requests time out.",
       "peoplePerDay": null,
@@ -772,8 +533,42 @@
       "lastSeen": "14:53Z on 228-rc.1"
     },
     {
+      "id": "github-unprotected-main-merges-pending",
+      "rank": 3,
+      "date": "2026-11-27",
+      "title": "main has no branch protection; gitHubAppClientReadRequiredChecks returns [] and cornerGateChecks reads null as passing.",
+      "peoplePerDay": 0,
+      "peopleReason": "No outside people affected in the card window.",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-27 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-27",
+      "whatHappens": "main has no branch protection; gitHubAppClientReadRequiredChecks returns [] and cornerGateChecks reads null as passing.",
+      "observations": [
+        {
+          "date": "2026-11-27",
+          "text": "https://github.com/lunchboxfortwo/beeline/pull/230\nConsequence: 15 of 30 PRs merged before CI finished; 6 then failed (#201, #204, #216, #217, #219, #224)."
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Last seen 2026-11-27T08:46Z on a4359ad7"
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Proposed fix: Merge gate uses full head check rollup when no required checks. Confidence: high."
+        }
+      ],
+      "problem": "main has no branch protection; gitHubAppClientReadRequiredChecks returns [] and cornerGateChecks reads null as passing.",
+      "fix": "Merge gate uses full head check rollup when no required checks. Confidence: high.",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/230\nConsequence: 15 of 30 PRs merged before CI finished; 6 then failed (#201, #204, #216, #217, #219, #224).",
+      "lastSeen": "2026-11-27T08:46Z on a4359ad7"
+    },
+    {
       "id": "release-helper-darwin-arm64-stale",
-      "rank": 10,
+      "rank": 3,
       "date": "2026-11-19",
       "title": "Apple Silicon helper carried from v0.1.208 in v0.1.237",
       "peoplePerDay": null,
@@ -807,7 +602,7 @@
     },
     {
       "id": "release-live-delivery-over-target",
-      "rank": 10,
+      "rank": 3,
       "date": "2026-11-23",
       "title": "Release checks got slower: full checks 2089 s (was 1572 s); live delivery 675 s against a 600 s target.",
       "peoplePerDay": null,
@@ -841,7 +636,7 @@
     },
     {
       "id": "release-live-delivery-over-target-2026-11-25",
-      "rank": 10,
+      "rank": 3,
       "date": "2026-11-25",
       "title": "Live delivery took 1,105 s against a 600 s target (693 s on v0.1.246-rc.2, 644 s on v0.1.245); #125 did not move it.",
       "peoplePerDay": null,
@@ -875,7 +670,7 @@
     },
     {
       "id": "release-nightly-0200-not-published-2026-11-24",
-      "rank": 10,
+      "rank": 3,
       "date": "2026-11-24",
       "title": "No 02:00 ET release ran for the second night; no schedule or timer triggers it. 4 merged PRs wait (#123, #125, #126, #127).",
       "peoplePerDay": null,
@@ -909,7 +704,7 @@
     },
     {
       "id": "release-server-dockerfile-config-path",
-      "rank": 10,
+      "rank": 3,
       "date": "2026-11-26",
       "title": "Nightly release fails at the server build: root-relative toml dockerfile path is joined onto apps/infra.",
       "peoplePerDay": null,
@@ -944,7 +739,7 @@
     {
       "id": "scheduled-loops-lost-model-login",
       "kind": "problem",
-      "rank": 10,
+      "rank": 3,
       "date": "2026-11-18",
       "title": "Scheduled agent loops fail silently on an unknown model or a missing login.",
       "peoplePerDay": 1,
@@ -975,7 +770,7 @@
     {
       "id": "signin-lost",
       "kind": "problem",
-      "rank": 10,
+      "rank": 3,
       "date": "2026-10-31",
       "title": "New phone users tap Google or GitHub but never get signed in",
       "peoplePerDay": 1,
@@ -1062,7 +857,7 @@
     },
     {
       "id": "connectors-free-agent-squire-offer-error",
-      "rank": 11,
+      "rank": 4,
       "date": "2026-11-17",
       "title": "A person who taps \"connect Squire\" for a free agent gets a server error.",
       "peoplePerDay": null,
@@ -1095,7 +890,7 @@
     },
     {
       "id": "db-long-running-pool-exhaustion-2026-11-19",
-      "rank": 11,
+      "rank": 4,
       "date": "2026-11-19",
       "title": "Database pool runs out of connections at deploy time; 20 timeouts at the 13:54Z v0.1.238 deploy",
       "peoplePerDay": 1,
@@ -1129,7 +924,7 @@
     {
       "id": "db-pool-presence",
       "kind": "problem",
-      "rank": 11,
+      "rank": 4,
       "date": "2026-11-18",
       "title": "Chat lists stall and pushes are lost when the database pool fills.",
       "peoplePerDay": null,
@@ -1178,9 +973,43 @@
       ]
     },
     {
+      "id": "infra-log-collector-stale-checkout",
+      "rank": 4,
+      "date": "2026-11-27",
+      "title": "squire log collector runs from a 5 Nov Beeline-Work clone without #206; flyctl session expired.",
+      "peoplePerDay": 0,
+      "peopleReason": "No outside people affected in the card window.",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-27 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-27",
+      "whatHappens": "squire log collector runs from a 5 Nov Beeline-Work clone without #206; flyctl session expired.",
+      "observations": [
+        {
+          "date": "2026-11-27",
+          "text": "https://github.com/lunchboxfortwo/beeline/pull/229\nConsequence: No production server logs since 11:50 AM ET 26 Nov; free-agent and voice logs none since 19 Nov."
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Last seen 2026-11-27T10:00Z on n/a (host)"
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Proposed fix: Reinstall via install-host.sh from lunchboxfortwo main; add 15-minute staleness check. Confidence: high."
+        }
+      ],
+      "problem": "squire log collector runs from a 5 Nov Beeline-Work clone without #206; flyctl session expired.",
+      "fix": "Reinstall via install-host.sh from lunchboxfortwo main; add 15-minute staleness check. Confidence: high.",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/229\nConsequence: No production server logs since 11:50 AM ET 26 Nov; free-agent and voice logs none since 19 Nov.",
+      "lastSeen": "2026-11-27T10:00Z on n/a (host)"
+    },
+    {
       "id": "mobile-background-color-refusal",
       "kind": "problem",
-      "rank": 11,
+      "rank": 4,
       "date": "2026-11-09",
       "title": "Phones report a rejected background colour update",
       "peoplePerDay": 0,
@@ -1202,7 +1031,7 @@
     {
       "id": "next-day-return",
       "kind": "problem",
-      "rank": 11,
+      "rank": 4,
       "date": "2026-10-31",
       "title": "New people who write to an agent do not come back the next day",
       "peoplePerDay": 0,
@@ -1274,7 +1103,7 @@
     },
     {
       "id": "release-live-delivery-over-target-2026-11-24",
-      "rank": 11,
+      "rank": 4,
       "date": "2026-11-24",
       "title": "Live delivery took 644 s against a 600 s target (was 675 s).",
       "peoplePerDay": null,
@@ -1308,7 +1137,7 @@
     },
     {
       "id": "release-nightly-0200-not-published",
-      "rank": 11,
+      "rank": 4,
       "date": "2026-11-23",
       "title": "No 02:00 ET release was published while main was 15 commits ahead; merged fixes waited about 12 h more.",
       "peoplePerDay": null,
@@ -1342,7 +1171,7 @@
     },
     {
       "id": "release-play-service-account-invalid",
-      "rank": 11,
+      "rank": 4,
       "date": "2026-11-25",
       "title": "Release cannot read live Android runtime data from Google Play; OTA uses previously recorded Android targets.",
       "peoplePerDay": null,
@@ -1376,7 +1205,7 @@
     },
     {
       "id": "workitem-attach-link-invalid-url-500",
-      "rank": 11,
+      "rank": 4,
       "date": "2026-11-26",
       "title": "Attaching a non-absolute link to a task returns 500.",
       "peoplePerDay": 0,
@@ -1410,7 +1239,7 @@
     },
     {
       "id": "daemon-watch-self-503",
-      "rank": 12,
+      "rank": 5,
       "date": "2026-11-24",
       "title": "A thread asking to be woken when it merges gets a 503 server error instead of a refusal.",
       "peoplePerDay": 0,
@@ -1443,7 +1272,7 @@
     },
     {
       "id": "db-push-outbox-lock-timeout",
-      "rank": 12,
+      "rank": 5,
       "date": "2026-11-23",
       "title": "A release migration rebuilt push_outbox triggers and locked push delivery; both live servers failed one pass.",
       "peoplePerDay": 0,
@@ -1476,7 +1305,7 @@
     },
     {
       "id": "deploy-proxy-refused-during-restart",
-      "rank": 12,
+      "rank": 5,
       "date": "2026-11-19",
       "title": "Each deploy refuses requests and cuts request bodies",
       "peoplePerDay": null,
@@ -1511,7 +1340,7 @@
     {
       "id": "github-token-burst",
       "kind": "problem",
-      "rank": 12,
+      "rank": 5,
       "date": "2026-11-18",
       "title": "Bursts of GitHub token requests load the server.",
       "peoplePerDay": 1,
@@ -1537,7 +1366,7 @@
     },
     {
       "id": "memory-digest-requester-authority",
-      "rank": 12,
+      "rank": 5,
       "date": "2026-11-17",
       "title": "Scheduled digest turns cannot read or save memory.",
       "peoplePerDay": null,
@@ -1570,7 +1399,7 @@
     },
     {
       "id": "mobile-secure-store-locked-read",
-      "rank": 12,
+      "rank": 5,
       "date": "2026-11-25",
       "title": "iPhone app hits an unhandled keychain read error (User interaction is not allowed) when it starts while the phone is locked.",
       "peoplePerDay": 1,
@@ -1604,7 +1433,7 @@
     {
       "id": "mobile-storage-full",
       "kind": "problem",
-      "rank": 12,
+      "rank": 5,
       "date": "2026-11-09",
       "title": "Android storage writes fail when the local database fills",
       "peoplePerDay": 0,
@@ -1625,7 +1454,7 @@
     },
     {
       "id": "phone-running-update-not-found",
-      "rank": 12,
+      "rank": 5,
       "date": "2026-11-26",
       "title": "All 10 reportRunningUpdate calls in 24 h got 404; device update receipts never record.",
       "peoplePerDay": 0,
@@ -1658,8 +1487,42 @@
       "lastSeen": "02:21Z on d481038e"
     },
     {
+      "id": "release-pages-deployment-read-404",
+      "rank": 5,
+      "date": "2026-11-27",
+      "title": "awaitPagesDeployment throws on first read-after-write 404.",
+      "peoplePerDay": 0,
+      "peopleReason": "No outside people affected in the card window.",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-27 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-27",
+      "whatHappens": "awaitPagesDeployment throws on first read-after-write 404.",
+      "observations": [
+        {
+          "date": "2026-11-27",
+          "text": "https://github.com/lunchboxfortwo/beeline/actions/runs/45955648252\nConsequence: v0.1.249-rc.5 server live but release not published."
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Last seen 2026-11-27T07:22Z on a4359ad7"
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Proposed fix: Treat 404 as not visible yet within the 20-try poll. Confidence: high."
+        }
+      ],
+      "problem": "awaitPagesDeployment throws on first read-after-write 404.",
+      "fix": "Treat 404 as not visible yet within the 20-try poll. Confidence: high.",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/45955648252\nConsequence: v0.1.249-rc.5 server live but release not published.",
+      "lastSeen": "2026-11-27T07:22Z on a4359ad7"
+    },
+    {
       "id": "auth-github-exchange-invalid-ticket-503",
-      "rank": 13,
+      "rank": 6,
       "date": "2026-11-24",
       "title": "An invalid GitHub sign-in ticket returns 503 and goes to Sentry; Google returns 401.",
       "peoplePerDay": 0,
@@ -1691,8 +1554,42 @@
       "lastSeen": "13:29Z on 4f396c7d"
     },
     {
+      "id": "body-session-tmpdir-symlink",
+      "rank": 6,
+      "date": "2026-11-27",
+      "title": "Sandbox TMPDIR is a symlink because bwrap binds the link onto itself.",
+      "peoplePerDay": 0,
+      "peopleReason": "No outside people affected in the card window.",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-27 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-27",
+      "whatHappens": "Sandbox TMPDIR is a symlink because bwrap binds the link onto itself.",
+      "observations": [
+        {
+          "date": "2026-11-27",
+          "text": "https://github.com/lunchboxfortwo/beeline/pull/232\nConsequence: Path-sensitive tests fail for agents (7 reports, 4 agents)."
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Last seen 2026-11-27T00:28Z on a4359ad7"
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Proposed fix: Bind real root/tmp onto the short TMPDIR path. Confidence: high."
+        }
+      ],
+      "problem": "Sandbox TMPDIR is a symlink because bwrap binds the link onto itself.",
+      "fix": "Bind real root/tmp onto the short TMPDIR path. Confidence: high.",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/232\nConsequence: Path-sensitive tests fail for agents (7 reports, 4 agents).",
+      "lastSeen": "2026-11-27T00:28Z on a4359ad7"
+    },
+    {
       "id": "free-agents-fly-start-race-at-deploy",
-      "rank": 13,
+      "rank": 6,
       "date": "2026-11-19",
       "title": "Free-agent catch-up cannot observe about 30 machines after a deploy",
       "peoplePerDay": null,
@@ -1726,7 +1623,7 @@
     },
     {
       "id": "free-agents-reconcile-null-machine-config",
-      "rank": 13,
+      "rank": 6,
       "date": "2026-11-25",
       "title": "A Fly machine with no config stops the whole free-agent catch-up pass.",
       "peoplePerDay": null,
@@ -1761,7 +1658,7 @@
     {
       "id": "github-diagnostic-config",
       "kind": "problem",
-      "rank": 13,
+      "rank": 6,
       "date": "2026-11-09",
       "title": "A diagnostic script starts without GitHub configuration",
       "peoplePerDay": 0,
@@ -1782,7 +1679,7 @@
     },
     {
       "id": "github-webhook-check-rollup-fetch-failed-2026-11-26",
-      "rank": 13,
+      "rank": 6,
       "date": "2026-11-26",
       "title": "A failed checks read fails the GitHub webhook; PR check state lags.",
       "peoplePerDay": 0,
@@ -1816,7 +1713,7 @@
     },
     {
       "id": "session-mcp-closed-notice",
-      "rank": 13,
+      "rank": 6,
       "date": "2026-11-17",
       "title": "Session setup says Squire is \"connection closed\" while it works.",
       "peoplePerDay": null,
@@ -1849,7 +1746,7 @@
     },
     {
       "id": "thread-approval-citation-refused",
-      "rank": 13,
+      "rank": 6,
       "date": "2026-11-23",
       "title": "Brief revisions, holds and message reads that cite a human message are refused because delivery ids and read ids differ.",
       "peoplePerDay": null,
@@ -1884,7 +1781,7 @@
     {
       "id": "thread-pr-open-link",
       "kind": "problem",
-      "rank": 13,
+      "rank": 6,
       "date": "2026-11-18",
       "title": "Agents cannot open PRs, and a hand-opened PR cannot merge through its thread.",
       "peoplePerDay": 1,
@@ -1910,7 +1807,7 @@
     },
     {
       "id": "bridge-oauth-redirect-unregistered",
-      "rank": 14,
+      "rank": 7,
       "date": "2026-11-17",
       "title": "Private bridge reconnect fails with \"redirect_uri_unregistered\".",
       "peoplePerDay": null,
@@ -1942,8 +1839,42 @@
       "lastSeen": "00:23Z on 222"
     },
     {
+      "id": "corner-checkout-deps-missing-2026-11-27",
+      "rank": 7,
+      "date": "2026-11-27",
+      "title": "Session prepare and workspace race on one checkout.",
+      "peoplePerDay": 0,
+      "peopleReason": "No outside people affected in the card window.",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-27 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-27",
+      "whatHappens": "Session prepare and workspace race on one checkout.",
+      "observations": [
+        {
+          "date": "2026-11-27",
+          "text": "https://github.com/lunchboxfortwo/beeline/pull/231\nConsequence: ENOTEMPTY, early readiness, 3-minute timeouts (about 12 reports, 5 agents)."
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Last seen 2026-11-27T08:35Z on a4359ad7"
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Proposed fix: workspace waits for in-flight prepare; clear stale .git.creating. Confidence: high."
+        }
+      ],
+      "problem": "Session prepare and workspace race on one checkout.",
+      "fix": "workspace waits for in-flight prepare; clear stale .git.creating. Confidence: high.",
+      "evidence": "https://github.com/lunchboxfortwo/beeline/pull/231\nConsequence: ENOTEMPTY, early readiness, 3-minute timeouts (about 12 reports, 5 agents).",
+      "lastSeen": "2026-11-27T08:35Z on a4359ad7"
+    },
+    {
       "id": "github-webhook-check-rollup-fetch-failed",
-      "rank": 14,
+      "rank": 7,
       "date": "2026-11-24",
       "title": "One GitHub webhook failed with 503 because the check-summary refresh could not reach GitHub.",
       "peoplePerDay": 0,
@@ -1976,7 +1907,7 @@
     },
     {
       "id": "github-webhook-check-rollup-fetch-failed-2026-11-25",
-      "rank": 14,
+      "rank": 7,
       "date": "2026-11-25",
       "title": "A GitHub 503 during the check-summary refresh fails the webhook; PR check state lags until the next event.",
       "peoplePerDay": 0,
@@ -2009,7 +1940,7 @@
     },
     {
       "id": "insights-feed-stale-reviewer-never-woken",
-      "rank": 14,
+      "rank": 7,
       "date": "2026-11-23",
       "title": "Insights dashboard is 6 days stale: PR beeline-insights#1 is ready but reviewer is never woken in a repo with no CI.",
       "peoplePerDay": 0,
@@ -2042,7 +1973,7 @@
     },
     {
       "id": "mobile-android-x86-64-libcxx-missing",
-      "rank": 14,
+      "rank": 7,
       "date": "2026-11-19",
       "title": "Android 0.2.22 crashes at native load on x86_64 (libc++_shared.so missing)",
       "peoplePerDay": 0,
@@ -2075,7 +2006,7 @@
     },
     {
       "id": "phone-media-upload-aborted-500",
-      "rank": 14,
+      "rank": 7,
       "date": "2026-11-26",
       "title": "Client-aborted phone uploads are logged as server 500s.",
       "peoplePerDay": 0,
@@ -2110,7 +2041,7 @@
     {
       "id": "pi-mcp-config-partial",
       "kind": "problem",
-      "rank": 14,
+      "rank": 7,
       "date": "2026-11-18",
       "title": "A free-agent tool config was read half-written.",
       "peoplePerDay": null,
@@ -2140,7 +2071,7 @@
     },
     {
       "id": "review-deps-install-refused",
-      "rank": 14,
+      "rank": 7,
       "kind": "regression",
       "scope": "single",
       "title": "Mobile work starts before its required dependencies are available",
@@ -2176,7 +2107,7 @@
     },
     {
       "id": "agents-cross-place-report-undeliverable",
-      "rank": 15,
+      "rank": 8,
       "date": "2026-11-25",
       "title": "Since #147/#150 agents cannot post into another chat or thread, and some reply/review/brief ids are refused; loop reports get stranded.",
       "peoplePerDay": 2,
@@ -2209,7 +2140,7 @@
     },
     {
       "id": "corner-checkout-deps-missing",
-      "rank": 15,
+      "rank": 8,
       "date": "2026-11-23",
       "title": "Agent checkouts report ready but cannot run tests (missing packages, Vitest, mobile deps, writable /var/tmp, Node types).",
       "peoplePerDay": 0,
@@ -2242,7 +2173,7 @@
     },
     {
       "id": "loops-scheduled-session-no-checkout-no-gh",
-      "rank": 15,
+      "rank": 8,
       "date": "2026-11-19",
       "title": "Scheduled loop sessions are told a checkout exists but have none; workspace tool works",
       "peoplePerDay": 0,
@@ -2275,7 +2206,7 @@
     },
     {
       "id": "personal-github-proxy-502",
-      "rank": 15,
+      "rank": 8,
       "date": "2026-11-09",
       "observations": [
         {
@@ -2300,8 +2231,42 @@
       "whatHappens": "Repository reads reject pagination and return file metadata"
     },
     {
+      "id": "review-checkout-refresh-blocked-2026-11-27",
+      "rank": 8,
+      "date": "2026-11-27",
+      "title": "Review setup cannot refresh reviewer checkout due to preserved local changes.",
+      "peoplePerDay": 0,
+      "peopleReason": "No outside people affected in the card window.",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-27 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-27",
+      "whatHappens": "Review setup cannot refresh reviewer checkout due to preserved local changes.",
+      "observations": [
+        {
+          "date": "2026-11-27",
+          "text": "#beeline Tasks reviewer-refresh-blocked (fb_b478b316)\nConsequence: Reviewer fetches heads by hand (35 reports, 1 agent)."
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Last seen 2026-11-27T07:07Z on a4359ad7"
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Proposed fix: List dirty paths after failed refresh; ignore or clean install output only. Confidence: medium."
+        }
+      ],
+      "problem": "Review setup cannot refresh reviewer checkout due to preserved local changes.",
+      "fix": "List dirty paths after failed refresh; ignore or clean install output only. Confidence: medium.",
+      "evidence": "#beeline Tasks reviewer-refresh-blocked (fb_b478b316)\nConsequence: Reviewer fetches heads by hand (35 reports, 1 agent).",
+      "lastSeen": "2026-11-27T07:07Z on a4359ad7"
+    },
+    {
       "id": "review-stale-wake-context-2026-11-26",
-      "rank": 15,
+      "rank": 8,
       "date": "2026-11-26",
       "title": "Review wakes say checks passed while checks are pending or failed.",
       "peoplePerDay": 0,
@@ -2335,7 +2300,7 @@
     },
     {
       "id": "schedule-parked-forever-after-lock-timeout",
-      "rank": 15,
+      "rank": 8,
       "date": "2026-11-24",
       "title": "One lock timeout parks a recurring schedule for good: it never runs again until someone edits it.",
       "peoplePerDay": 0,
@@ -2368,7 +2333,7 @@
     },
     {
       "id": "scheduler-resume-loses-tmp",
-      "rank": 15,
+      "rank": 8,
       "date": "2026-11-17",
       "title": "A resumed scheduled run lost its temporary files.",
       "peoplePerDay": null,
@@ -2402,7 +2367,7 @@
     {
       "id": "squire-connection-closed-notice",
       "kind": "problem",
-      "rank": 15,
+      "rank": 8,
       "date": "2026-11-18",
       "title": "Session setup says Squire is connection closed while it works.",
       "peoplePerDay": 1,
@@ -2429,7 +2394,7 @@
     {
       "id": "full-nightly-checks-missing",
       "kind": "problem",
-      "rank": 16,
+      "rank": 9,
       "date": "2026-11-18",
       "title": "No full nightly check result after the 2 AM release.",
       "peoplePerDay": 1,
@@ -2466,7 +2431,7 @@
     },
     {
       "id": "helper-antigravity-stable-search-schema",
-      "rank": 16,
+      "rank": 9,
       "date": "2026-11-25",
       "title": "Antigravity agents on stable helpers (v0.1.245) cannot start: the executor rejects the old search-tool regex. Fix #141 is only on next.",
       "peoplePerDay": 1,
@@ -2499,7 +2464,7 @@
     },
     {
       "id": "loops-scheduled-run-stale-thread-context",
-      "rank": 16,
+      "rank": 9,
       "date": "2026-11-24",
       "title": "Schedules re-deliver runs already reported, or with stale context.",
       "peoplePerDay": 0,
@@ -2532,7 +2497,7 @@
     },
     {
       "id": "review-stale-wake-context",
-      "rank": 16,
+      "rank": 9,
       "date": "2026-11-23",
       "title": "Reviewers and implementers get wakes for heads already reviewed or superseded.",
       "peoplePerDay": 0,
@@ -2564,8 +2529,42 @@
       "lastSeen": "after 00:25Z on 66454540"
     },
     {
+      "id": "scheduler-silent-turn-redelivery",
+      "rank": 9,
+      "date": "2026-11-27",
+      "title": "Scheduled message delivered again after a silent turn.",
+      "peoplePerDay": 0,
+      "peopleReason": "No outside people affected in the card window.",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-27 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-27",
+      "whatHappens": "Scheduled message delivered again after a silent turn.",
+      "observations": [
+        {
+          "date": "2026-11-27",
+          "text": "#beeline Tasks silent-turn-redelivery\nConsequence: Agents repeat scheduled work (7 reports, 4 agents)."
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Last seen 2026-11-27T08:51Z on a4359ad7"
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Proposed fix: Read agent_turns/agent_commands for repeated ids; fix server redelivery or document harness empty-output rule. Confidence: medium."
+        }
+      ],
+      "problem": "Scheduled message delivered again after a silent turn.",
+      "fix": "Read agent_turns/agent_commands for repeated ids; fix server redelivery or document harness empty-output rule. Confidence: medium.",
+      "evidence": "#beeline Tasks silent-turn-redelivery\nConsequence: Agents repeat scheduled work (7 reports, 4 agents).",
+      "lastSeen": "2026-11-27T08:51Z on a4359ad7"
+    },
+    {
       "id": "squire-cloudflare-challenge-empty",
-      "rank": 16,
+      "rank": 9,
       "date": "2026-11-17",
       "title": "Squire shows a Cloudflare challenge as \"network_busy\".",
       "peoplePerDay": null,
@@ -2598,7 +2597,7 @@
     },
     {
       "id": "squire-notice-connection-closed-while-working",
-      "rank": 16,
+      "rank": 9,
       "date": "2026-11-19",
       "title": "Session setup reports Squire CONNECTION_CLOSED while the registry route works",
       "peoplePerDay": 0,
@@ -2637,7 +2636,7 @@
       "scope": "single",
       "id": "stale-order-redelivery",
       "kind": "problem",
-      "rank": 16,
+      "rank": 9,
       "trend": "flat",
       "cause": "server",
       "lastHit": "2026-11-09",
@@ -2661,7 +2660,7 @@
     },
     {
       "id": "tools-read-pr-number-ignored",
-      "rank": 16,
+      "rank": 9,
       "date": "2026-11-26",
       "title": "read(facet:pr, pullRequest:N) ignores N and reads the caller's own thread.",
       "peoplePerDay": 0,
@@ -2695,7 +2694,7 @@
     },
     {
       "id": "agents-cross-room-message-read-denied",
-      "rank": 17,
+      "rank": 10,
       "date": "2026-11-25",
       "title": "A message that the thread list shows returns 403, or a sentence fragment, when read by id.",
       "peoplePerDay": 1,
@@ -2728,7 +2727,7 @@
     },
     {
       "id": "attachments-read-message-empty",
-      "rank": 17,
+      "rank": 10,
       "date": "2026-11-24",
       "title": "Listed messages and attachments come back empty or not found.",
       "peoplePerDay": 0,
@@ -2761,7 +2760,7 @@
     },
     {
       "id": "background-watcher-liveness",
-      "rank": 17,
+      "rank": 10,
       "date": "2026-11-09",
       "observations": [
         {
@@ -2796,8 +2795,42 @@
       "whatHappens": "Native builds end before the next turn can collect their results"
     },
     {
+      "id": "corner-checkout-deps-missing-chad-mask",
+      "rank": 10,
+      "date": "2026-11-27",
+      "title": "pnpm install inside prepare on chad fails: mount permission denied on /dev/shm/beeline-masks.",
+      "peoplePerDay": 0,
+      "peopleReason": "No outside people affected in the card window.",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-27 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-27",
+      "whatHappens": "pnpm install inside prepare on chad fails: mount permission denied on /dev/shm/beeline-masks.",
+      "observations": [
+        {
+          "date": "2026-11-27",
+          "text": "#beeline Tasks chad-mask-mount\nConsequence: Checkouts on chad lack dependencies (5 reports, 1 agent)."
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Last seen 2026-11-27T05:17Z on helper on chad (unknown)"
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Proposed fix: Check mask owner; remove stale mask; key mask path per user. Confidence: medium."
+        }
+      ],
+      "problem": "pnpm install inside prepare on chad fails: mount permission denied on /dev/shm/beeline-masks.",
+      "fix": "Check mask owner; remove stale mask; key mask path per user. Confidence: medium.",
+      "evidence": "#beeline Tasks chad-mask-mount\nConsequence: Checkouts on chad lack dependencies (5 reports, 1 agent).",
+      "lastSeen": "2026-11-27T05:17Z on helper on chad (unknown)"
+    },
+    {
       "id": "loops-procedures-contradict-contract",
-      "rank": 17,
+      "rank": 10,
       "date": "2026-11-19",
       "title": "Three loop procedures contradict loops-contract on old-build drops and open questions",
       "peoplePerDay": 0,
@@ -2830,7 +2863,7 @@
     },
     {
       "id": "squire-github-raw-and-release-list",
-      "rank": 17,
+      "rank": 10,
       "date": "2026-11-17",
       "title": "Squire rejects GitHub raw file reads, and the release list comes back empty.",
       "peoplePerDay": null,
@@ -2863,7 +2896,7 @@
     },
     {
       "id": "workspace-codegraph-readonly-open-fails",
-      "rank": 17,
+      "rank": 10,
       "date": "2026-11-26",
       "title": "Code index reports ready but cannot open on read-only chat checkouts.",
       "peoplePerDay": 0,
@@ -2897,7 +2930,7 @@
     },
     {
       "id": "agents-cross-room-message-read-denied-2026-11-26",
-      "rank": 18,
+      "rank": 11,
       "date": "2026-11-26",
       "title": "Listings and search show private hand-offs that read(facet:message) refuses.",
       "peoplePerDay": 0,
@@ -2931,7 +2964,7 @@
     },
     {
       "id": "agents-proxy-no-login-sign-in-wall",
-      "rank": 18,
+      "rank": 11,
       "date": "2026-11-25",
       "title": "BBC's turns are cancelled because the login proxy has no login serving gpt-6.1-sol.",
       "peoplePerDay": 1,
@@ -2964,7 +2997,7 @@
     },
     {
       "id": "ci-nightly-checks-not-run",
-      "rank": 18,
+      "rank": 11,
       "date": "2026-11-17",
       "title": "Main has had no full nightly check for 4 nights.",
       "peoplePerDay": null,
@@ -2997,7 +3030,7 @@
     },
     {
       "id": "ci-nightly-full-checks-missing",
-      "rank": 18,
+      "rank": 11,
       "date": "2026-11-19",
       "title": "Nightly release runs no full checks (--full-checks never passed); 3rd night without results",
       "peoplePerDay": 0,
@@ -3030,7 +3063,7 @@
     },
     {
       "id": "ci-server-shard-runner-queue",
-      "rank": 18,
+      "rank": 11,
       "date": "2026-11-23",
       "title": "PR checks 5% slower (837 s vs 795 s median); server shard 1 683 s vs 603 s, last in 29 of 61 runs.",
       "peoplePerDay": null,
@@ -3063,8 +3096,42 @@
       "lastSeen": "09:15Z on 66454540"
     },
     {
+      "id": "corner-idle-notice-after-merge",
+      "rank": 11,
+      "date": "2026-11-27",
+      "title": "Idle blocker emitted from facts read before the same event archives the corner.",
+      "peoplePerDay": 0,
+      "peopleReason": "No outside people affected in the card window.",
+      "trend": "flat",
+      "cause": "unknown",
+      "stage": "daily-use",
+      "source": "2026-11-27 morning card",
+      "kind": "problem",
+      "scope": "people",
+      "lastHit": "2026-11-27",
+      "whatHappens": "Idle blocker emitted from facts read before the same event archives the corner.",
+      "observations": [
+        {
+          "date": "2026-11-27",
+          "text": "#beeline Tasks idle-after-merge (fb_cc9b85bf)\nConsequence: Commanders told to resume or close threads that already merged."
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Last seen 2026-11-27T13:45Z on a4359ad7"
+        },
+        {
+          "date": "2026-11-27",
+          "text": "Proposed fix: Skip idle notices when the event archives the corner; add merge-event test. Confidence: medium."
+        }
+      ],
+      "problem": "Idle blocker emitted from facts read before the same event archives the corner.",
+      "fix": "Skip idle notices when the event archives the corner; add merge-event test. Confidence: medium.",
+      "evidence": "#beeline Tasks idle-after-merge (fb_cc9b85bf)\nConsequence: Commanders told to resume or close threads that already merged.",
+      "lastSeen": "2026-11-27T13:45Z on a4359ad7"
+    },
+    {
       "id": "review-stale-wake-context-2026-11-24",
-      "rank": 18,
+      "rank": 11,
       "date": "2026-11-24",
       "title": "Reviewer wakes say checks passed while the head is pending; zero-check PRs never wake reviewers.",
       "peoplePerDay": 0,
@@ -3098,7 +3165,7 @@
     {
       "id": "workflow-recovery",
       "kind": "problem",
-      "rank": 18,
+      "rank": 11,
       "date": "2026-11-09",
       "title": "Failed workflow runs cannot resume and answers miss their cards",
       "peoplePerDay": 0,
@@ -3126,7 +3193,7 @@
       "stage": "daily-use",
       "source": "feedback",
       "title": "An agent appears to stop before finishing the requested work",
-      "rank": 19,
+      "rank": 12,
       "date": "2026-11-09",
       "scope": "people",
       "lastHit": "2026-11-08",
@@ -3141,7 +3208,7 @@
     },
     {
       "id": "agents-open-block-blocks-new-blocker",
-      "rank": 19,
+      "rank": 12,
       "date": "2026-11-26",
       "title": "An agent with an open block cannot report a different blocker (409).",
       "peoplePerDay": 0,
@@ -3175,7 +3242,7 @@
     },
     {
       "id": "ci-main-red-hours-unmeasured",
-      "rank": 19,
+      "rank": 12,
       "date": "2026-11-23",
       "title": "Main red hours stay unmeasured: retained release-check attempts need Jellybean's host grant 9370056b.",
       "peoplePerDay": null,
@@ -3209,7 +3276,7 @@
     },
     {
       "id": "corner-checkout-deps-missing-2026-11-24",
-      "rank": 19,
+      "rank": 12,
       "date": "2026-11-24",
       "title": "Grunt checkout prepare stops on missing Node type definitions, after #101 shipped.",
       "peoplePerDay": 0,
@@ -3242,7 +3309,7 @@
     },
     {
       "id": "health-server-queued-context-transport-coupling",
-      "rank": 19,
+      "rank": 12,
       "date": "2026-11-17",
       "title": "Queued-work context is built twice and drifts.",
       "peoplePerDay": null,
@@ -3275,7 +3342,7 @@
     },
     {
       "id": "prompts-grader-truthfulness-false-pass",
-      "rank": 19,
+      "rank": 12,
       "date": "2026-11-19",
       "title": "Grader computes truthfulness but never applies it to a sample's pass",
       "peoplePerDay": 0,
@@ -3308,7 +3375,7 @@
     },
     {
       "id": "squire-drive-stale-controls",
-      "rank": 19,
+      "rank": 12,
       "date": "2026-11-25",
       "title": "Squire browser drives click stale controls or fail to start and stop early.",
       "peoplePerDay": 0,
@@ -3341,7 +3408,7 @@
     },
     {
       "id": "insights-feed-stale-reviewer-never-woken-2026-11-24",
-      "rank": 20,
+      "rank": 13,
       "date": "2026-11-24",
       "title": "Dashboard feed is 2 days stale: PR beeline-insights#2 conflicts after #1 and #3 merged.",
       "peoplePerDay": 0,
@@ -3374,7 +3441,7 @@
     },
     {
       "id": "latency-web-inventory-coverage",
-      "rank": 20,
+      "rank": 13,
       "date": "2026-11-19",
       "title": "No authenticated latency fixture; 26 taps and 45 routes unmeasured on 5723a931",
       "peoplePerDay": null,
@@ -3408,7 +3475,7 @@
     },
     {
       "id": "latency-web-route-cold-load",
-      "rank": 20,
+      "rank": 13,
       "date": "2026-11-23",
       "title": "Browser breaches doubled overnight under shared-host CPU load (16 tap, 88 load; worst p95 447.5 ms, 1658 ms), so this data cannot rank fixes. Also covers 2 related latency/web keys.",
       "peoplePerDay": null,
@@ -3442,7 +3509,7 @@
     },
     {
       "id": "review-checkout-refresh-blocked",
-      "rank": 20,
+      "rank": 13,
       "date": "2026-11-26",
       "title": "Reviewer checkout cannot refresh to the new head because of preserved local changes.",
       "peoplePerDay": 0,
@@ -3476,7 +3543,7 @@
     },
     {
       "id": "skills-agent-home-path",
-      "rank": 20,
+      "rank": 13,
       "date": "2026-11-25",
       "title": "Skill reads fail when an agent resolves them against its working directory instead of agent-home.",
       "peoplePerDay": 0,
@@ -3509,7 +3576,7 @@
     },
     {
       "id": "ci-body-session-bridge-final-ack-flake",
-      "rank": 21,
+      "rank": 14,
       "date": "2026-11-24",
       "title": "Body session-bridge test failed once, passed on rerun on the same head.",
       "peoplePerDay": null,
@@ -3543,7 +3610,7 @@
     },
     {
       "id": "db-room-access-slow-read",
-      "rank": 21,
+      "rank": 14,
       "date": "2026-11-23",
       "title": "Room and thread reads are slow; slow-query records grew 4.5x (2393 vs 527); pool timeouts dropped read state from some room loads.",
       "peoplePerDay": null,
@@ -3577,7 +3644,7 @@
     },
     {
       "id": "health-app-composer-command-state-ownership",
-      "rank": 21,
+      "rank": 14,
       "date": "2026-11-19",
       "title": "Composer command caches pass through draft hook and chat surface; mean 80.4 files per PR touching top 3 app hotspots",
       "peoplePerDay": null,
@@ -3611,7 +3678,7 @@
     },
     {
       "id": "helper-stable-channel-stale-ops",
-      "rank": 21,
+      "rank": 14,
       "date": "2026-11-26",
       "title": "Agents on stable helper v0.1.245 get invalid_daemon_operation; finished work does not reach requesters.",
       "peoplePerDay": 0,
@@ -3645,7 +3712,7 @@
     },
     {
       "id": "latency-web-route-cold-load-2026-11-25",
-      "rank": 21,
+      "rank": 14,
       "date": "2026-11-25",
       "title": "Cold page loads breach 450 ms; cold root p95 639 ms, first socket operation at about 500 ms.",
       "peoplePerDay": null,
@@ -3679,7 +3746,7 @@
     },
     {
       "id": "ci-body-bridge-upgrade-state-lock-watch-flake",
-      "rank": 22,
+      "rank": 15,
       "date": "2026-11-26",
       "title": "Recursive watcher hits a removed lock and fails CI with all assertions passing.",
       "peoplePerDay": null,
@@ -3713,7 +3780,7 @@
     },
     {
       "id": "ci-coverage-retained-full-check-evidence",
-      "rank": 22,
+      "rank": 15,
       "date": "2026-11-24",
       "title": "Main red hours unmeasured: Nightly Checks has never run on lunchboxfortwo/beeline, and v0.1.245 used the quick profile.",
       "peoplePerDay": null,
@@ -3747,7 +3814,7 @@
     },
     {
       "id": "latency-web-open-room-synchronous-click-render",
-      "rank": 22,
+      "rank": 15,
       "date": "2026-11-25",
       "title": "Opening a direct chat breaches 150 ms (p95 162/167 ms); React DOM takes 74-78 ms.",
       "peoplePerDay": null,
@@ -3781,7 +3848,7 @@
     },
     {
       "id": "ci-coverage-retained-full-check-evidence-2026-11-26",
-      "rank": 23,
+      "rank": 16,
       "date": "2026-11-26",
       "title": "Main red time cannot be scored; local records keep quick checks only.",
       "peoplePerDay": null,
@@ -3815,7 +3882,7 @@
     },
     {
       "id": "latency-web-host-contention",
-      "rank": 23,
+      "rank": 16,
       "date": "2026-11-24",
       "title": "Overnight latency run has no score: host load 19.6-21.8 vs cutoff 10, second night.",
       "peoplePerDay": null,
@@ -3849,7 +3916,7 @@
     },
     {
       "id": "latency-web-rendered-feedback-breaches",
-      "rank": 23,
+      "rank": 16,
       "date": "2026-11-25",
       "title": "Creating a thread breaches 150 ms (p95 159/160 ms); SQL is 49-72 ms of 52-76 ms server time.",
       "peoplePerDay": null,
@@ -3883,7 +3950,7 @@
     },
     {
       "id": "latency-server-chat-list-query-slow",
-      "rank": 24,
+      "rank": 17,
       "date": "2026-11-24",
       "title": "Slow database reads fell from 517-627 to 9 in the same hours after #121.",
       "peoplePerDay": null,
@@ -3917,7 +3984,7 @@
     },
     {
       "id": "latency-server-chat-list-query-slow-2026-11-25",
-      "rank": 24,
+      "rank": 17,
       "date": "2026-11-25",
       "title": "Slow DB reads held an 86% drop (335 vs 2,393 per day at equal webhook load); 317 of 335 fell in the 3 rollout hours.",
       "peoplePerDay": null,
@@ -3951,7 +4018,7 @@
     },
     {
       "id": "latency-web-route-cold-load-2026-11-26",
-      "rank": 24,
+      "rank": 17,
       "date": "2026-11-26",
       "title": "All 45 cold route loads miss 450 ms; root 746.7 ms p95.",
       "peoplePerDay": null,
@@ -3985,7 +4052,7 @@
     },
     {
       "id": "latency-web-host-contention-2026-11-25",
-      "rank": 25,
+      "rank": 18,
       "date": "2026-11-25",
       "title": "Overnight latency reruns run on a busy host (mean load 13-26); 4 taps had one usable pass; the continuation lost its capture.",
       "peoplePerDay": 0,
@@ -4018,7 +4085,7 @@
     },
     {
       "id": "latency-web-open-room-synchronous-click-render-2026-11-26",
-      "rank": 25,
+      "rank": 18,
       "date": "2026-11-26",
       "title": "Room open 181.4 ms p95 over 150 ms.",
       "peoplePerDay": null,
@@ -4052,7 +4119,7 @@
     },
     {
       "id": "latency-web-rendered-feedback-breaches-2026-11-26",
-      "rank": 26,
+      "rank": 19,
       "date": "2026-11-26",
       "title": "Message 198.2, New thread 175.3, Close thread 182.9 ms p95; 9 taps unmeasured.",
       "peoplePerDay": null,
@@ -4086,7 +4153,7 @@
     },
     {
       "id": "latency-server-chat-list-query-slow-2026-11-26",
-      "rank": 27,
+      "rank": 20,
       "date": "2026-11-26",
       "title": "500 slow queries in 24 h; chat-list p95 1016 ms after the last replacement.",
       "peoplePerDay": null,
@@ -4120,7 +4187,7 @@
     },
     {
       "id": "health-server-workflow-handoff-record-fields",
-      "rank": 28,
+      "rank": 21,
       "date": "2026-11-26",
       "title": "Four workflow writers built the same record fields separately.",
       "peoplePerDay": null,
@@ -4723,6 +4790,11 @@
             "date": "2026-11-26",
             "value": 0.4,
             "samples": 5
+          },
+          {
+            "date": "2026-11-27",
+            "value": 0.3333,
+            "samples": 6
           }
         ]
       }
@@ -5104,6 +5176,11 @@
             "date": "2026-11-26",
             "value": 0,
             "samples": 600
+          },
+          {
+            "date": "2026-11-27",
+            "value": 0,
+            "samples": 740
           }
         ]
       }
@@ -5485,6 +5562,11 @@
             "date": "2026-11-26",
             "value": 0.0733,
             "samples": 600
+          },
+          {
+            "date": "2026-11-27",
+            "value": 0.0595,
+            "samples": 740
           }
         ]
       }
@@ -5874,6 +5956,11 @@
             "date": "2026-11-26",
             "value": 0.2733,
             "samples": 600
+          },
+          {
+            "date": "2026-11-27",
+            "value": 0.2824,
+            "samples": 740
           }
         ]
       }
@@ -6258,6 +6345,11 @@
             "date": "2026-11-26",
             "value": 0.1417,
             "samples": 600
+          },
+          {
+            "date": "2026-11-27",
+            "value": 0.15,
+            "samples": 740
           }
         ]
       }
@@ -6655,6 +6747,11 @@
             "date": "2026-11-26",
             "value": 0.1817,
             "samples": 600
+          },
+          {
+            "date": "2026-11-27",
+            "value": 0.1797,
+            "samples": 740
           }
         ]
       }
