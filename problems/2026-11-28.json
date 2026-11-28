@@ -1,0 +1,21 @@
+[
+  {
+    "number": 1,
+    "key": "ci/body/agent-runner-answer-teardown",
+    "problem": "The configuration-change test ends after harness delivery while the runner can still write the answer store; fixture cleanup fails with ENOTEMPTY.",
+    "evidence": "https://github.com/lunchboxfortwo/beeline/actions/runs/46107943122/job/140864791393\nConsequence: PR Checks fail on an unchanged head and need a rerun.",
+    "lastSeen": "2026-11-28T04:35:29Z on ec9cd076",
+    "fix": "Await both request IDs' posts and an empty answer directory before removing the fixture; keep config-before-start assertions. Confidence: high.",
+    "peoplePerDay": null,
+    "peopleReason": "CI fixtures only"
+  },
+  {
+    "number": 2,
+    "key": "thread/working-label-without-turn",
+    "problem": "A thread shows '<agent> is working' from its lifecycle state while no agent turn runs.",
+    "evidence": "#beeline feedback fb_613051a3 (owner report)\nConsequence: The owner cannot tell whether an agent is actually working.",
+    "lastSeen": "2026-11-28T03:32Z on 1ce54997",
+    "fix": "Show 'working' only while a turn is active; otherwise show the plain lifecycle state. Confidence: medium.",
+    "peoplePerDay": 0
+  }
+]
